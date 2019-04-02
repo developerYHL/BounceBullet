@@ -1,0 +1,125 @@
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+/*
+ * Projectile reflection demonstration in Unity 3D
+ * 
+ * Demonstrates a projectile reflecting in 3D space a variable number of times.
+ * Reflections are calculated using Raycast's and Vector3.Reflect
+ * 
+ * Developed on World of Zero: https://youtu.be/GttdLYKEJAM
+ */
+public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
+{
+    public int maxReflectionCount = 5;
+    public float maxStepDistance = 200;
+    int reflectCount = 0;
+    // Adjust the speed for the application.
+    public float speed = 10.0f;
+
+    // The target (cylinder) position.
+    private Transform target;
+
+    List<Vector3> reflectPositions = new List<Vector3>();
+    private void Update() {
+        MoveObject();
+    }
+    private void OnDestroy() {
+        print("AAAAA" + transform.parent.transform);
+    }
+    private void OnDisable() {
+        
+        
+    }
+    private void OnEnable() {
+        //DrawPredictedReflectionPattern(this.transform.position, this.transform.forward, maxReflectionCount);
+    }
+
+    public void CalculateTarget() {
+        ClearBullet();
+        DrawPredictedReflectionPattern(this.transform.position, this.transform.forward, maxReflectionCount);
+    }
+    private void On() {
+        //gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(50, 0, 0));
+        //Handles.color = Color.red;
+        //Handles.ArrowHandleCap(0, this.transform.position + this.transform.forward * 0.25f, this.transform.rotation, 0.5f, EventType.Repaint);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(this.transform.position, 0.25f);
+
+    }
+
+    void OnDrawGizmos()
+    {
+        //Handles.color = Color.red;
+        //Handles.ArrowHandleCap(0, this.transform.position + this.transform.forward * 0.25f, this.transform.rotation, 0.5f, EventType.Repaint);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(this.transform.position, 0.25f);
+
+        //DrawPredictedReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+    }
+
+    private void DrawPredictedReflectionPattern(Vector3 position, Vector3 direction, int reflectionsRemaining)
+    {
+        if (reflectionsRemaining == 0) {
+            return;
+        }
+
+        Vector3 startingPosition = position;
+
+        Ray ray = new Ray(position, direction);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, maxStepDistance))
+        {
+            direction = Vector3.Reflect(direction, hit.normal);
+            position = hit.point;
+        }
+        else
+        {
+            position += direction * maxStepDistance;
+            //이동이 끝나면 사라져야함
+        }
+
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawLine(startingPosition, position);
+
+        reflectPositions.Add(position);
+        //print("maxReflectionCount : " + maxReflectionCount);
+        //print("reflectionsRemaining : " + reflectionsRemaining);
+        //print("reflectPositions.Add(position) : " + reflectPositions[maxReflectionCount-reflectionsRemaining]);
+        DrawPredictedReflectionPattern(position, direction, reflectionsRemaining - 1);
+    }
+
+    public void MoveObject() {
+
+        if (reflectCount >= maxReflectionCount) {
+            //transform.parent.GetComponent<BulletCtrl>().ActiveCount();
+            
+            //gameObject.SetActive(false);
+        }
+        else {
+            // Move our position a step closer to the target.
+            float step = speed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, reflectPositions[reflectCount], step);
+
+            // Check if the position of the cube and sphere are approximately equal.
+            if (Vector3.Distance(transform.position, reflectPositions[reflectCount]) < 0.001f) {
+                // Swap the position of the cylinder.
+                reflectCount++;
+                //DrawPredictedReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+            }
+        }
+
+    }
+
+    public void ClearBullet() {
+        reflectPositions.Clear();
+        transform.position = transform.parent.position;//new Vector3(0, 0, 0);
+
+        reflectCount = 0;
+    }
+
+    public void SetActive(bool setting) {
+        gameObject.SetActive(setting);
+    }
+}
