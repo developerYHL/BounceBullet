@@ -24,5 +24,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks {
     public override void OnJoinedLobby()
     {
         print("로비 연결됨");
+        if (!PhotonNetwork.InRoom)
+            MainCanvasManager.instance.LobbyCanvas.transform.SetAsLastSibling();
     }
 }

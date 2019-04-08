@@ -7,13 +7,15 @@ using UnityEngine.UI;
 
 public class PlayerListing : MonoBehaviourPunCallbacks {
 
+    public Player PhotonPlayer { get; private set; }
+
     [SerializeField]
     private Text _playerName;
     private Text playerName { get { return _playerName; } }
 
-    public void ApplyPhotonPlayer()
+    public void ApplyPhotonPlayer(Player photonPlayer)
     {
-        playerName.text = PhotonNetwork.NickName;
-        //PhotonNetwork.
+        PhotonPlayer = photonPlayer;
+        playerName.text = photonPlayer.NickName;
     }
 }
