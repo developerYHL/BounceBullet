@@ -14,19 +14,41 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
 {
     public int maxReflectionCount = 5;
     public float maxStepDistance = 200;
+    public LayerMask blockingLayer;
+
     int reflectCount = 0;
     // Adjust the speed for the application.
     public float speed = 10.0f;
 
     // The target (cylinder) position.
     private Transform target;
+    float continuousTime;
+
+    TrailRenderer renderer;
+
+    float time;
 
     List<Vector3> reflectPositions = new List<Vector3>();
+
+    BulletCtrl bulletCtrl;
+
+    private void Start() {
+        continuousTime = transform.parent.GetComponent<BulletCtrl>().continuousTime;
+        GetComponent<TrailRenderer>().time = continuousTime;
+        bulletCtrl = transform.parent.GetComponent<BulletCtrl>();
+
+    }
+
     private void Update() {
-        MoveObject();
+        if (reflectCount < maxReflectionCount) {
+            MoveObject();
+        }
+        else if (reflectCount == maxReflectionCount) {
+            bulletCtrl.ActiveCount();
+            reflectCount++;
+        };
     }
     private void OnDestroy() {
-        print("AAAAA" + transform.parent.transform);
     }
     private void OnDisable() {
         
@@ -39,6 +61,8 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
     public void CalculateTarget() {
         ClearBullet();
         DrawPredictedReflectionPattern(this.transform.position, this.transform.forward, maxReflectionCount);
+        //print(reflectPositions[reflectPositions.Count-1]);
+
     }
     private void On() {
         //gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(50, 0, 0));
@@ -69,7 +93,7 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
 
         Ray ray = new Ray(position, direction);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxStepDistance))
+        if (Physics.Raycast(ray, out hit, maxStepDistance,blockingLayer))
         {
             direction = Vector3.Reflect(direction, hit.normal);
             position = hit.point;
@@ -91,7 +115,7 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
     }
 
     public void MoveObject() {
-
+        //ReflectionCount를 다 소모했을 때 실행
         if (reflectCount >= maxReflectionCount) {
             //transform.parent.GetComponent<BulletCtrl>().ActiveCount();
             
@@ -111,6 +135,8 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
         }
 
     }
+    
+
 
     public void ClearBullet() {
         reflectPositions.Clear();
