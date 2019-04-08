@@ -1,45 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿namespace MyLibrary
+{
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-public class Player : MonoBehaviour {
-    public int horizontal = 0;     //Used to store the horizontal move direction.
-    public int vertical = 0;
-
-    public enum State
+    public class Player : MonoBehaviour
     {
-        Idle,
-        Walk,
-        GameOver
-    }
-    public State state = State.Idle;
+        public int horizontal = 0;     //Used to store the horizontal move direction.
+        public int vertical = 0;
 
-    // Use this for initialization
-    void Start() {
-        StartCoroutine(shootBullet());
-    }
+        public enum State
+        {
+            Idle,
+            Walk,
+            GameOver
+        }
+        public State state = State.Idle;
 
-    // Update is called once per frame
-    private void Update() {
-        //If it's not the player's turn, exit the function.
+        // Use this for initialization
+        void Start()
+        {
+            StartCoroutine(shootBullet());
+        }
 
-        horizontal = 0;     //Used to store the horizontal move direction.
-        vertical = 0;      //Used to store the vertical move direction.
+        // Update is called once per frame
+        private void Update()
+        {
+            //If it's not the player's turn, exit the function.
 
-        //Check if we are running either in the Unity editor or in a standalone build.
+            horizontal = 0;     //Used to store the horizontal move direction.
+            vertical = 0;      //Used to store the vertical move direction.
+
+            //Check if we are running either in the Unity editor or in a standalone build.
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
 
-        //Get input from the input manager, round it to an integer and store in horizontal to set x axis move direction
-        horizontal = (int)(Input.GetAxisRaw("Horizontal"));
+            //Get input from the input manager, round it to an integer and store in horizontal to set x axis move direction
+            horizontal = (int)(Input.GetAxisRaw("Horizontal"));
 
-        //Get input from the input manager, round it to an integer and store in vertical to set y axis move direction
-        vertical = (int)(Input.GetAxisRaw("Vertical"));
+            //Get input from the input manager, round it to an integer and store in vertical to set y axis move direction
+            vertical = (int)(Input.GetAxisRaw("Vertical"));
 
-        if (horizontal == 0 && vertical == 0) state = State.Idle;
-        else state = State.Walk;
-        StateMachine();
+            if (horizontal == 0 && vertical == 0) state = State.Idle;
+            else state = State.Walk;
+            StateMachine();
 
-        //Check if we are running on iOS, Android, Windows Phone 8 or Unity iPhone
+            //Check if we are running on iOS, Android, Windows Phone 8 or Unity iPhone
 #elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
 			
 		//Check if Input has registered more than zero touches
@@ -82,41 +87,47 @@ public class Player : MonoBehaviour {
 			
 #endif //End of mobile platform dependendent compilation section started above with #elif
 
-        Vector3 moveDir = //방향
-            (Vector3.forward * vertical) + (Vector3.right * horizontal);
-        transform.Translate(moveDir.normalized * 2.0f * Time.deltaTime);
-
-        
-    }
+            Vector3 moveDir = //방향
+                (Vector3.forward * vertical) + (Vector3.right * horizontal);
+            transform.Translate(moveDir.normalized * 2.0f * Time.deltaTime);
 
 
-    void StateMachine() {
-        switch (state) {
-            case State.Idle :
-
-                break;
-            case State.Walk:
-                
-
-                break;
         }
-    }
 
-    IEnumerator shootBullet() {
-        while (state != State.GameOver) {
-            if(state == State.Walk)
-            ShootBullet();
-            yield return new WaitForSeconds(1.0f);
+
+        void StateMachine()
+        {
+            switch (state)
+            {
+                case State.Idle:
+
+                    break;
+                case State.Walk:
+
+
+                    break;
+            }
         }
-    }
 
-    public GameObject bullet;
-    public void ShootBullet() {
-        //for(int i = 0; i<16; i++) {
+        IEnumerator shootBullet()
+        {
+            while (state != State.GameOver)
+            {
+                if (state == State.Walk)
+                    ShootBullet();
+                yield return new WaitForSeconds(1.0f);
+            }
+        }
+
+        public GameObject bullet;
+        public void ShootBullet()
+        {
+            //for(int i = 0; i<16; i++) {
             ObjectManager.instance.GetBullet(transform.position);
 
             //Instantiate(bullet, transform.position + transform.forward * 1.0f, Quaternion.identity);
-        //}
-        
+            //}
+
+        }
     }
 }
