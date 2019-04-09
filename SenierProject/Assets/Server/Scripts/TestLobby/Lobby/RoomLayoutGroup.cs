@@ -19,13 +19,14 @@ public class RoomLayoutGroup : MonoBehaviourPunCallbacks, ILobbyCallbacks
         {
             RoomReceived(room);
         }
-
-        RemoveOldRooms();
+        Debug.Log(roomList.Count);
+        //RemoveOldRooms();
     }
 
     private void RoomReceived(RoomInfo room)
     {
         int index = roomListingButtons.FindIndex(x => x.roomName == room.Name);
+        Debug.Log("index" + index);
 
         if(index == -1)
         {

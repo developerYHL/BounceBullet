@@ -16,6 +16,7 @@ public class LobbyNetwork : MonoBehaviourPunCallbacks {
     public override void OnConnectedToMaster()
     {
         print("마스터 연결중...");
+        PhotonNetwork.AutomaticallySyncScene = false;
         PhotonNetwork.NickName = PlayerNetwork.instance.playerName;
 
         PhotonNetwork.JoinLobby();
