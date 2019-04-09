@@ -7,13 +7,18 @@ public class BulletCtrl : MonoBehaviour {
     public List<GameObject> bullets = new List<GameObject>();
     float time;
     public float continuousTime = 1.5f;
+    GameObject player;
 
 
-
+    private void Awake() {
+        player = GameObject.Find("Player");
+        print("pla : " + player);
+    }
 
     private void OnEnable() {
+        transform.position = player.transform.position;
         time = 0;
-        gameObject.BroadcastMessage("CalculateTarget", true);
+        gameObject.BroadcastMessage("CalculateTarget");
         print("AA");
     }
 
@@ -24,6 +29,7 @@ public class BulletCtrl : MonoBehaviour {
         //}
         
     }
+
     public void ActiveCount() {
         //print("activeCount : " + activeCount);
         if (activeCount < transform.childCount - 1)

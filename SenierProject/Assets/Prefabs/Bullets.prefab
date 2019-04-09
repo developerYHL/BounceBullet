@@ -188,7 +188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1534801121854410
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +455,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627967178171298}
   m_LocalRotation: {x: 0, y: 0.19680177, z: 0, w: 0.98044336}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.4, y: 0, z: 0.85}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4438188338428586}
@@ -2851,7 +2851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7816d34d48111734984c49bdfcd15441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxReflectionCount: 3
+  maxReflectionCount: 1
   maxStepDistance: 5
   blockingLayer:
     serializedVersion: 2
@@ -3055,7 +3055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7816d34d48111734984c49bdfcd15441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxReflectionCount: 3
+  maxReflectionCount: 1
   maxStepDistance: 5
   blockingLayer:
     serializedVersion: 2

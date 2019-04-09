@@ -32,18 +32,14 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
 
     BulletCtrl bulletCtrl;
 
-    private void OnDrawGizmosSelected() {
-        // Draws a 5 unit long red line in front of the object
-        Gizmos.color = Color.red;
-        Vector3 direction = transform.TransformDirection(Vector3.forward) * 25;
-        Gizmos.DrawRay(transform.position, direction);
-    }
+
 
     private void Start() {
         continuousTime = transform.parent.GetComponent<BulletCtrl>().continuousTime;
         GetComponent<TrailRenderer>().time = continuousTime;
         bulletCtrl = transform.parent.GetComponent<BulletCtrl>();
 
+        
 
         //Handles.color = Color.red;
         //Handles.ArrowHandleCap(0, this.transform.position + this.transform.forward * 0.25f, this.transform.rotation, 0.5f, EventType.Repaint);
@@ -116,12 +112,21 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
 
         //Gizmos.color = Color.yellow;
         //Gizmos.DrawLine(startingPosition, position);
-        print("asd : " + direction);
+        print("asd : " + position);
         reflectPositions.Add(position);
         //print("maxReflectionCount : " + maxReflectionCount);
         //print("reflectionsRemaining : " + reflectionsRemaining);
         //print("reflectPositions.Add(position) : " + reflectPositions[maxReflectionCount-reflectionsRemaining]);
         DrawPredictedReflectionPattern(position, direction, reflectionsRemaining - 1);
+    }
+    
+        private void OnDrawGizmosSelected() {
+        // Draws a 5 unit long red line in front of the object
+        Gizmos.color = Color.red;
+        Vector3 direction = transform.forward * 25;
+        Gizmos.DrawRay(transform.position, direction);
+        //transform.TransformDirection(Vector3.forward) * 25;
+        //transform.forward
     }
 
     public void MoveObject() {
@@ -148,7 +153,7 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
     public void CalculateTarget() {
         ClearBullet();
         if(reflectPositions.Count == 0)
-            DrawPredictedReflectionPattern(this.transform.position, this.transform.forward, maxReflectionCount);
+            DrawPredictedReflectionPattern(transform.position, transform.forward, maxReflectionCount);
         else {
             print("not Null");
         }
