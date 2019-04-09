@@ -8,9 +8,13 @@ public class BulletCtrl : MonoBehaviour {
     float time;
     public float continuousTime = 1.5f;
 
+
+
+
     private void OnEnable() {
         time = 0;
         gameObject.BroadcastMessage("CalculateTarget", true);
+        print("AA");
     }
 
     private void Update() {
