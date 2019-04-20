@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
 			SetArsenal (arsenal[0].name);
 	}
     private void Start() {
+        animator.SetBool("Aiming", false);
         SetArsenal("Rifle");
     }
 
