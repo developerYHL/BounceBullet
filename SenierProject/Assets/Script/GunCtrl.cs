@@ -14,6 +14,7 @@ namespace ClientLibrary
         private float shotCounter;
 
         public Transform firePoint;
+        public Transform firePointRotation;
 
         // Use this for initialization
         void Start() {
@@ -26,8 +27,10 @@ namespace ClientLibrary
                 shotCounter -= Time.deltaTime;
                 if (shotCounter <= 0) {
                     shotCounter = timeBetweenShots;
-                    firePoint.eulerAngles = new Vector3(0, firePoint.eulerAngles.y, firePoint.eulerAngles.z);
-                    BulletCtrl newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletCtrl;
+                    //firePointRotation.eulerAngles = new Vector3(0, firePoint.eulerAngles.y, firePoint.eulerAngles.z);
+                    BulletCtrl newBullet = Instantiate(bullet,
+                        new Vector3(firePoint.position.x, 0.5f, firePoint.position.z),
+                        new Quaternion(0, firePoint.rotation.y, 0, firePoint.rotation.w)) as BulletCtrl;
                     newBullet.speed = bulletSpeed;
                 }
             }
