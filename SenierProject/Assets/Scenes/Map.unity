@@ -1526,6 +1526,27 @@ Prefab:
       propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114218059686835822, guid: 7a1d2d03272e9fc4f88ff84c05d63e0e,
+        type: 2}
+      propertyPath: arsenal.Array.data[1].controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8bbca7fa0e7d6cf45b625c38120c55a4, type: 2}
+    - target: {fileID: 4670111710060462, guid: 7a1d2d03272e9fc4f88ff84c05d63e0e, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570316351070844, guid: 7a1d2d03272e9fc4f88ff84c05d63e0e, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434965714347388, guid: 7a1d2d03272e9fc4f88ff84c05d63e0e, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713486070768214, guid: 7a1d2d03272e9fc4f88ff84c05d63e0e, type: 2}
+      propertyPath: m_Name
+      value: Sci-Fi_SoldierPlayer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a1d2d03272e9fc4f88ff84c05d63e0e, type: 2}
   m_IsPrefabAsset: 0

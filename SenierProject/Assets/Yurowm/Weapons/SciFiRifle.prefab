@@ -98,5 +98,6 @@ MonoBehaviour:
   isFireing: 0
   bullet: {fileID: 114218790152822332, guid: 89f88f8cc1dae8b4e9d0b939d390f16c, type: 2}
   bulletSpeed: 5
-  timeBetweenShots: 0.1
+  timeBetweenShots: 0.3
   firePoint: {fileID: 0}
+  firePointRotation: {fileID: 0}
