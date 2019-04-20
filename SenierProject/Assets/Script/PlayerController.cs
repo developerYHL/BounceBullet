@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Photon.Pun;
 namespace ClientLibrary
 {
     [RequireComponent(typeof(Animator))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviourPun
     {
         public float moveSpeed;
         private Rigidbody myRigidbody;
@@ -23,7 +24,6 @@ namespace ClientLibrary
         public GunCtrl theGun;
 
         void Awake() {
-
             myRigidbody = GetComponent<Rigidbody>();
             mainCamra = FindObjectOfType<Camera>();
             animator = GetComponent<Animator>();
@@ -36,6 +36,11 @@ namespace ClientLibrary
         }
 
         private void Update() {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
 
             moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
@@ -115,7 +120,7 @@ namespace ClientLibrary
             public RuntimeAnimatorController controller;
         }
 
-        private void Move()
+        /*private void Move()
         {
             Vector3 moveVector = (Vector3.right * joystick.Horizontal + Vector3.forward * joystick.Vertical);
 
@@ -124,6 +129,6 @@ namespace ClientLibrary
                 transform.rotation = Quaternion.LookRotation(moveVector);
                 transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
             }
-        }
+        }*/
     }
 }
