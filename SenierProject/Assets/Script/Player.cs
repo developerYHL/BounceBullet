@@ -1,59 +1,25 @@
-<<<<<<< HEAD
-﻿namespace MyLibrary
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-
-=======
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace controll
 {
-
-
-<<<<<<< HEAD
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
-=======
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
-    public class Player : MonoBehaviour
-    {
+    public class Player : MonoBehaviour {
         public int horizontal = 0;     //Used to store the horizontal move direction.
         public int vertical = 0;
 
-        public enum State
-        {
+        public enum State {
             Idle,
             Walk,
             GameOver
         }
         public State state = State.Idle;
 
-        // Use this for initialization
-<<<<<<< HEAD
-<<<<<<< HEAD
-        void Start()
-        {
+        void Start() {
             StartCoroutine(shootBullet());
         }
 
         // Update is called once per frame
-        private void Update()
-        {
-=======
-=======
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
-        void Start() {
-            //StartCoroutine(shootBullet());
-        }
-
-        // Update is called once per frame
         private void Update() {
-<<<<<<< HEAD
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
-=======
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
             //If it's not the player's turn, exit the function.
 
             horizontal = 0;     //Used to store the horizontal move direction.
@@ -119,93 +85,41 @@ namespace controll
                 (Vector3.forward * vertical) + (Vector3.right * horizontal);
             transform.Translate(moveDir.normalized * 2.0f * Time.deltaTime);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-        }
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
-
         }
 
-<<<<<<< HEAD
 
-        void StateMachine()
-        {
-            switch (state)
-            {
-                case State.Idle:
-=======
-
-        }
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
-
-                    break;
-                case State.Walk:
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
         void StateMachine() {
             switch (state) {
                 case State.Idle:
 
                     break;
                 case State.Walk:
-
-<<<<<<< HEAD
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
-=======
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
-
-                    break;
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        IEnumerator shootBullet()
-        {
-            while (state != State.GameOver)
-            {
-=======
+
         IEnumerator shootBullet() {
             while (state != State.GameOver) {
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
-=======
-        IEnumerator shootBullet() {
-            while (state != State.GameOver) {
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
                 if (state == State.Walk)
                     ShootBullet();
                 yield return new WaitForSeconds(1.0f);
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         public GameObject bullet;
-        public void ShootBullet()
-        {
+        public void ShootBullet() {
             //for(int i = 0; i<16; i++) {
             ObjectManager.instance.GetBullet(transform.position);
 
             //Instantiate(bullet, transform.position + transform.forward * 1.0f, Quaternion.identity);
             //}
 
-=======
+        }
 
         public GameObject bullet;
         public void ShootBullet() {
             ObjectManager.instance.GetBullet(transform.position);
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
-=======
 
-        public GameObject bullet;
-        public void ShootBullet() {
-            ObjectManager.instance.GetBullet(transform.position);
->>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
         }
     }
 }
