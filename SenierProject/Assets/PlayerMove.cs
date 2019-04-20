@@ -4,22 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour {
 
-    [System.Serializable]
-    public class PlayerAnim
-    {
-        public AnimationClip idle;
-        public AnimationClip runForward;
-        public AnimationClip runBackward;
-        public AnimationClip runRight;
-        public AnimationClip runLeft;
-    }
-
     public Image hpBar;
 
     public delegate void PlayerDieHandler();
     public static event PlayerDieHandler OnPlayerDie;
 
-    public PlayerAnim playerAnim;
     float h, v;
     float moveSpeed = 7.0f;
     float rotateSpeed = 200.0f;
@@ -47,15 +36,10 @@ public class PlayerMove : MonoBehaviour {
             Time.deltaTime * Input.GetAxis("Mouse X"));        
 
         if(v>=0.1f) {
-            anim.CrossFade(playerAnim.runForward.name, 0.3f);
         } else if(v<=-0.1f) {
-            anim.CrossFade(playerAnim.runBackward.name, 0.3f);
         } else if(h>=0.1f) {
-            anim.CrossFade(playerAnim.runRight.name, 0.3f);
         } else if (h<=-0.1f) {
-            anim.CrossFade(playerAnim.runLeft.name, 0.3f);
         } else {
-            anim.CrossFade(playerAnim.idle.name, 0.3f);
         }
     }
 

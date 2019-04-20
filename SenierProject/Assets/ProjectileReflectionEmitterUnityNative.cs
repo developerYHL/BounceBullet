@@ -35,7 +35,7 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
 
 
     private void Start() {
-        continuousTime = transform.parent.GetComponent<BulletCtrl>().continuousTime;
+        //continuousTime = transform.parent.GetComponent<BulletCtrl>().continuousTime;
         GetComponent<TrailRenderer>().time = continuousTime;
         bulletCtrl = transform.parent.GetComponent<BulletCtrl>();
 
@@ -52,7 +52,7 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
             MoveObject();
         }
         else if (reflectCount == maxReflectionCount) {
-            bulletCtrl.ActiveCount();
+            //bulletCtrl.ActiveCount();
             reflectCount++;
         };
     }
