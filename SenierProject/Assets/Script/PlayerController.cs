@@ -66,7 +66,7 @@ namespace ClientLibrary
 
             if (Input.GetMouseButtonDown(0)) {
                 animator.SetBool("Aiming", true);
-                animator.SetTrigger("Attack");
+                //animator.SetTrigger("Attack");
                 theGun.isFireing = true;
             }
             if (Input.GetMouseButtonUp(0)) {
