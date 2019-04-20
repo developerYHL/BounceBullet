@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
+  - component: {fileID: 114140154932314842}
   m_Layer: 0
   m_Name: SciFiRifle
   m_TagString: Untagged
@@ -83,3 +84,19 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabAsset: 1
+--- !u!114 &114140154932314842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26fc8c90f900b274597b7d7818bf3f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFireing: 0
+  bullet: {fileID: 114218790152822332, guid: 89f88f8cc1dae8b4e9d0b939d390f16c, type: 2}
+  bulletSpeed: 5
+  timeBetweenShots: 0.1
+  firePoint: {fileID: 0}
