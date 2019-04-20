@@ -1466,6 +1466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9aa840a3854ebd47b920d1a5c7d693f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
+  joystick: {fileID: 0}
   rightGunBone: {fileID: 4254944851102316}
   leftGunBone: {fileID: 4145646556528672}
   arsenal:
@@ -1477,6 +1479,7 @@ MonoBehaviour:
     rightGun: {fileID: 100000, guid: d992a232642f7574b80a75c2ca4b4cb8, type: 2}
     leftGun: {fileID: 0}
     controller: {fileID: 9100000, guid: dffbd9326394a8d47a87a1e2aec70a59, type: 2}
+  theGun: {fileID: 0}
 --- !u!114 &114676396339954832
 MonoBehaviour:
   m_ObjectHideFlags: 1
