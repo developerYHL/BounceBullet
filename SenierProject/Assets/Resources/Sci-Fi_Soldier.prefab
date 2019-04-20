@@ -1533,6 +1533,8 @@ MonoBehaviour:
     LayerIndex: 1
   - SynchronizeType: 2
     LayerIndex: 2
+  - SynchronizeType: 0
+    LayerIndex: 3
 --- !u!114 &114218059686835822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1590,7 +1592,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 114319884233120958}
-  - {fileID: 114319884233120958}
+  - {fileID: 114095299986346060}
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
