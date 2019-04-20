@@ -7,6 +7,7 @@ namespace ClientLibrary
     {
         public float moveSpeed;
         private Rigidbody myRigidbody;
+        public Joystick joystick;
 
         private Vector3 moveInput;
         private Vector3 moveVelocity;
@@ -108,6 +109,17 @@ namespace ClientLibrary
             public GameObject rightGun;
             public GameObject leftGun;
             public RuntimeAnimatorController controller;
+        }
+
+        private void Move()
+        {
+            Vector3 moveVector = (Vector3.right * joystick.Horizontal + Vector3.forward * joystick.Vertical);
+
+            if (moveVector != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(moveVector);
+                transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
+            }
         }
     }
 }
