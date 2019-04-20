@@ -40,8 +40,11 @@ namespace ClientLibrary
 
             moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
 
-            if (moveInput != null) {
-                animator.speed = 0.5f;
+            if (Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.y) > 0 ) {
+                animator.SetFloat("Speed", 0.5f);
+            }
+            else {
+                animator.SetFloat("Speed", 0.0f);
             }
             moveVelocity = moveInput * moveSpeed;
 
@@ -66,6 +69,7 @@ namespace ClientLibrary
                 theGun.isFireing = false;
             }
 #endif
+            //Move();
         }
 
         private void FixedUpdate() {
