@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace controll
 {
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -19,17 +20,20 @@ namespace controll
 >>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
     public class Player : MonoBehaviour
     {
+=======
+    public class Player : MonoBehaviour {
+>>>>>>> 871dd2f3eff5e302686bbf9798fe026adfaeae4b
         public int horizontal = 0;     //Used to store the horizontal move direction.
         public int vertical = 0;
 
-        public enum State
-        {
+        public enum State {
             Idle,
             Walk,
             GameOver
         }
         public State state = State.Idle;
 
+<<<<<<< HEAD
         // Use this for initialization
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -44,8 +48,10 @@ namespace controll
 =======
 =======
 >>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
+=======
+>>>>>>> 871dd2f3eff5e302686bbf9798fe026adfaeae4b
         void Start() {
-            //StartCoroutine(shootBullet());
+            StartCoroutine(shootBullet());
         }
 
         // Update is called once per frame
@@ -121,8 +127,11 @@ namespace controll
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
+=======
+>>>>>>> 871dd2f3eff5e302686bbf9798fe026adfaeae4b
         }
 >>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
 
@@ -153,6 +162,7 @@ namespace controll
 
                     break;
                 case State.Walk:
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 >>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
@@ -170,6 +180,12 @@ namespace controll
             while (state != State.GameOver)
             {
 =======
+=======
+            }
+        }
+
+
+>>>>>>> 871dd2f3eff5e302686bbf9798fe026adfaeae4b
         IEnumerator shootBullet() {
             while (state != State.GameOver) {
 >>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
@@ -185,15 +201,21 @@ namespace controll
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public GameObject bullet;
         public void ShootBullet()
         {
+=======
+        public GameObject bullet;
+        public void ShootBullet() {
+>>>>>>> 871dd2f3eff5e302686bbf9798fe026adfaeae4b
             //for(int i = 0; i<16; i++) {
             ObjectManager.instance.GetBullet(transform.position);
 
             //Instantiate(bullet, transform.position + transform.forward * 1.0f, Quaternion.identity);
             //}
 
+<<<<<<< HEAD
 =======
 
         public GameObject bullet;
@@ -201,11 +223,18 @@ namespace controll
             ObjectManager.instance.GetBullet(transform.position);
 >>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
 =======
+=======
+        }
+>>>>>>> 871dd2f3eff5e302686bbf9798fe026adfaeae4b
 
         public GameObject bullet;
         public void ShootBullet() {
             ObjectManager.instance.GetBullet(transform.position);
+<<<<<<< HEAD
 >>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
+=======
+
+>>>>>>> 871dd2f3eff5e302686bbf9798fe026adfaeae4b
         }
     }
 }
