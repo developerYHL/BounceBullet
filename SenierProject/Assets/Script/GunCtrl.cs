@@ -24,7 +24,7 @@ public class GunCtrl : MonoBehaviour {
             shotCounter -= Time.deltaTime;
             if(shotCounter <= 0) {
                 shotCounter = timeBetweenShots;
-                firePoint.rotation = new Quaternion(0, firePoint.rotation.y, firePoint.rotation.z, firePoint.rotation.w);
+                firePoint.eulerAngles = new Vector3(0, firePoint.eulerAngles.y, firePoint.eulerAngles.z);
                 BulletCtrl newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletCtrl;
                 newBullet.speed = bulletSpeed;
             }

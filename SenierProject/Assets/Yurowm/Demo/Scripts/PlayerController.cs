@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour {
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
 
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+
+        if(moveInput != null) {
+            animator.speed = 0.5f;
+        }
         moveVelocity = moveInput * moveSpeed;
 
         Ray cameraRay = mainCamra.ScreenPointToRay(Input.mousePosition);
@@ -49,9 +53,12 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (Input.GetMouseButtonDown(0)) {
+            animator.SetBool("Aiming", true);
+            animator.SetTrigger("Attack");
             theGun.isFireing = true;
         }
         if (Input.GetMouseButtonUp(0)) {
+            animator.SetBool("Aiming", false);
             theGun.isFireing = false;
         }
 #endif
