@@ -13,6 +13,9 @@ namespace controll
 {
 
 
+<<<<<<< HEAD
+>>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
+=======
 >>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
     public class Player : MonoBehaviour
     {
@@ -29,6 +32,7 @@ namespace controll
 
         // Use this for initialization
 <<<<<<< HEAD
+<<<<<<< HEAD
         void Start()
         {
             StartCoroutine(shootBullet());
@@ -38,12 +42,17 @@ namespace controll
         private void Update()
         {
 =======
+=======
+>>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
         void Start() {
             //StartCoroutine(shootBullet());
         }
 
         // Update is called once per frame
         private void Update() {
+<<<<<<< HEAD
+>>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
+=======
 >>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
             //If it's not the player's turn, exit the function.
 
@@ -111,6 +120,7 @@ namespace controll
             transform.Translate(moveDir.normalized * 2.0f * Time.deltaTime);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
         }
@@ -125,11 +135,18 @@ namespace controll
             switch (state)
             {
                 case State.Idle:
+=======
+
+        }
+>>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
 
                     break;
                 case State.Walk:
 
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
         void StateMachine() {
             switch (state) {
                 case State.Idle:
@@ -137,6 +154,9 @@ namespace controll
                     break;
                 case State.Walk:
 
+<<<<<<< HEAD
+>>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
+=======
 >>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
 
                     break;
@@ -144,10 +164,15 @@ namespace controll
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         IEnumerator shootBullet()
         {
             while (state != State.GameOver)
             {
+=======
+        IEnumerator shootBullet() {
+            while (state != State.GameOver) {
+>>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
 =======
         IEnumerator shootBullet() {
             while (state != State.GameOver) {
@@ -159,6 +184,7 @@ namespace controll
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         public GameObject bullet;
         public void ShootBullet()
         {
@@ -168,6 +194,12 @@ namespace controll
             //Instantiate(bullet, transform.position + transform.forward * 1.0f, Quaternion.identity);
             //}
 
+=======
+
+        public GameObject bullet;
+        public void ShootBullet() {
+            ObjectManager.instance.GetBullet(transform.position);
+>>>>>>> 61a044a96310f6de95e64d63372d5f3fdb0e1015
 =======
 
         public GameObject bullet;
