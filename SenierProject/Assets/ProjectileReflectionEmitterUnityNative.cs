@@ -32,11 +32,19 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
 
     BulletCtrl bulletCtrl;
 
+
+
     private void Start() {
-        continuousTime = transform.parent.GetComponent<BulletCtrl>().continuousTime;
+        //continuousTime = transform.parent.GetComponent<BulletCtrl>().continuousTime;
         GetComponent<TrailRenderer>().time = continuousTime;
         bulletCtrl = transform.parent.GetComponent<BulletCtrl>();
 
+        
+
+        //Handles.color = Color.red;
+        //Handles.ArrowHandleCap(0, this.transform.position + this.transform.forward * 0.25f, this.transform.rotation, 0.5f, EventType.Repaint);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(this.transform.position, 0.25f);
     }
 
     private void Update() {
@@ -44,7 +52,7 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
             MoveObject();
         }
         else if (reflectCount == maxReflectionCount) {
-            bulletCtrl.ActiveCount();
+            //bulletCtrl.ActiveCount();
             reflectCount++;
         };
     }
@@ -58,12 +66,7 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
         //DrawPredictedReflectionPattern(this.transform.position, this.transform.forward, maxReflectionCount);
     }
 
-    public void CalculateTarget() {
-        ClearBullet();
-        DrawPredictedReflectionPattern(this.transform.position, this.transform.forward, maxReflectionCount);
-        //print(reflectPositions[reflectPositions.Count-1]);
 
-    }
     private void On() {
         //gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(50, 0, 0));
         //Handles.color = Color.red;
@@ -83,13 +86,15 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
         //DrawPredictedReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
     }
 
+  
+
     private void DrawPredictedReflectionPattern(Vector3 position, Vector3 direction, int reflectionsRemaining)
     {
         if (reflectionsRemaining == 0) {
             return;
         }
 
-        Vector3 startingPosition = position;
+        //Vector3 startingPosition = position;
 
         Ray ray = new Ray(position, direction);
         RaycastHit hit;
@@ -97,6 +102,7 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
         {
             direction = Vector3.Reflect(direction, hit.normal);
             position = hit.point;
+            
         }
         else
         {
@@ -106,12 +112,21 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
 
         //Gizmos.color = Color.yellow;
         //Gizmos.DrawLine(startingPosition, position);
-
+        print("asd : " + position);
         reflectPositions.Add(position);
         //print("maxReflectionCount : " + maxReflectionCount);
         //print("reflectionsRemaining : " + reflectionsRemaining);
         //print("reflectPositions.Add(position) : " + reflectPositions[maxReflectionCount-reflectionsRemaining]);
         DrawPredictedReflectionPattern(position, direction, reflectionsRemaining - 1);
+    }
+    
+        private void OnDrawGizmosSelected() {
+        // Draws a 5 unit long red line in front of the object
+        Gizmos.color = Color.red;
+        Vector3 direction = transform.forward * 25;
+        Gizmos.DrawRay(transform.position, direction);
+        //transform.TransformDirection(Vector3.forward) * 25;
+        //transform.forward
     }
 
     public void MoveObject() {
@@ -119,7 +134,6 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
         if (reflectCount >= maxReflectionCount) {
             //transform.parent.GetComponent<BulletCtrl>().ActiveCount();
             
-            //gameObject.SetActive(false);
         }
         else {
             // Move our position a step closer to the target.
@@ -135,17 +149,21 @@ public class ProjectileReflectionEmitterUnityNative : MonoBehaviour
         }
 
     }
-    
 
+    public void CalculateTarget() {
+        ClearBullet();
+        if(reflectPositions.Count == 0)
+            DrawPredictedReflectionPattern(transform.position, transform.forward, maxReflectionCount);
+        else {
+            print("not Null");
+        }
+        //print(reflectPositions[reflectPositions.Count-1]);
+    }
 
     public void ClearBullet() {
         reflectPositions.Clear();
         transform.position = transform.parent.position;//new Vector3(0, 0, 0);
-
+        print("fff : " + reflectPositions);
         reflectCount = 0;
-    }
-
-    public void SetActive(bool setting) {
-        gameObject.SetActive(setting);
     }
 }
