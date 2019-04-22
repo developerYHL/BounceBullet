@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class BuildingSystem : MonoBehaviour
 {
+    private Grid grid;
 
     [SerializeField]
     private Camera playerCamera;
@@ -33,6 +34,7 @@ public class BuildingSystem : MonoBehaviour
 
     private void Start()
     {
+        grid = FindObjectOfType<Grid>();
         bSys = GetComponent<BlockSystem>();
     }
 
@@ -89,7 +91,7 @@ public class BuildingSystem : MonoBehaviour
 
         if (canBuild && currentTemplateBlock != null)
         {
-            currentTemplateBlock.transform.position = buildPos;
+            currentTemplateBlock.transform.position = PlaceCubeNear(buildPos);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -100,9 +102,17 @@ public class BuildingSystem : MonoBehaviour
 
     private void PlaceBlock()
     {
-        GameObject newBlock = Instantiate(blockPrefab, buildPos, Quaternion.identity);
+        GameObject newBlock = Instantiate(blockPrefab, PlaceCubeNear(buildPos), Quaternion.identity);
         Block tempBlock = bSys.allBlocks[blockSelectCounter];
         newBlock.name = tempBlock.blockName + "-Block";
         newBlock.GetComponent<MeshRenderer>().material = tempBlock.blockMaterial;
+    }
+
+    private Vector3 PlaceCubeNear(Vector3 clickPoint) {
+        var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
+        //GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;
+
+        return finalPosition;
+        //GameObject.CreatePrimitive(PrimitiveType.Sphere).transform.position = nearPoint;
     }
 }
