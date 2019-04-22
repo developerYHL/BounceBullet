@@ -113,6 +113,7 @@ namespace ClientLibrary
                 transform.rotation = Quaternion.LookRotation(moveVector);
                 transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
                 animator.SetFloat("Speed", 0.5f);
+                theGun.isFireing = false;
             }
             else {
                 animator.SetFloat("Speed", 0.0f);
