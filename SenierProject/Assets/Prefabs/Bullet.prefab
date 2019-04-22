@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fbc18bd3837d794eb9fa035aa743c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxReflectionCount: 5
+  maxReflectionCount: 2
   maxStepDistance: 200
   blockingLayer:
     serializedVersion: 2

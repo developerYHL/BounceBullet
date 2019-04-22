@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 54468275750413228}
   - component: {fileID: 65662423765181908}
   - component: {fileID: 114095299986346060}
+  - component: {fileID: 114882871384789230}
   m_Layer: 0
   m_Name: Sci-Fi_Soldier
   m_TagString: Untagged
@@ -1153,7 +1154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713486070768214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 45.77, y: 0.0000000074506, z: -45.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4434965714347388}
@@ -1468,8 +1469,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.54, y: 0.9, z: 0.3}
-  m_Center: {x: 0, y: 0.51, z: 0}
+  m_Size: {x: 0.54, y: 0.9649731, z: 0.3}
+  m_Center: {x: 0, y: 0.47751343, z: 0}
 --- !u!95 &95017168883867178
 Animator:
   serializedVersion: 3
@@ -1494,7 +1495,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713486070768214}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
   m_Name: 
@@ -1533,6 +1534,8 @@ MonoBehaviour:
     LayerIndex: 1
   - SynchronizeType: 2
     LayerIndex: 2
+  - SynchronizeType: 0
+    LayerIndex: 3
 --- !u!114 &114218059686835822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1557,6 +1560,7 @@ MonoBehaviour:
     rightGun: {fileID: 100000, guid: d992a232642f7574b80a75c2ca4b4cb8, type: 2}
     leftGun: {fileID: 0}
     controller: {fileID: 9100000, guid: 8bbca7fa0e7d6cf45b625c38120c55a4, type: 2}
+  testCheck: 0
   theGun: {fileID: 0}
 --- !u!114 &114319884233120958
 MonoBehaviour:
@@ -1564,7 +1568,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713486070768214}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
@@ -1591,7 +1595,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114319884233120958}
   - {fileID: 114319884233120958}
-  viewIdField: 0
+  viewIdField: 1
   InstantiationId: 1
   isRuntimeInstantiated: 0
 --- !u!114 &114676396339954832
@@ -1616,6 +1620,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126a98f48f6288944b2b236b91450847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114882871384789230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713486070768214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49e517d2c57f954caa74cb9fb609ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildableSurfacesLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  blockTemplatePrefab: {fileID: 1715557811780294, guid: f8798234a96cd6342ab7c84db82d5ae1,
+    type: 2}
+  blockPrefab: {fileID: 1715557811780294, guid: 624e6bda9369f7840b7631b5e916eec9,
+    type: 2}
+  templateMaterial: {fileID: 2100000, guid: 280820e2ffe188143bfeed9a547abf83, type: 2}
 --- !u!137 &137669721863701350
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -7,9 +7,6 @@ public class BuildingSystem : MonoBehaviour
 {
     private Grid grid;
 
-    [SerializeField]
-    private Camera playerCamera;
-
     private bool buildModeOn = false;
     private bool canBuild = false;
 
@@ -62,11 +59,9 @@ public class BuildingSystem : MonoBehaviour
 
         if (buildModeOn)
         {
-            RaycastHit buildPosHit;
 
-            if (Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out buildPosHit, 10, buildableSurfacesLayer))
+            if (buildModeOn)
             {
-                Vector3 point = buildPosHit.point;
                 buildPos = transform.position + transform.forward *1.0f; //Mathf.Round(point.x), Mathf.Round(point.y), Mathf.Round(point.z));
                 canBuild = true;
             }
@@ -85,7 +80,7 @@ public class BuildingSystem : MonoBehaviour
 
         if (canBuild && currentTemplateBlock == null)
         {
-            currentTemplateBlock = Instantiate(blockTemplatePrefab, buildPos, Quaternion.identity);
+            currentTemplateBlock = Instantiate(blockTemplatePrefab, PlaceCubeNear(buildPos), Quaternion.identity);
             currentTemplateBlock.GetComponent<MeshRenderer>().material = templateMaterial;
         }
 

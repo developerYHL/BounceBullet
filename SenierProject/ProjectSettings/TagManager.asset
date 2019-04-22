@@ -16,8 +16,8 @@ TagManager:
   - PostProcessing
   - Bullet
   - Wall
-  - 
-  - 
+  - PlaceBlock
+  - Ground
   - 
   - 
   - 

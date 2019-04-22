@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 23280031990991764}
   - component: {fileID: 65162147741865484}
   - component: {fileID: 114881109252775212}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 11
+  m_Name: TemplateCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1715557811780294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 46.639187, y: 15.316851, z: -53.787518}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -93,7 +93,7 @@ BoxCollider:
   m_GameObject: {fileID: 1715557811780294}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -108,4 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c324b09db6253a84f931f880e3540985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBlockTypes: []
+  allBlockTypes:
+  - blockName: asd
+    blockMat: {fileID: 2100000, guid: 280820e2ffe188143bfeed9a547abf83, type: 2}
