@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Photon.Pun;
+using UnityEngine.UI;
 namespace ClientLibrary
 {
     [RequireComponent(typeof(Animator))]
     public class PlayerController : MonoBehaviourPun
     {
+        public bool useJoystic = false;
+        public Button tempButton;
+
         public float moveSpeed;
         private Rigidbody myRigidbody;
         public Joystick joystick;
@@ -26,9 +30,13 @@ namespace ClientLibrary
         public GunCtrl theGun;
 
         void Awake() {
+            //temp Btn 생성
+            Button dada = Instantiate(tempButton, GameObject.Find("Canvas").transform);
+            print("AA" + dada);
             myRigidbody = GetComponent<Rigidbody>();
             mainCamra = FindObjectOfType<Camera>();
             animator = GetComponent<Animator>();
+            joystick = GameObject.Find("/Canvas/JoystickPanel/Fixed Joystick").GetComponent<Joystick>();
             if (arsenal.Length > 0)
                 SetArsenal(arsenal[0].name);
         }
@@ -45,39 +53,14 @@ namespace ClientLibrary
             }
 
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
-
-            moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-
-            if (Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.z) > 0 ) {
-                animator.SetFloat("Speed", 0.5f);
+            if (useJoystic) {
+                JoysticMove();
             }
             else {
-                animator.SetFloat("Speed", 0.0f);
-            }
-            moveVelocity = moveInput * moveSpeed;
-
-            Ray cameraRay = mainCamra.ScreenPointToRay(Input.mousePosition);
-            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-            float rayLength;
-
-            if (groundPlane.Raycast(cameraRay, out rayLength)) {
-                Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-                Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
-
-                transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
-            }
-
-            if (Input.GetMouseButtonDown(0)) {
-                animator.SetBool("Aiming", true);
-                //animator.SetTrigger("Attack");
-                theGun.isFireing = true;
-            }
-            if (Input.GetMouseButtonUp(0)) {
-                animator.SetBool("Aiming", false);
-                theGun.isFireing = false;
+                KeybordMove();
             }
 #endif
-            //Move();
+
         }
 
         private void FixedUpdate() {
@@ -123,15 +106,51 @@ namespace ClientLibrary
             public RuntimeAnimatorController controller;
         }
 
-        /*private void Move()
-        {
+        private void JoysticMove() {
             Vector3 moveVector = (Vector3.right * joystick.Horizontal + Vector3.forward * joystick.Vertical);
 
-            if (moveVector != Vector3.zero)
-            {
+            if (moveVector != Vector3.zero) {
                 transform.rotation = Quaternion.LookRotation(moveVector);
                 transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
+                animator.SetFloat("Speed", 0.5f);
             }
-        }*/
+            else {
+                animator.SetFloat("Speed", 0.0f);
+            }
+        }
+
+        private void KeybordMove() {
+
+            moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+
+            if (Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.z) > 0) {
+                animator.SetFloat("Speed", 0.5f);
+            }
+            else {
+                animator.SetFloat("Speed", 0.0f);
+            }
+            moveVelocity = moveInput * moveSpeed;
+
+            Ray cameraRay = mainCamra.ScreenPointToRay(Input.mousePosition);
+            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+            float rayLength;
+
+            if (groundPlane.Raycast(cameraRay, out rayLength)) {
+                Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+                Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+
+                transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+            }
+
+            if (Input.GetMouseButtonDown(0)) {
+                animator.SetBool("Aiming", true);
+                //animator.SetTrigger("Attack");
+                theGun.isFireing = true;
+            }
+            if (Input.GetMouseButtonUp(0)) {
+                animator.SetBool("Aiming", false);
+                theGun.isFireing = false;
+            }
+        }
     }
 }
