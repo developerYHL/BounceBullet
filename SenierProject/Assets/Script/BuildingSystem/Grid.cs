@@ -1,39 +1,37 @@
 ﻿using UnityEngine;
-
-public class Grid : MonoBehaviour
+namespace ClientLibrary
 {
-    [SerializeField]
-    private float size = 1f;
-
-    public Vector3 GetNearestPointOnGrid(Vector3 position)
+    public class Grid : MonoBehaviour
     {
-        position -= transform.position;
+        [SerializeField]
+        private float size = 1f;
 
-        int xCount = Mathf.RoundToInt(position.x / size);
-        int yCount = Mathf.RoundToInt(position.y / size);
-        int zCount = Mathf.RoundToInt(position.z / size);
+        public Vector3 GetNearestPointOnGrid(Vector3 position) {
+            position -= transform.position;
 
-        Vector3 result = new Vector3(
-            (float)xCount * size,
-            (float)yCount * size,
-            (float)zCount * size);
+            int xCount = Mathf.RoundToInt(position.x / size);
+            int yCount = Mathf.RoundToInt(position.y / size);
+            int zCount = Mathf.RoundToInt(position.z / size);
 
-        result += transform.position;
+            Vector3 result = new Vector3(
+                (float)xCount * size,
+                (float)yCount * size,
+                (float)zCount * size);
 
-        return result;
-    }
+            result += transform.position;
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        for (float x = 0; x < 50; x += size)
-        {
-            for (float z = 0; z > -50; z -= size)
-            {
-                var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
-                Gizmos.DrawSphere(point, 0.1f);
+            return result;
+        }
+
+        private void OnDrawGizmos() {
+            Gizmos.color = Color.yellow;
+            for (float x = 0; x < 50; x += size) {
+                for (float z = 0; z > -50; z -= size) {
+                    var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
+                    Gizmos.DrawSphere(point, 0.1f);
+                }
+
             }
-                
         }
     }
 }
