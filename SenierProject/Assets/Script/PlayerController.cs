@@ -18,6 +18,7 @@ namespace ClientLibrary
         public Transform rightGunBone;
         public Transform leftGunBone;
         public Arsenal[] arsenal;
+        public bool testCheck = false;
 
         private Animator animator;
 
@@ -36,8 +37,9 @@ namespace ClientLibrary
         }
 
         private void Update() {
-            if (!photonView.IsMine)
+            if (!photonView.IsMine && testCheck)
             {
+                print("A");
                 return;
             }
 
@@ -45,7 +47,7 @@ namespace ClientLibrary
 
             moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
 
-            if (Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.y) > 0 ) {
+            if (Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.z) > 0 ) {
                 animator.SetFloat("Speed", 0.5f);
             }
             else {

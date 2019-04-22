@@ -29,7 +29,7 @@ namespace ClientLibrary
                     shotCounter = timeBetweenShots;
                     //firePointRotation.eulerAngles = new Vector3(0, firePoint.eulerAngles.y, firePoint.eulerAngles.z);
                     BulletCtrl newBullet = Instantiate(bullet,
-                        new Vector3(firePoint.position.x, 0.5f, firePoint.position.z),
+                        new Vector3(firePoint.position.x, 0.75f, firePoint.position.z),
                         new Quaternion(0, firePoint.rotation.y, 0, firePoint.rotation.w)) as BulletCtrl;
                     newBullet.speed = bulletSpeed;
                 }
