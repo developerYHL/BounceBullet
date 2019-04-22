@@ -35,6 +35,11 @@ namespace Photon.Pun
         /// </summary>
         static Dictionary<int, PhotonView> photonViewList = new Dictionary<int, PhotonView>();
 
+        public static GameObject Instantiate(GameObject bullet2, Vector3 bulletVector, Quaternion bulletQuaternion)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Gets the photon views.
         /// </summary>

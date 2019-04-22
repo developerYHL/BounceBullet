@@ -38,7 +38,6 @@ namespace ClientLibrary
 
         private void Update() {
             if (!photonView.IsMine) {
-                print("A");
                 return;
             }
             //E버튼 클릭시 빌딩 모드 실행, 다시 E 클릭시 빌딩모드 해제
@@ -87,17 +86,19 @@ namespace ClientLibrary
 
                 //블락 설치 버튼
                 if (Input.GetMouseButtonDown(0)) {
-                    PlaceBlock();
+                    photonView.RPC("PlaceBlock", RpcTarget.All);
                 }
             }
         }
 
+        [PunRPC]
         private void PlaceBlock() {
             //빌딩 모드에서 마우스 좌클릭시 블락 설치되는 부분 
-            GameObject newBlock = Instantiate(blockPrefab, PlaceCubeNear(buildPos), Quaternion.identity);
-            Block tempBlock = bSys.allBlocks[blockSelectCounter];
-            newBlock.name = tempBlock.blockName + "-Block";
-            newBlock.GetComponent<MeshRenderer>().material = tempBlock.blockMaterial;
+            GameObject newBlock = PhotonNetwork.Instantiate(blockPrefab.name, PlaceCubeNear(buildPos), Quaternion.identity);
+            //Block tempBlock = bSys.allBlocks[blockSelectCounter];
+            //newBlock.name = tempBlock.blockName + "-Block";
+            //newBlock.GetComponent<MeshRenderer>().material = tempBlock.blockMaterial;
+            newBlock.GetComponent<MeshRenderer>().material = templateMaterial;
         }
 
         //Grid 연동부분

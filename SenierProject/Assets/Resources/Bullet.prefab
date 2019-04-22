@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 96304882103778538}
   - component: {fileID: 108733893322331702}
   - component: {fileID: 114218790152822332}
+  - component: {fileID: 114883823904158044}
+  - component: {fileID: 114763756696601726}
   m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
@@ -133,7 +135,7 @@ TrailRenderer:
     textureMode: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
+  m_Autodestruct: 1
   m_Emitting: 1
 --- !u!108 &108733893322331702
 Light:
@@ -188,4 +190,39 @@ MonoBehaviour:
   blockingLayer:
     serializedVersion: 2
     m_Bits: 1536
-  speed: 0
+  speed: 5
+--- !u!114 &114763756696601726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1342216328587976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 0
+  m_SynchronizeScale: 0
+--- !u!114 &114883823904158044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1342216328587976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 114763756696601726}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

@@ -9,6 +9,7 @@ namespace ClientLibrary
         public float moveSpeed;
         private Rigidbody myRigidbody;
         public Joystick joystick;
+        public GameObject gun;
 
         private Vector3 moveInput;
         private Vector3 moveVelocity;
@@ -91,7 +92,7 @@ namespace ClientLibrary
                     if (leftGunBone.childCount > 0)
                         Destroy(leftGunBone.GetChild(0).gameObject);
                     if (hand.rightGun != null) {
-                        GameObject newRightGun = (GameObject)Instantiate(hand.rightGun);
+                        GameObject newRightGun = PhotonNetwork.Instantiate(gun.name, Vector3.zero, Quaternion.identity);
                         newRightGun.transform.parent = rightGunBone;
                         newRightGun.transform.localPosition = Vector3.zero;
                         newRightGun.transform.localRotation = Quaternion.Euler(90, 0, 0);
@@ -100,7 +101,7 @@ namespace ClientLibrary
                         print(newRightGun);
                     }
                     if (hand.leftGun != null) {
-                        GameObject newLeftGun = (GameObject)Instantiate(hand.leftGun);
+                        GameObject newLeftGun = Instantiate(hand.leftGun);
                         newLeftGun.transform.parent = leftGunBone;
                         newLeftGun.transform.localPosition = Vector3.zero;
                         newLeftGun.transform.localRotation = Quaternion.Euler(90, 0, 0);
