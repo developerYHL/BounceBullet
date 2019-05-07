@@ -96,12 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fc8c90f900b274597b7d7818bf3f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFireing: 0
+  ammoRemain: 100
+  magCapacity: 25
+  magAmmo: 0
+  timeBetFire: 0.12
+  reloadTime: 1.8
+  lastFireTime: 0
   bullet: {fileID: 1342216328587976, guid: 89f88f8cc1dae8b4e9d0b939d390f16c, type: 2}
-  bulletSpeed: 0
-  timeBetweenShots: 0.3
   firePoint: {fileID: 0}
   firePointRotation: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &114929984514644892
 MonoBehaviour:
   m_ObjectHideFlags: 1

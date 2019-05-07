@@ -35,5 +35,6 @@ MonoBehaviour:
   - Rpc_LoadGameOthers
   - Shoot
   - PlaceBlock
+  - Shot
   DisableAutoOpenWizard: 1
   ShowSettings: 0

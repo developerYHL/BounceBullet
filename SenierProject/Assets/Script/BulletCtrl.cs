@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 namespace ClientLibrary
 {
     public class BulletCtrl : MonoBehaviour
     {
-
+        public float damage = 25;   // 공격력
         public int maxReflectionCount = 5;
         public float maxStepDistance = 200;
         public LayerMask blockingLayer;
@@ -49,7 +50,6 @@ namespace ClientLibrary
             if (Physics.Raycast(ray, out hit, maxStepDistance, blockingLayer)) {
                 direction = Vector3.Reflect(direction, hit.normal);
                 position = hit.point;
-
             }
             else {
                 position += direction * maxStepDistance;
@@ -99,6 +99,16 @@ namespace ClientLibrary
             reflectPositions.Clear();
             transform.position = transform.parent.position;
             reflectCount = 0;
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            IDamageable target = collision.gameObject.GetComponent<IDamageable>();
+            if (target != null)
+            {
+                target.OnDamage(damage);
+                PhotonNetwork.Destroy(gameObject);
+            }
         }
     }
 }

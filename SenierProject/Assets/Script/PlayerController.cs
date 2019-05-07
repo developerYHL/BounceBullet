@@ -31,8 +31,7 @@ namespace ClientLibrary
 
         void Awake() {
             //temp Btn 생성
-            Button dada = Instantiate(tempButton, GameObject.Find("Canvas").transform);
-            print("AA" + dada);
+            //Button dada = Instantiate(tempButton, GameObject.Find("Canvas").transform);
             myRigidbody = GetComponent<Rigidbody>();
             mainCamra = FindObjectOfType<Camera>();
             animator = GetComponent<Animator>();
@@ -48,17 +47,17 @@ namespace ClientLibrary
         private void Update() {
             if (!photonView.IsMine && testCheck)
             {
-                print("A");
                 return;
             }
+            JoysticMove();
 
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
-            if (useJoystic) {
+            /*if (useJoystic) {
                 JoysticMove();
             }
             else {
                 KeybordMove();
-            }
+            }*/
 #endif
 
         }
@@ -113,7 +112,6 @@ namespace ClientLibrary
                 transform.rotation = Quaternion.LookRotation(moveVector);
                 transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
                 animator.SetFloat("Speed", 0.5f);
-                theGun.isFireing = false;
             }
             else {
                 animator.SetFloat("Speed", 0.0f);
@@ -146,11 +144,9 @@ namespace ClientLibrary
             if (Input.GetMouseButtonDown(0)) {
                 animator.SetBool("Aiming", true);
                 //animator.SetTrigger("Attack");
-                theGun.isFireing = true;
             }
             if (Input.GetMouseButtonUp(0)) {
                 animator.SetBool("Aiming", false);
-                theGun.isFireing = false;
             }
         }
     }
