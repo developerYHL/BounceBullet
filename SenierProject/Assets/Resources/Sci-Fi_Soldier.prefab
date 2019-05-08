@@ -1547,6 +1547,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9aa840a3854ebd47b920d1a5c7d693f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useJoystic: 0
+  tempButton: {fileID: 114371870521887746, guid: d4011b55f1232a74c9ea0cbd9dc3160f,
+    type: 2}
   moveSpeed: 1
   joystick: {fileID: 0}
   rightGunBone: {fileID: 4254944851102316}
