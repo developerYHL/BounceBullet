@@ -136,6 +136,12 @@ namespace ClientLibrary
             Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
             float rayLength;
 
+            if (moveVelocity != Vector3.zero) {
+                transform.rotation = Quaternion.LookRotation(moveVelocity);
+                transform.Translate(moveVelocity * moveSpeed * Time.deltaTime, Space.World);
+                animator.SetFloat("Speed_f", 0.25f);
+            }
+
             if (groundPlane.Raycast(cameraRay, out rayLength)) {
                 Vector3 pointToLook = cameraRay.GetPoint(rayLength);
                 Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
