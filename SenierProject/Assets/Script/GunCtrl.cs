@@ -15,7 +15,7 @@ namespace ClientLibrary
             Reloading
         }
 
-        public State gunState { get; private set; }
+        public State gunState { get; set; }
 
         public int ammoRemain = 100;    // 남은 전체 탄알
         public int magCapacity = 25;    // 탄창 용량
@@ -35,7 +35,7 @@ namespace ClientLibrary
         //private float shotCounter;
 
         public Transform firePoint;
-        public Transform firePointRotation;
+        //public Transform firePointRotation;
         public Animator animator;
 
         private void OnEnable()
@@ -72,7 +72,7 @@ namespace ClientLibrary
                 }
                 else
                 {
-                    animator.SetBool("Aiming", true);
+                    animator.SetTrigger("Shot");
                     photonView.RPC("Shot", RpcTarget.All);
                     magAmmo--;
                     ammoText.text = magAmmo + " / " + ammoRemain;
@@ -90,7 +90,7 @@ namespace ClientLibrary
 
         public bool Reload()
         {
-            if(gunState == State.Reloading || magAmmo >= magCapacity)
+            if(gunState == State.Reloading || gunState == State.Empty || magAmmo >= magCapacity)
             {
                 return false;
             }
@@ -102,6 +102,7 @@ namespace ClientLibrary
         private IEnumerator ReloadRoutine()
         {
             gunState = State.Reloading;
+            animator.SetTrigger("Reload");
 
             yield return new WaitForSeconds(reloadTime);
 

@@ -8,7 +8,7 @@ namespace ClientLibrary
     public class PlayerController : MonoBehaviourPun
     {
         public bool useJoystic = false;
-        public Button tempButton;
+        //public Button tempButton;
 
         public float moveSpeed;
         private Rigidbody myRigidbody;
@@ -45,27 +45,26 @@ namespace ClientLibrary
         }
 
         private void Update() {
-            //나중에 설정
-            //if (!photonView.IsMine && testCheck)
-            //{
-            //    return;
-            //}
-            //JoysticMove();
+
+            if (!photonView.IsMine && testCheck)
+            {
+                return;
+            }
+            JoysticMove();
 
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
-            if (useJoystic) {
+            /*if (useJoystic) {
                 JoysticMove();
             }
             else {
-                print("A");
                 KeybordMove();
-            }
+            }*/
 #endif
 
         }
 
         private void FixedUpdate() {
-            myRigidbody.velocity = moveVelocity;
+            //myRigidbody.velocity = moveVelocity;
         }
 
         //public void SetArsenal(string name) {
@@ -113,17 +112,16 @@ namespace ClientLibrary
             if (moveVector != Vector3.zero) {
                 transform.rotation = Quaternion.LookRotation(moveVector);
                 transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
-                animator.SetFloat("Speed_f", 0.25f);
             }
-            else {
+            /*else {
                 animator.SetFloat("Speed_f", 0.0f);
-            }
+            }*/
+            animator.SetFloat("Move", Mathf.Abs(joystick.Horizontal) + Mathf.Abs(joystick.Vertical));
         }
 
         private void KeybordMove() {
 
             moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-            print("A : " + moveInput);
             if (Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.z) > 0) {
                 animator.SetFloat("Speed_f", 0.25f);
             }
@@ -131,7 +129,6 @@ namespace ClientLibrary
                 animator.SetFloat("Speed_f", 0.0f);
             }
             moveVelocity = moveInput * moveSpeed;
-            print("moveVelocity : " + moveVelocity);
             Ray cameraRay = mainCamra.ScreenPointToRay(Input.mousePosition);
             Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
             float rayLength;

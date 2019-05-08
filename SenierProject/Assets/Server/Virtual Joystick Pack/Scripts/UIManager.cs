@@ -14,12 +14,14 @@ public class UIManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
 
     public void OnDrag(PointerEventData eventData)
     {
+        Debug.Log("1");
         fixedJoystic.Drag(eventData);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(joystic != null)
+        Debug.Log("2");
+        if (joystic != null)
         {
             fixedJoystic.JoysticPosition(eventData.position);
             joystic.SetActive(true);
@@ -28,6 +30,7 @@ public class UIManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        Debug.Log("3");
         fixedJoystic.TouchUp(eventData);
         joystic.SetActive(false);
     }

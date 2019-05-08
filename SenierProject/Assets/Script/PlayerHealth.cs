@@ -1,16 +1,20 @@
-﻿using UnityEngine;
+﻿using ClientLibrary;
+using UnityEngine;
 using UnityEngine.UI; // UI 관련 코드
 
 // 플레이어 캐릭터의 생명체로서의 동작을 담당
 public class PlayerHealth : LivingEntity
 {
     public Slider healthSlider; // 체력을 표시할 UI 슬라이더
+    public GunCtrl theGun;
+    public PlayerController playerCtl;
     private Animator playerAnimator; // 플레이어의 애니메이터
 
     private void Awake()
     {
         // 사용할 컴포넌트를 가져오기
         playerAnimator = GetComponent<Animator>();
+        playerCtl = FindObjectOfType<PlayerController>();
     }
 
     protected override void OnEnable()
@@ -55,7 +59,9 @@ public class PlayerHealth : LivingEntity
         healthSlider.gameObject.SetActive(false);
 
         // 애니메이터의 Die 트리거를 발동시켜 사망 애니메이션 재생
-        playerAnimator.SetTrigger("Death");
+        playerAnimator.SetTrigger("Die");
+        theGun.gunState = GunCtrl.State.Empty;
+        playerCtl.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)

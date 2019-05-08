@@ -51,6 +51,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         // onDeath 이벤트에 등록된 메서드가 있다면 실행
         if (onDeath != null)
         {
+            Debug.Log("die");
             onDeath();
         }
 

@@ -41,7 +41,7 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
         // 생성할 랜덤 위치 지정
         //Vector3 randomSpawnPos = Random.insideUnitSphere * 5f;
 
-        Vector3 randomSpawnPos = new Vector3(47,0,-47);
+        Vector3 randomSpawnPos = Vector3.zero;
         // 위치 y값은 0으로 변경
         randomSpawnPos.y = 0f;
 
