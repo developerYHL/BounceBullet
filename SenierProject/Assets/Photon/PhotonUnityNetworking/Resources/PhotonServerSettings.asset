@@ -36,5 +36,6 @@ MonoBehaviour:
   - Shoot
   - PlaceBlock
   - Shot
+  - OnDamage
   DisableAutoOpenWizard: 1
   ShowSettings: 0

@@ -1,9 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using Photon.Pun;
 
 // 생명체로서 동작할 게임 오브젝트들을 위한 뼈대를 제공
 // 체력, 데미지 받아들이기, 사망 기능, 사망 이벤트를 제공
-public class LivingEntity : MonoBehaviour, IDamageable
+public class LivingEntity : MonoBehaviourPun, IDamageable
 {
     public float startingHealth = 100f; // 시작 체력
     public float health { get; protected set; } // 현재 체력
@@ -20,11 +21,16 @@ public class LivingEntity : MonoBehaviour, IDamageable
     }
 
     // 데미지를 입는 기능
+    [PunRPC]
     public virtual void OnDamage(float damage)
     {
-        // 데미지만큼 체력 감소
-        health -= damage;
-
+        if (PhotonNetwork.IsMasterClient)
+            {
+            // 데미지만큼 체력 감소
+            health -= damage;
+            // 다른 클라이언트들도 OnDamage를 실행하도록 함
+            photonView.RPC("OnDamage", RpcTarget.Others, damage);
+        }
         // 체력이 0 이하 && 아직 죽지 않았다면 사망 처리 실행
         if (health <= 0 && !dead)
         {
