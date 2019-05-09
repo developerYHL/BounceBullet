@@ -46,11 +46,14 @@ namespace ClientLibrary
 
         private void Update() {
 
-            if (!photonView.IsMine && testCheck)
-            {
-                return;
+            if(testCheck == false) {
+                if (!photonView.IsMine && testCheck) {
+                    return;
+                }
             }
+
             JoysticMove();
+
 
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
             /*if (useJoystic) {

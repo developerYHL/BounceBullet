@@ -73,7 +73,12 @@ namespace ClientLibrary
                 else
                 {
                     animator.SetTrigger("Shot");
-                    photonView.RPC("Shot", RpcTarget.All);
+                    if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().testCheck == false) {
+                        photonView.RPC("Shot", RpcTarget.All);
+                    }
+                    else {
+                        Shot();
+                    }
                     magAmmo--;
                     ammoText.text = magAmmo + " / " + ammoRemain;
                 }
