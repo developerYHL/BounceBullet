@@ -102,7 +102,7 @@ namespace Photon.Pun.Demo.Asteroids
 
             if (playerListEntries == null)
             {
-                playerListEntries = new Dictionary<int, GameObject>();
+                playerListEntries = new Dictionary<int,GameObject>();
             }
 
             foreach (Player p in PhotonNetwork.PlayerList)

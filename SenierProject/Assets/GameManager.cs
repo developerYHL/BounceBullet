@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ClientLibrary
 {
@@ -8,7 +9,7 @@ namespace ClientLibrary
     {
 
         private void Awake() {
-
+            SceneManager.LoadScene("UI", LoadSceneMode.Additive);
         }
     }
 }

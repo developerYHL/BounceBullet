@@ -1027,7 +1027,7 @@ MonoBehaviour:
   useJoystic: 0
   moveSpeed: 8
   joystick: {fileID: 0}
-  testCheck: 1
+  testCheck: 0
 --- !u!114 &114261229266365458
 MonoBehaviour:
   m_ObjectHideFlags: 1
