@@ -1,6 +1,7 @@
 ﻿using ClientLibrary;
 using UnityEngine;
 using UnityEngine.UI; // UI 관련 코드
+using Photon.Pun;
 
 // 플레이어 캐릭터의 생명체로서의 동작을 담당
 public class PlayerHealth : LivingEntity
@@ -41,6 +42,7 @@ public class PlayerHealth : LivingEntity
 
 
     // 데미지 처리
+    [PunRPC]
     public override void OnDamage(float damage)
     {
         // LivingEntity의 OnDamage() 실행(데미지 적용)
