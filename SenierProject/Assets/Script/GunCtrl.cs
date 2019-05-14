@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace ClientLibrary
 {
-    public class GunCtrl : MonoBehaviourPun
+    public class GunCtrl : MonoBehaviourPun, IPunObservable
     {
         public enum State
         {
@@ -83,9 +83,16 @@ namespace ClientLibrary
         [PunRPC]
         void Shot()
         {
-            Vector3 bulletVector = new Vector3(firePoint.position.x, 0.75f, firePoint.position.z);
+            Vector3 bulletVector = new Vector3(firePoint.position.x, 1.5f, firePoint.position.z);
             Quaternion bulletQuaternion = new Quaternion(0, firePoint.rotation.y, 0, firePoint.rotation.w);
             GameObject newBullet = PhotonNetwork.Instantiate(bullet.name, bulletVector, bulletQuaternion);
+        }
+
+        [PunRPC]
+        public void AddAmmo(int ammo)
+        {
+            ammoRemain += ammo;
+            ammoText.text = magAmmo + " / " + ammoRemain;
         }
 
         public bool Reload()
@@ -118,6 +125,30 @@ namespace ClientLibrary
             ammoText.text = magAmmo + " / " + ammoRemain;
 
             gunState = State.Ready;
+        }
+
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+            // 로컬 오브젝트라면 쓰기 부분이 실행됨
+            if (stream.IsWriting)
+            {
+                // 남은 탄약수를 네트워크를 통해 보내기
+                stream.SendNext(ammoRemain);
+                // 탄창의 탄약수를 네트워크를 통해 보내기
+                stream.SendNext(magAmmo);
+                // 현재 총의 상태를 네트워크를 통해 보내기
+                stream.SendNext(gunState);
+            }
+            else
+            {
+                // 리모트 오브젝트라면 읽기 부분이 실행됨
+                // 남은 탄약수를 네트워크를 통해 받기
+                ammoRemain = (int)stream.ReceiveNext();
+                // 탄창의 탄약수를 네트워크를 통해 받기
+                magAmmo = (int)stream.ReceiveNext();
+                // 현재 총의 상태를 네트워크를 통해 받기
+                gunState = (State)stream.ReceiveNext();
+            }
         }
     }
 }

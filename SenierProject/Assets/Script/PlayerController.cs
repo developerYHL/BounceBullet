@@ -13,7 +13,7 @@ namespace ClientLibrary
         public float moveSpeed;
         private Rigidbody myRigidbody;
         public Joystick joystick;
-        //public GameObject gun;
+        public GunCtrl gun;
 
         private Vector3 moveInput;
         private Vector3 moveVelocity;
@@ -26,7 +26,9 @@ namespace ClientLibrary
         public bool testCheck = false;
 
         private Animator animator;
-
+        public Transform gunPivot;
+        public Transform leftHandMount;
+        public Transform rightHandMount;
         //public GunCtrl theGun;
 
         void Awake() {
@@ -153,6 +155,27 @@ namespace ClientLibrary
             if (Input.GetMouseButtonUp(0)) {
                 //animator.SetBool("Aiming", false);
             }
+        }
+
+        private void OnAnimatorIK(int layerIndex)
+        {
+            // 총의 기준점 gunPivot을 3D 모델의 오른쪽 팔꿈치 위치로 이동
+            gunPivot.position = animator.GetIKHintPosition(AvatarIKHint.RightElbow);
+
+            // IK를 사용하여 왼손의 위치와 회전을 총의 오른쪽 손잡이에 맞춘다
+            animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1.0f);
+            animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1.0f);
+
+            animator.SetIKPosition(AvatarIKGoal.LeftHand, leftHandMount.position);
+            animator.SetIKRotation(AvatarIKGoal.LeftHand, leftHandMount.rotation);
+
+            // IK를 사용하여 오른손의 위치와 회전을 총의 오른쪽 손잡이에 맞춘다
+            animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1.0f);
+            animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1.0f);
+
+            animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandMount.position);
+            animator.SetIKRotation(AvatarIKGoal.RightHand, rightHandMount.rotation);
+            Debug.Log("???");
         }
     }
 }
