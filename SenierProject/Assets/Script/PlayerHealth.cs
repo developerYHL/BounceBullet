@@ -32,6 +32,7 @@ public class PlayerHealth : LivingEntity
     }
 
     // 체력 회복
+    [PunRPC]
     public override void RestoreHealth(float newHealth)
     {
         // LivingEntity의 RestoreHealth() 실행 (체력 증가)
@@ -62,6 +63,7 @@ public class PlayerHealth : LivingEntity
 
         // 애니메이터의 Die 트리거를 발동시켜 사망 애니메이션 재생
         playerAnimator.SetTrigger("Die");
+
         theGun.gunState = GunCtrl.State.Empty;
         playerCtl.enabled = false;
     }
@@ -78,8 +80,13 @@ public class PlayerHealth : LivingEntity
             // 충돌한 상대방으로부터 Item 컴포넌트가 가져오는데 성공했다면
             if (item != null)
             {
-                // Use 메서드를 실행하여 아이템 사용
-                item.Use(gameObject);
+                // 호스트만 아이템 직접 사용 가능
+                // 호스트에서는 아이템을 사용 후, 사용된 아이템의 효과를 모든 클라이언트들에게 동기화시킴
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    // Use 메서드를 실행하여 아이템 사용
+                    item.Use(gameObject);
+                }
             }
         }
     }

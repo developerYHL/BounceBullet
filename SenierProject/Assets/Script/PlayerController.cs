@@ -32,11 +32,15 @@ namespace ClientLibrary
         //public GunCtrl theGun;
 
         void Awake() {
+            animator = GetComponent<Animator>();
+            if (!photonView.IsMine)
+            {
+                return;
+            }
             //temp Btn 생성
             //Button dada = Instantiate(tempButton, GameObject.Find("Canvas").transform);
             myRigidbody = GetComponent<Rigidbody>();
             mainCamra = FindObjectOfType<Camera>();
-            animator = GetComponent<Animator>();
             joystick = GameObject.Find("/Canvas/JoystickPanel/Fixed Joystick").GetComponent<Joystick>();
             //if (arsenal.Length > 0)
             //    SetArsenal(arsenal[0].name);
@@ -175,7 +179,6 @@ namespace ClientLibrary
 
             animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandMount.position);
             animator.SetIKRotation(AvatarIKGoal.RightHand, rightHandMount.rotation);
-            Debug.Log("???");
         }
     }
 }

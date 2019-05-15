@@ -40,6 +40,10 @@ namespace ClientLibrary
 
         private void OnEnable()
         {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
             reloadBt = GameObject.Find("/Canvas/Reload").GetComponent<Button>();
             fireBt = GameObject.Find("/Canvas/Fire").GetComponent<Button>();
             ammoText = GameObject.Find("/Canvas/Ammo").GetComponent<Text>();
@@ -73,7 +77,7 @@ namespace ClientLibrary
                 else
                 {
                     animator.SetTrigger("Shot");
-                    photonView.RPC("Shot", RpcTarget.All);
+                    photonView.RPC("Shot", RpcTarget.Others);
                     magAmmo--;
                     ammoText.text = magAmmo + " / " + ammoRemain;
                 }
@@ -83,9 +87,9 @@ namespace ClientLibrary
         [PunRPC]
         void Shot()
         {
-            Vector3 bulletVector = new Vector3(firePoint.position.x, 1.5f, firePoint.position.z);
-            Quaternion bulletQuaternion = new Quaternion(0, firePoint.rotation.y, 0, firePoint.rotation.w);
-            GameObject newBullet = PhotonNetwork.Instantiate(bullet.name, bulletVector, bulletQuaternion);
+                Vector3 bulletVector = new Vector3(firePoint.position.x, 1.5f, firePoint.position.z);
+                Quaternion bulletQuaternion = new Quaternion(0, firePoint.rotation.y, 0, firePoint.rotation.w);
+                GameObject newBullet = PhotonNetwork.Instantiate(bullet.name, bulletVector, bulletQuaternion);
         }
 
         [PunRPC]
@@ -97,8 +101,9 @@ namespace ClientLibrary
 
         public bool Reload()
         {
-            if(gunState == State.Reloading || gunState == State.Empty || magAmmo >= magCapacity)
+            if(gunState == State.Reloading || magAmmo >= magCapacity)
             {
+                Debug.Log(gunState);
                 return false;
             }
 
