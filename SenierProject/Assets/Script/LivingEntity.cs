@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using Photon.Pun;
+using System.Collections;
+using System.Collections.Generic;
+
 
 // 생명체로서 동작할 게임 오브젝트들을 위한 뼈대를 제공
 // 체력, 데미지 받아들이기, 사망 기능, 사망 이벤트를 제공
@@ -27,27 +30,41 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
         dead = false;
         // 체력을 시작 체력으로 초기화
         health = startingHealth;
+
+
     }
 
     // 데미지를 입는 기능
     [PunRPC]
     public virtual void OnDamage(float damage)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if(GameObject.FindGameObjectWithTag("Player").GetComponent<ClientLibrary.PlayerController>().debugCheck == false)
+        {
+            if (PhotonNetwork.IsMasterClient)
             {
-            // 데미지만큼 체력 감소
+                // 데미지만큼 체력 감소
+                health -= damage;
+
+                // 호스트에서 클라이언트로 동기화
+                photonView.RPC("ApplyUpdatedHealth", RpcTarget.Others, health, dead);
+
+                // 다른 클라이언트들도 OnDamage를 실행하도록 함
+                photonView.RPC("OnDamage", RpcTarget.Others, damage);
+            }
+            // 체력이 0 이하 && 아직 죽지 않았다면 사망 처리 실행
+            if (health <= 0 && !dead)
+            {
+                Die();
+            }
+        }
+        else
+        {
             health -= damage;
 
-            // 호스트에서 클라이언트로 동기화
-            photonView.RPC("ApplyUpdatedHealth", RpcTarget.Others, health, dead);
-
-            // 다른 클라이언트들도 OnDamage를 실행하도록 함
-            photonView.RPC("OnDamage", RpcTarget.Others, damage);
-        }
-        // 체력이 0 이하 && 아직 죽지 않았다면 사망 처리 실행
-        if (health <= 0 && !dead)
-        {
-            Die();
+            if (health <= 0 && !dead)
+            {
+                Die();
+            }
         }
     }
 
@@ -85,14 +102,35 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
     // 사망 처리
     public virtual void Die()
     {
+        print("AA");
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<ClientLibrary.PlayerController>().debugCheck == false)
+        {
+            photonView.RPC("Revive", RpcTarget.All);
+        }
+        else
+        {
+            StartCoroutine(Revive());
+        }
+
         // onDeath 이벤트에 등록된 메서드가 있다면 실행
         if (onDeath != null)
         {
             Debug.Log("die");
             onDeath();
+            
         }
 
         // 사망 상태를 참으로 변경
         dead = true;
+    }
+
+    [PunRPC]
+    public IEnumerator Revive()
+    {
+        print("AA");
+        yield return new WaitForSeconds(2.0f);
+        health = 100.0f;
+        dead = false;
+        GetComponent<Animator>().SetTrigger("Revive");
     }
 }

@@ -1086,7 +1086,7 @@ MonoBehaviour:
   moveSpeed: 8
   joystick: {fileID: 0}
   gun: {fileID: 114059427554572166}
-  testCheck: 1
+  debugCheck: 0
   gunPivot: {fileID: 4928589385215656}
   leftHandMount: {fileID: 4286295747637342}
   rightHandMount: {fileID: 4778345740708166}

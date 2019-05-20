@@ -41,7 +41,7 @@ namespace ClientLibrary
             //Button dada = Instantiate(tempButton, GameObject.Find("Canvas").transform);
             myRigidbody = GetComponent<Rigidbody>();
             mainCamra = FindObjectOfType<Camera>();
-            joystick = GameObject.Find("/Canvas/JoystickPanel/Fixed Joystick").GetComponent<Joystick>();
+            //joystick = GameObject.Find("/Canvas/JoystickPanel/Fixed Joystick").GetComponent<Joystick>();
             //if (arsenal.Length > 0)
             //    SetArsenal(arsenal[0].name);
         }

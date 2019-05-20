@@ -47,7 +47,8 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
 
         // 네트워크 상의 모든 클라이언트들에서 생성 실행
         // 단, 해당 게임 오브젝트의 주도권은, 생성 메서드를 직접 실행한 클라이언트에게 있음
-        PhotonNetwork.Instantiate(playerPrefab.name, randomSpawnPos, Quaternion.identity);
+        if(GameObject.FindGameObjectWithTag("Player").GetComponent<ClientLibrary.PlayerController>().debugCheck == false)
+            PhotonNetwork.Instantiate(playerPrefab.name, randomSpawnPos, Quaternion.identity);
     }
 
     // 주기적으로 자동 실행되는, 동기화 메서드
