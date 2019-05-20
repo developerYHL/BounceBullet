@@ -23,7 +23,7 @@ namespace ClientLibrary
         //public Transform rightGunBone;
         //public Transform leftGunBone;
         //public Arsenal[] arsenal;
-        public bool testCheck = false;
+        public bool debugCheck = false;
 
         private Animator animator;
 
@@ -46,8 +46,8 @@ namespace ClientLibrary
 
         private void Update() {
 
-            if(testCheck == false) {
-                if (!photonView.IsMine && testCheck) {
+            if(debugCheck == false) {
+                if (!photonView.IsMine && debugCheck) {
                     return;
                 }
             }

@@ -38,8 +38,11 @@ namespace ClientLibrary
         //public Transform firePointRotation;
         public Animator animator;
 
+        private bool debugCheck;
         private void OnEnable()
         {
+            debugCheck = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().debugCheck;
+
             reloadBt = GameObject.Find("/Canvas/Reload").GetComponent<Button>();
             fireBt = GameObject.Find("/Canvas/Fire").GetComponent<Button>();
             ammoText = GameObject.Find("/Canvas/Ammo").GetComponent<Text>();
@@ -73,7 +76,7 @@ namespace ClientLibrary
                 else
                 {
                     animator.SetTrigger("Shot");
-                    if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().testCheck == false) {
+                    if (debugCheck == false) {
                         photonView.RPC("Shot", RpcTarget.All);
                     }
                     else {
