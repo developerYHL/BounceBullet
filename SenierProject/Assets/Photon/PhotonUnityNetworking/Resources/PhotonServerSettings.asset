@@ -37,5 +37,8 @@ MonoBehaviour:
   - PlaceBlock
   - Shot
   - OnDamage
+  - AddAmmo
+  - ApplyUpdatedHealth
+  - RestoreHealth
   DisableAutoOpenWizard: 1
   ShowSettings: 0
