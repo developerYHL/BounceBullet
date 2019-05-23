@@ -11,10 +11,9 @@ namespace ClientLibrary
         //public Button tempButton;
 
         public float moveSpeed;
-        private Rigidbody myRigidbody;
         public Joystick joystick;
         public GunCtrl gun;
-
+        private Rigidbody rigidbody;
         private Vector3 moveInput;
         private Vector3 moveVelocity;
 
@@ -39,13 +38,14 @@ namespace ClientLibrary
             }
             //temp Btn 생성
             //Button dada = Instantiate(tempButton, GameObject.Find("Canvas").transform);
-            myRigidbody = GetComponent<Rigidbody>();
             mainCamra = FindObjectOfType<Camera>();
-            //joystick = GameObject.Find("/Canvas/JoystickPanel/Fixed Joystick").GetComponent<Joystick>();
+            print("A : " + joystick);
             //if (arsenal.Length > 0)
             //    SetArsenal(arsenal[0].name);
         }
         private void Start() {
+            joystick = GameObject.Find("/Canvas/JoystickPanel/Fixed Joystick").GetComponent<Joystick>();
+            rigidbody = GetComponent<Rigidbody>();
             //animator.SetBool("Aiming", false);
             //SetArsenal("Rifle");
         }
@@ -73,7 +73,6 @@ namespace ClientLibrary
         }
 
         private void FixedUpdate() {
-            //myRigidbody.velocity = moveVelocity;
         }
 
         //public void SetArsenal(string name) {
@@ -120,7 +119,8 @@ namespace ClientLibrary
 
             if (moveVector != Vector3.zero) {
                 transform.rotation = Quaternion.LookRotation(moveVector);
-                transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
+                rigidbody.transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
+                //transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
             }
             /*else {
                 animator.SetFloat("Speed_f", 0.0f);

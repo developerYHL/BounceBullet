@@ -7,7 +7,7 @@ namespace ClientLibrary
 {
     public class BulletCtrl : MonoBehaviourPun
     {
-        public float damage = 25;   // 공격력
+        public int damage = 25;   // 공격력
         public int maxReflectionCount = 5;
         public float maxStepDistance = 200;
         public LayerMask blockingLayer;
