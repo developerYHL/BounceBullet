@@ -77,7 +77,7 @@ namespace ClientLibrary
                 else
                 {
                     animator.SetTrigger("Shot");
-                    photonView.RPC("Shot", RpcTarget.Others);
+                    photonView.RPC("Shot", RpcTarget.MasterClient);
                     magAmmo--;
                     ammoText.text = magAmmo + " / " + ammoRemain;
                 }

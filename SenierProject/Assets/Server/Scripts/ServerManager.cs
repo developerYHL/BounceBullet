@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
 
@@ -24,6 +25,21 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
 
     private static ServerManager m_instance; // 싱글톤이 할당될 static 변수
     public GameObject playerPrefab; // 생성할 플레이어 캐릭터 프리팹
+    public const string PLAYER_LOADED_LEVEL = "PlayerLoadedLevel";
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+
+        CountdownTimer.OnCountdownTimerHasExpired += OnCountdownTimerIsExpired;
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+
+        CountdownTimer.OnCountdownTimerHasExpired -= OnCountdownTimerIsExpired;
+    }
 
     private void Awake()
     {
@@ -37,6 +53,11 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
 
     // 게임 시작과 동시에 플레이어가 될 게임 오브젝트를 생성
     private void Start()
+    {
+
+    }
+
+    private void StartGame()
     {
         // 생성할 랜덤 위치 지정
         //Vector3 randomSpawnPos = Random.insideUnitSphere * 5f;
@@ -63,5 +84,10 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
             // 리모트 오브젝트라면 읽기 부분이 실행됨
             // 네트워크를 통해 score 값 받기
         }
+    }
+
+    private void OnCountdownTimerIsExpired()
+    {
+        StartGame();
     }
 }

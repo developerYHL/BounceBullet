@@ -44,6 +44,11 @@ namespace Photon.Realtime
         /// </summary>
         protected internal Room RoomReference { get; set; }
 
+        public void SetCustomProperties(System.Collections.Hashtable props)
+        {
+            throw new NotImplementedException();
+        }
+
 
         /// <summary>Backing field for property.</summary>
         private int actorNumber = -1;
