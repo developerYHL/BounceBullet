@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981677757760330}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
   m_Name: 
@@ -1262,13 +1262,13 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: Move
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: Reload
   - Type: 9
     SynchronizeType: 0
     Name: Die
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: Shot
   m_SynchronizeLayers:
   - SynchronizeType: 2
