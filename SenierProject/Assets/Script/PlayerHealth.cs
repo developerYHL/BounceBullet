@@ -64,8 +64,11 @@ public class PlayerHealth : LivingEntity
         // 애니메이터의 Die 트리거를 발동시켜 사망 애니메이션 재생
         playerAnimator.SetTrigger("Die");
 
-        theGun.gunState = GunCtrl.State.Empty;
+        theGun.gunState = GunCtrl.State.Die;
         playerCtl.enabled = false;
+
+        // 5초 뒤에 리스폰
+        Invoke("Respawn", 5f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -89,5 +92,22 @@ public class PlayerHealth : LivingEntity
                 }
             }
         }
+    }
+
+    // 부활 처리
+    public void Respawn()
+    {
+        // 로컬 플레이어만 직접 위치를 변경 가능
+        if (photonView.IsMine)
+        {
+            Transform respawnPos = ServerManager.instance.playerSpawn[photonView.OwnerActorNr - 1];
+            transform.position = respawnPos.position;
+        }
+
+        // 컴포넌트들을 리셋하기 위해 게임 오브젝트를 잠시 껐다가 다시 켜기
+        // 컴포넌트들의 OnDisable(), OnEnable() 메서드가 실행됨
+        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        playerCtl.enabled = true;
     }
 }

@@ -8,7 +8,7 @@ public class ItemSpawner : MonoBehaviourPun
 {
     public GameObject[] items; // 생성할 아이템들
 
-    public float maxDistance = 5f; // 플레이어 위치로부터 아이템이 배치될 최대 반경
+    public float maxDistance; // 플레이어 위치로부터 아이템이 배치될 최대 반경
 
     public float timeBetSpawnMax = 7f; // 최대 시간 간격
     public float timeBetSpawnMin = 2f; // 최소 시간 간격
@@ -47,7 +47,7 @@ public class ItemSpawner : MonoBehaviourPun
     private void Spawn()
     {
         // (0,0,0)을 기준으로 maxDistance 안에서 내비메시위의 랜덤 위치 지정
-        Vector3 spawnPosition = GetRandomPointOnNavMesh(Vector3.zero, maxDistance);
+        Vector3 spawnPosition = GetRandomPointOnNavMesh(new Vector3(-65f,0f,-3.5f), maxDistance);
         // 바닥에서 0.5만큼 위로 올리기
         spawnPosition += Vector3.up * 0.5f;
 
@@ -80,9 +80,10 @@ public class ItemSpawner : MonoBehaviourPun
     // center를 중심으로 distance 반경 안에서 랜덤한 위치를 찾는다.
     private Vector3 GetRandomPointOnNavMesh(Vector3 center, float distance)
     {
+        float randomDistance = Random.Range(0, distance);
         // center를 중심으로 반지름이 maxDinstance인 구 안에서의 랜덤한 위치 하나를 저장
         // Random.insideUnitSphere는 반지름이 1인 구 안에서의 랜덤한 한 점을 반환하는 프로퍼티
-        Vector3 randomPos = Random.insideUnitSphere * distance + center;
+        Vector3 randomPos = Random.insideUnitSphere * randomDistance + center;
 
         // 네브 메시 샘플링의 결과 정보를 저장하는 변수
         NavMeshHit hit;

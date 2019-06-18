@@ -25,7 +25,7 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
 
     private static ServerManager m_instance; // 싱글톤이 할당될 static 변수
     public GameObject playerPrefab; // 생성할 플레이어 캐릭터 프리팹
-    public const string PLAYER_LOADED_LEVEL = "PlayerLoadedLevel";
+    public Transform[] playerSpawn;
 
     public override void OnEnable()
     {
@@ -59,16 +59,8 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
 
     private void StartGame()
     {
-        // 생성할 랜덤 위치 지정
-        //Vector3 randomSpawnPos = Random.insideUnitSphere * 5f;
-
-        Vector3 randomSpawnPos = Vector3.zero;
-        // 위치 y값은 0으로 변경
-        randomSpawnPos.y = 0f;
-
-        // 네트워크 상의 모든 클라이언트들에서 생성 실행
-        // 단, 해당 게임 오브젝트의 주도권은, 생성 메서드를 직접 실행한 클라이언트에게 있음
-        PhotonNetwork.Instantiate(playerPrefab.name, randomSpawnPos, Quaternion.identity);
+        GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity);
+        player.transform.position = playerSpawn[player.GetPhotonView().OwnerActorNr - 1].position; ;
     }
 
     // 주기적으로 자동 실행되는, 동기화 메서드

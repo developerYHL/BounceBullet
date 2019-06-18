@@ -12,7 +12,8 @@ namespace ClientLibrary
         {
             Ready,
             Empty,
-            Reloading
+            Reloading,
+            Die
         }
 
         public State gunState { get; set; }
@@ -49,6 +50,7 @@ namespace ClientLibrary
             ammoText = GameObject.Find("/Canvas/Ammo").GetComponent<Text>();
             animator = FindObjectOfType<Animator>();
             magAmmo = magCapacity;
+            ammoRemain = 100;
             ammoText.text = magAmmo + " / " + ammoRemain;
             gunState = State.Ready;
 
@@ -101,7 +103,7 @@ namespace ClientLibrary
 
         public bool Reload()
         {
-            if(gunState == State.Reloading || magAmmo >= magCapacity)
+            if(gunState == State.Reloading || magAmmo >= magCapacity || gunState == State.Die)
             {
                 Debug.Log(gunState);
                 return false;
