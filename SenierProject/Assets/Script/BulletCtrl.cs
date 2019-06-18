@@ -106,8 +106,11 @@ namespace ClientLibrary
             IDamageable target = collision.gameObject.GetComponent<IDamageable>();
             if (target != null)
             {
-                target.OnDamage(damage);
-                PhotonNetwork.Destroy(gameObject);
+                if (photonView.IsMine)
+                {
+                    target.OnDamage(damage);
+                    PhotonNetwork.Destroy(gameObject);
+                }
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Photon.Pun;
+using System.Collections;
 
 // 생명체로서 동작할 게임 오브젝트들을 위한 뼈대를 제공
 // 체력, 데미지 받아들이기, 사망 기능, 사망 이벤트를 제공
@@ -9,6 +10,7 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
     public float startingHealth = 100f; // 시작 체력
     public float health { get; protected set; } // 현재 체력
     public bool dead { get; protected set; } // 사망 상태
+    public bool invincibility { get; protected set; } // 무적 상태
     public event Action onDeath; // 사망시 발동할 이벤트
 
 
@@ -25,6 +27,10 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
     {
         // 사망하지 않은 상태로 시작
         dead = false;
+
+        // 3초간 무적상태
+        StartCoroutine("Invincibility");
+
         // 체력을 시작 체력으로 초기화
         health = startingHealth;
     }
@@ -33,8 +39,8 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
     [PunRPC]
     public virtual void OnDamage(float damage)
     {
-        if (PhotonNetwork.IsMasterClient)
-            {
+        if (PhotonNetwork.IsMasterClient && !invincibility)
+        {
             // 데미지만큼 체력 감소
             health -= damage;
 
@@ -94,5 +100,13 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
 
         // 사망 상태를 참으로 변경
         dead = true;
+    }
+
+    // 무적 상태
+    IEnumerator Invincibility()
+    {
+        invincibility = true;
+        yield return new WaitForSeconds(3.0f);
+        invincibility = false;
     }
 }

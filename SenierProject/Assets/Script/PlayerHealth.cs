@@ -101,7 +101,9 @@ public class PlayerHealth : LivingEntity
         if (photonView.IsMine)
         {
             Transform respawnPos = ServerManager.instance.playerSpawn[photonView.OwnerActorNr - 1];
+            GetComponent<PhotonTransformView>().enabled = false;
             transform.position = respawnPos.position;
+            GetComponent<PhotonTransformView>().enabled = true;
         }
 
         // 컴포넌트들을 리셋하기 위해 게임 오브젝트를 잠시 껐다가 다시 켜기
