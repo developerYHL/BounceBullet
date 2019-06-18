@@ -16,6 +16,7 @@ public class PlayerHealth : LivingEntity
         // 사용할 컴포넌트를 가져오기
         playerAnimator = GetComponent<Animator>();
         playerCtl = FindObjectOfType<PlayerController>();
+        CountText = GameObject.Find("/Canvas/CountText").GetComponent<Text>();
     }
 
     protected override void OnEnable()
@@ -44,12 +45,14 @@ public class PlayerHealth : LivingEntity
 
     // 데미지 처리
     [PunRPC]
-    public override void OnDamage(float damage)
+    public override void OnDamage(float damage, GameObject master)
     {
         // LivingEntity의 OnDamage() 실행(데미지 적용)
-        base.OnDamage(damage);
+        base.OnDamage(damage, master);
         // 갱신된 체력을 체력 슬라이더에 반영
         healthSlider.value = health;
+
+        KillTextSync();
     }
 
     // 사망 처리
@@ -66,6 +69,8 @@ public class PlayerHealth : LivingEntity
 
         theGun.gunState = GunCtrl.State.Die;
         playerCtl.enabled = false;
+
+        KillTextSync();
 
         // 5초 뒤에 리스폰
         Invoke("Respawn", 5f);

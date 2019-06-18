@@ -26,6 +26,8 @@ namespace ClientLibrary
         public float reloadTime = 1.8f;     // 재장전 소요 시간
         public float lastFireTime;     // 총을 마지막으로 발사한 시점
 
+        public GameObject player;
+
         //public BulletCtrl bullet;
         public GameObject bullet;
         private Button reloadBt;
@@ -89,9 +91,10 @@ namespace ClientLibrary
         [PunRPC]
         void Shot()
         {
-                Vector3 bulletVector = new Vector3(firePoint.position.x, 1.5f, firePoint.position.z);
-                Quaternion bulletQuaternion = new Quaternion(0, firePoint.rotation.y, 0, firePoint.rotation.w);
-                GameObject newBullet = PhotonNetwork.Instantiate(bullet.name, bulletVector, bulletQuaternion);
+            Vector3 bulletVector = new Vector3(firePoint.position.x, 1.5f, firePoint.position.z);
+            Quaternion bulletQuaternion = new Quaternion(0, firePoint.rotation.y, 0, firePoint.rotation.w);
+            GameObject newBullet = PhotonNetwork.Instantiate(bullet.name, bulletVector, bulletQuaternion);
+            newBullet.GetComponent<BulletCtrl>().master = player;
         }
 
         [PunRPC]

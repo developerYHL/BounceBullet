@@ -206,6 +206,7 @@ MonoBehaviour:
   blockingLayer:
     serializedVersion: 2
     m_Bits: 1024
+  master: {fileID: 0}
   speed: 5
 --- !u!114 &114883823904158044
 MonoBehaviour:

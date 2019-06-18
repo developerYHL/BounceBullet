@@ -1025,6 +1025,7 @@ MonoBehaviour:
   timeBetFire: 0.12
   reloadTime: 1.8
   lastFireTime: 0
+  player: {fileID: 1981677757760330}
   bullet: {fileID: 1342216328587976, guid: 89f88f8cc1dae8b4e9d0b939d390f16c, type: 2}
   firePoint: {fileID: 4744237592970660}
   animator: {fileID: 0}
@@ -1320,6 +1321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  CountText: {fileID: 0}
   healthSlider: {fileID: 114801310514592620}
   theGun: {fileID: 114059427554572166}
   playerCtl: {fileID: 0}
