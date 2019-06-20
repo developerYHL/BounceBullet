@@ -40,14 +40,24 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
         health = startingHealth;
     }
 
-    private void Awake()
-    {
-        
+    private void Start() {
+        //StartCoroutine(Debugs());
     }
 
     private void Update()
     {
-        Debug.Log(kill);
+
+    }
+
+    IEnumerator Debugs() {
+        while (true) {
+            if (photonView.IsMine) {
+                Debug.Log("IsMine    " + kill + " / " + dieCount);
+            } else {
+                Debug.Log("IsYours    " + kill + " / " + dieCount);
+            }
+            yield return new WaitForSeconds(3f);
+        }
     }
 
     // 데미지를 입는 기능
@@ -63,32 +73,27 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
             photonView.RPC("ApplyUpdatedHealth", RpcTarget.Others, health, dead);
 
             // 다른 클라이언트들도 OnDamage를 실행하도록 함
-            photonView.RPC("OnDamage", RpcTarget.Others, damage, null);
+            photonView.RPC("OnDamage", RpcTarget.Others, null);
+
         }
 
-        // 체력이 0 이하 && 아직 죽지 않았다면 사망 처리 실행
-        if (health <= 0 && !dead)
-        {
+        if (!photonView.IsMine) {
+            photonView.RPC("LifeManager", RpcTarget.Others, master);
+        }
+
+        if (health <= 0 && !dead) {
             Die();
         }
+    }
 
-        if (master != gameObject && master != null)
-        {
-            Debug.Log(master.GetComponent<LivingEntity>().health);
-            Debug.Log("a"+health);
-            if (health == 0)
-            {
+    [PunRPC]
+    public void LifeManager(GameObject master) {
+        if (master != gameObject && master != null) {
+            if (health == 0) {
                 master.GetComponent<LivingEntity>().kill++;
                 master.GetComponent<PlayerHealth>().KillTextSync();
                 Debug.Log(master.GetComponent<LivingEntity>().kill);
-                Debug.Log("a" + kill);
             }
-            /*master.GetComponent<LivingEntity>().killCount++;
-            if(master.GetComponent<LivingEntity>().killCount == 4)
-            {
-                master.GetComponent<LivingEntity>().killCount = 0;
-                master.GetComponent<LivingEntity>().kill++;
-            }*/
         }
     }
 

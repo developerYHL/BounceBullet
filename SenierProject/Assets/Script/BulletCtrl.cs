@@ -109,7 +109,6 @@ namespace ClientLibrary
             {
                 if (photonView.IsMine)
                 {
-                    Debug.Log("요긴되?");
                     target.OnDamage(damage, master);
                     PhotonNetwork.Destroy(gameObject);
                 }
