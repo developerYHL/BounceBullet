@@ -103,7 +103,7 @@ namespace ClientLibrary
 
         //Grid 연동부분
         private Vector3 PlaceCubeNear(Vector3 clickPoint) {
-            var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
+            var finalPosition = transform.position +transform.forward * 5.0f;//grid.GetNearestPointOnGrid(clickPoint);
             //GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;
 
             return finalPosition;

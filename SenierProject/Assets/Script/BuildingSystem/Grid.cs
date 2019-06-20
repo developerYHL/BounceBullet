@@ -25,9 +25,9 @@ namespace ClientLibrary
 
         private void OnDrawGizmos() {
             Gizmos.color = Color.yellow;
-            for (float x = 0; x < 50; x += size) {
-                for (float z = 0; z > -50; z -= size) {
-                    var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
+            for (float x = -150; x < 50; x += size) {
+                for (float z = 30; z > -60; z -= size) {
+                    var point = GetNearestPointOnGrid(new Vector3(x, 1f, z));
                     Gizmos.DrawSphere(point, 0.1f);
                 }
 
