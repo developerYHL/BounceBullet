@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4567984969235096}
   - component: {fileID: 65399579877725132}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4029830613020828}
   - component: {fileID: 65988185823097016}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider3 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4207977665674390}
   - component: {fileID: 65134117704878744}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4571634109972176}
   - component: {fileID: 65643446209223398}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4311566108139092}
   - component: {fileID: 65429775959462744}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider3 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4621556254230436}
   - component: {fileID: 65681741706976100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4340810203102114}
   - component: {fileID: 65048359289824930}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider3 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4554187777443094}
   - component: {fileID: 65528779898008588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4541382413253768}
   - component: {fileID: 65405545496566798}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider3 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 4594466856064790}
   - component: {fileID: 33064876117876040}
   - component: {fileID: 23410671085825290}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Prop_Sandbags_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4019226854492228}
   - component: {fileID: 65133635335179788}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4053566869462268}
   - component: {fileID: 65457624390902658}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box collider3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,9 +340,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1910780916155062}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 9.48, y: -2.0124667, z: -2.7}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -28.799997, y: -2.0124667, z: 28.6}
+  m_LocalScale: {x: 0.99999994, y: 1.9999999, z: 0.99999994}
   m_Children:
   - {fileID: 4019226854492228}
   - {fileID: 4621556254230436}
@@ -357,7 +357,7 @@ Transform:
   - {fileID: 4541382413253768}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4621556254230436
 Transform:
   m_ObjectHideFlags: 1
