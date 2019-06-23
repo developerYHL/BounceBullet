@@ -11,6 +11,7 @@ namespace ClientLibrary
         public int maxReflectionCount = 5;
         public float maxStepDistance = 200;
         public LayerMask blockingLayer;
+        public GameObject master;
 
         int reflectCount = 0;
         // Adjust the speed for the application.
@@ -106,8 +107,12 @@ namespace ClientLibrary
             IDamageable target = collision.gameObject.GetComponent<IDamageable>();
             if (target != null)
             {
-                target.OnDamage(damage);
-                PhotonNetwork.Destroy(gameObject);
+                if (photonView.IsMine)
+                {
+                    Debug.Log("요긴되?");
+                    target.OnDamage(damage, master);
+                    PhotonNetwork.Destroy(gameObject);
+                }
             }
         }
     }

@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
 
@@ -24,6 +25,21 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
 
     private static ServerManager m_instance; // 싱글톤이 할당될 static 변수
     public GameObject playerPrefab; // 생성할 플레이어 캐릭터 프리팹
+    public Transform[] playerSpawn;
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+
+        CountdownTimer.OnCountdownTimerHasExpired += OnCountdownTimerIsExpired;
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+
+        CountdownTimer.OnCountdownTimerHasExpired -= OnCountdownTimerIsExpired;
+    }
 
     private void Awake()
     {
@@ -38,16 +54,15 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
     // 게임 시작과 동시에 플레이어가 될 게임 오브젝트를 생성
     private void Start()
     {
-        // 생성할 랜덤 위치 지정
-        //Vector3 randomSpawnPos = Random.insideUnitSphere * 5f;
 
-        Vector3 randomSpawnPos = Vector3.zero;
-        // 위치 y값은 0으로 변경
-        randomSpawnPos.y = 0f;
+    }
 
-        // 네트워크 상의 모든 클라이언트들에서 생성 실행
-        // 단, 해당 게임 오브젝트의 주도권은, 생성 메서드를 직접 실행한 클라이언트에게 있음
-        PhotonNetwork.Instantiate(playerPrefab.name, randomSpawnPos, Quaternion.identity);
+    private void StartGame()
+    {
+        GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity);
+        player.GetComponent<PhotonTransformView>().enabled = false;
+        player.transform.position = playerSpawn[player.GetPhotonView().OwnerActorNr - 1].position;
+        player.GetComponent<PhotonTransformView>().enabled = true;
     }
 
     // 주기적으로 자동 실행되는, 동기화 메서드
@@ -63,5 +78,10 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
             // 리모트 오브젝트라면 읽기 부분이 실행됨
             // 네트워크를 통해 score 값 받기
         }
+    }
+
+    private void OnCountdownTimerIsExpired()
+    {
+        StartGame();
     }
 }

@@ -12,7 +12,8 @@ namespace ClientLibrary
         {
             Ready,
             Empty,
-            Reloading
+            Reloading,
+            Die
         }
 
         public State gunState { get; set; }
@@ -24,6 +25,8 @@ namespace ClientLibrary
         public float timeBetFire = 0.12f;   // 탄알 발사 간격
         public float reloadTime = 1.8f;     // 재장전 소요 시간
         public float lastFireTime;     // 총을 마지막으로 발사한 시점
+
+        public GameObject player;
 
         //public BulletCtrl bullet;
         public GameObject bullet;
@@ -49,6 +52,7 @@ namespace ClientLibrary
             ammoText = GameObject.Find("/Canvas/Ammo").GetComponent<Text>();
             animator = FindObjectOfType<Animator>();
             magAmmo = magCapacity;
+            ammoRemain = 100;
             ammoText.text = magAmmo + " / " + ammoRemain;
             gunState = State.Ready;
 
@@ -77,7 +81,7 @@ namespace ClientLibrary
                 else
                 {
                     animator.SetTrigger("Shot");
-                    photonView.RPC("Shot", RpcTarget.Others);
+                    photonView.RPC("Shot", RpcTarget.MasterClient);
                     magAmmo--;
                     ammoText.text = magAmmo + " / " + ammoRemain;
                 }
@@ -87,9 +91,10 @@ namespace ClientLibrary
         [PunRPC]
         void Shot()
         {
-                Vector3 bulletVector = new Vector3(firePoint.position.x, 1.5f, firePoint.position.z);
-                Quaternion bulletQuaternion = new Quaternion(0, firePoint.rotation.y, 0, firePoint.rotation.w);
-                GameObject newBullet = PhotonNetwork.Instantiate(bullet.name, bulletVector, bulletQuaternion);
+            Vector3 bulletVector = new Vector3(firePoint.position.x, 1.5f, firePoint.position.z);
+            Quaternion bulletQuaternion = new Quaternion(0, firePoint.rotation.y, 0, firePoint.rotation.w);
+            GameObject newBullet = PhotonNetwork.Instantiate(bullet.name, bulletVector, bulletQuaternion);
+            newBullet.GetComponent<BulletCtrl>().master = player;
         }
 
         [PunRPC]
@@ -101,7 +106,7 @@ namespace ClientLibrary
 
         public bool Reload()
         {
-            if(gunState == State.Reloading || magAmmo >= magCapacity)
+            if(gunState == State.Reloading || magAmmo >= magCapacity || gunState == State.Die)
             {
                 Debug.Log(gunState);
                 return false;

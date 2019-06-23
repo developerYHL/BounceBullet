@@ -60,43 +60,20 @@ namespace Photon.Pun.UtilityScripts
                 Debug.LogError("Reference to 'Text' is not set. Please set a valid reference.", this);
                 return;
             }
+            startTime = (float)PhotonNetwork.Time;
         }
 
         public void Update()
         {
-            if (!isTimerRunning)
-            {
-                return;
-            }
-
             float timer = (float)PhotonNetwork.Time - startTime;
             float countdown = Countdown - timer;
 
             Text.text = string.Format("Game starts in {0} seconds", countdown.ToString("n2"));
-
-            if (countdown > 0.0f)
-            {
-                return;
-            }
-
-            isTimerRunning = false;
-
-            Text.text = string.Empty;
-
-            if (OnCountdownTimerHasExpired != null)
+            if (OnCountdownTimerHasExpired != null && countdown < 0)
             {
                 OnCountdownTimerHasExpired();
-            }
-        }
-
-        public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
-        {
-            object startTimeFromProps;
-
-            if (propertiesThatChanged.TryGetValue(CountdownStartTime, out startTimeFromProps))
-            {
-                isTimerRunning = true;
-                startTime = (float)startTimeFromProps;
+                Destroy(Text);
+                FindObjectOfType<CountdownTimer>().enabled = false;
             }
         }
     }

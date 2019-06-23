@@ -244,6 +244,7 @@ namespace Photon.Pun.Demo.Asteroids
 
         private void OnCountdownTimerIsExpired()
         {
+            Debug.Log("start");
             StartGame();
         }
     }
