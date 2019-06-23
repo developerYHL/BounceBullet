@@ -21,7 +21,9 @@ GameObject:
   - component: {fileID: 4318208812887320}
   - component: {fileID: 33736381393441788}
   - component: {fileID: 23106882600854102}
-  - component: {fileID: 114158976544959494}
+  - component: {fileID: 65017381568261506}
+  - component: {fileID: 114066633662939888}
+  - component: {fileID: 54575104527964432}
   m_Layer: 10
   m_Name: BoxTemplate
   m_TagString: Untagged
@@ -84,7 +86,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1431372880820756}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
---- !u!114 &114158976544959494
+--- !u!54 &54575104527964432
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431372880820756}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65017381568261506
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431372880820756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
+--- !u!114 &114066633662939888
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,9 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1431372880820756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c324b09db6253a84f931f880e3540985, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b73ccb900f76f24a813454ea204364e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allBlockTypes:
-  - blockName: 1
-    blockMat: {fileID: 2100000, guid: fa76573331cfcee41be23564d699b55d, type: 2}
+  denyMaterial: {fileID: 2100000, guid: 2f2b09a1f9ebfb441a121f03d4ce9574, type: 2}

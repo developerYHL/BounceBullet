@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 4523995}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 19672626}
   m_Layer: 10
   m_Name: wall_Concretedamaged_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 29406522}
   m_Layer: 10
   m_Name: SM_Prop_Wall_01 (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 35969035}
   m_Layer: 10
   m_Name: SM_Bld_Mud_Hut_01 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -987,10 +987,10 @@ RectTransform:
   m_Father: {fileID: 1709322471}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -480, y: 0}
-  m_SizeDelta: {x: -960, y: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 254, y: 0}
+  m_SizeDelta: {x: 500, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36529401
 MonoBehaviour:
@@ -1174,7 +1174,7 @@ GameObject:
   - component: {fileID: 54158389}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1278,7 +1278,7 @@ GameObject:
   - component: {fileID: 65517889}
   m_Layer: 10
   m_Name: SM_Env_Palm_03 (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1470,7 +1470,7 @@ GameObject:
   - component: {fileID: 75637848}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1726,7 +1726,7 @@ GameObject:
   - component: {fileID: 80973035}
   m_Layer: 10
   m_Name: SK_Veh_Armor_Car_01 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1830,7 +1830,7 @@ GameObject:
   - component: {fileID: 87546382}
   m_Layer: 10
   m_Name: SK_Veh_Truck_Troop_02 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1927,7 +1927,7 @@ GameObject:
   - component: {fileID: 88579754}
   m_Layer: 10
   m_Name: SM_Prop_Wall_01 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2031,7 +2031,7 @@ GameObject:
   - component: {fileID: 88589756}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2286,7 +2286,7 @@ GameObject:
   - component: {fileID: 108210077}
   m_Layer: 10
   m_Name: SM_Prop_Tire_Pile_01 (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2453,7 +2453,7 @@ GameObject:
   - component: {fileID: 116008421}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2675,7 +2675,7 @@ GameObject:
   - component: {fileID: 124328345}
   m_Layer: 10
   m_Name: wall_Concretedamaged_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3066,7 +3066,7 @@ GameObject:
   - component: {fileID: 150406919}
   m_Layer: 10
   m_Name: SK_Veh_Truck_Troop_02 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3315,7 +3315,7 @@ GameObject:
   - component: {fileID: 160365385}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3418,7 +3418,7 @@ GameObject:
   - component: {fileID: 160937994}
   m_Layer: 10
   m_Name: SM_Bld_Mud_Hut_01 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3779,7 +3779,7 @@ GameObject:
   - component: {fileID: 171539205}
   m_Layer: 10
   m_Name: wall_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3959,7 +3959,7 @@ GameObject:
   - component: {fileID: 186992006}
   m_Layer: 0
   m_Name: SM_Prop_Fuel_Tank_Large_01 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4423,7 +4423,7 @@ GameObject:
   - component: {fileID: 218380286}
   m_Layer: 10
   m_Name: SM_Prop_Tire_Pile_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4710,7 +4710,7 @@ GameObject:
   - component: {fileID: 256939001}
   m_Layer: 10
   m_Name: SK_Veh_Troop_Car_01 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5013,7 +5013,7 @@ GameObject:
   - component: {fileID: 274154393}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5233,7 +5233,7 @@ GameObject:
   - component: {fileID: 278927658}
   m_Layer: 10
   m_Name: wall_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5324,7 +5324,7 @@ GameObject:
   - component: {fileID: 279179654}
   m_Layer: 10
   m_Name: SM_Env_Palm_03 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5746,7 +5746,7 @@ GameObject:
   - component: {fileID: 330519435}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5850,7 +5850,7 @@ GameObject:
   - component: {fileID: 341702545}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6600,7 +6600,7 @@ GameObject:
   - component: {fileID: 373157355}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6945,7 +6945,7 @@ GameObject:
   - component: {fileID: 409277996}
   m_Layer: 10
   m_Name: SM_Bld_Mud_Hut_01 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7178,7 +7178,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 15
+  field of view: 25
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -7224,7 +7224,7 @@ GameObject:
   - component: {fileID: 424081391}
   m_Layer: 10
   m_Name: SM_Bld_Mud_Hut_01 (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7315,7 +7315,7 @@ GameObject:
   - component: {fileID: 428228236}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7610,7 +7610,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 15
+    FieldOfView: 25
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -7646,7 +7646,7 @@ GameObject:
   - component: {fileID: 452637082}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7826,7 +7826,7 @@ GameObject:
   - component: {fileID: 455268863}
   m_Layer: 10
   m_Name: SM_Env_Palm_03 (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7929,7 +7929,7 @@ GameObject:
   - component: {fileID: 463611154}
   m_Layer: 10
   m_Name: SM_Prop_Tire_Pile_01 (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8172,7 +8172,7 @@ GameObject:
   - component: {fileID: 484906190}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8530,7 +8530,7 @@ GameObject:
   - component: {fileID: 489762906}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9043,7 +9043,7 @@ GameObject:
   - component: {fileID: 564865372}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9237,7 +9237,7 @@ GameObject:
   - component: {fileID: 581034970}
   m_Layer: 10
   m_Name: SM_Prop_Wall_01 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9339,7 +9339,7 @@ GameObject:
   - component: {fileID: 581873384}
   m_Layer: 10
   m_Name: SM_Prop_Sandbags_01 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9427,7 +9427,7 @@ GameObject:
   - component: {fileID: 583347028}
   m_Layer: 10
   m_Name: wall_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9516,7 +9516,7 @@ GameObject:
   - component: {fileID: 592620705}
   m_Layer: 10
   m_Name: SM_Prop_Sandbags_01 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9603,7 +9603,7 @@ GameObject:
   - component: {fileID: 596646735}
   m_Layer: 10
   m_Name: SM_Prop_Sandbags_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9948,7 +9948,7 @@ GameObject:
   - component: {fileID: 615519538}
   m_Layer: 10
   m_Name: SK_Veh_Troop_Car_01 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10146,7 +10146,7 @@ GameObject:
   - component: {fileID: 618943720}
   m_Layer: 10
   m_Name: wall_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10691,7 +10691,7 @@ GameObject:
   - component: {fileID: 629200147}
   m_Layer: 10
   m_Name: SM_Env_Wall_Damaged_01 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10987,7 +10987,7 @@ GameObject:
   - component: {fileID: 643845203}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11167,7 +11167,7 @@ GameObject:
   - component: {fileID: 650963790}
   m_Layer: 10
   m_Name: SM_Prop_Wall_01 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11437,7 +11437,7 @@ GameObject:
   - component: {fileID: 672371359}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11541,7 +11541,7 @@ GameObject:
   - component: {fileID: 695820370}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11807,7 +11807,7 @@ GameObject:
   - component: {fileID: 717441280}
   m_Layer: 10
   m_Name: wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12002,7 +12002,7 @@ GameObject:
   - component: {fileID: 743487290}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12182,7 +12182,7 @@ GameObject:
   - component: {fileID: 763993980}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12401,7 +12401,7 @@ GameObject:
   - component: {fileID: 766027118}
   m_Layer: 10
   m_Name: wall_damaged_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12824,7 +12824,7 @@ GameObject:
   - component: {fileID: 786771699}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12927,7 +12927,7 @@ GameObject:
   - component: {fileID: 803210923}
   m_Layer: 10
   m_Name: wall_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13210,7 +13210,7 @@ GameObject:
   - component: {fileID: 811894110}
   m_Layer: 10
   m_Name: wall_damaged_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13453,7 +13453,7 @@ GameObject:
   - component: {fileID: 832841582}
   m_Layer: 10
   m_Name: SM_Prop_Wall_01 (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13661,7 +13661,7 @@ GameObject:
   - component: {fileID: 847510539}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13984,7 +13984,7 @@ GameObject:
   - component: {fileID: 865361650}
   m_Layer: 10
   m_Name: SM_Prop_Wall_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14728,7 +14728,7 @@ GameObject:
   - component: {fileID: 935823628}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14831,7 +14831,7 @@ GameObject:
   - component: {fileID: 936011962}
   m_Layer: 10
   m_Name: SM_Prop_Tire_Pile_01 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15074,7 +15074,7 @@ GameObject:
   - component: {fileID: 966250452}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15915,7 +15915,7 @@ GameObject:
   - component: {fileID: 1021207863}
   m_Layer: 0
   m_Name: SM_Prop_Fuel_Tank_Large_01 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16374,7 +16374,7 @@ GameObject:
   - component: {fileID: 1044140070}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16522,7 +16522,7 @@ GameObject:
   - component: {fileID: 1056216548}
   m_Layer: 10
   m_Name: SM_Env_Palm_03 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16626,7 +16626,7 @@ GameObject:
   - component: {fileID: 1056806468}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16984,7 +16984,7 @@ GameObject:
   - component: {fileID: 1102568308}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17280,7 +17280,7 @@ GameObject:
   - component: {fileID: 1119732474}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17384,7 +17384,7 @@ GameObject:
   - component: {fileID: 1120380004}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17923,7 +17923,7 @@ GameObject:
   - component: {fileID: 1149468009}
   m_Layer: 10
   m_Name: SM_Prop_Tire_Pile_01 (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18180,7 +18180,7 @@ GameObject:
   - component: {fileID: 1189412418}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18417,7 +18417,7 @@ GameObject:
   - component: {fileID: 1196161525}
   m_Layer: 10
   m_Name: SK_Veh_Truck_Medic_01 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19219,7 +19219,7 @@ GameObject:
   - component: {fileID: 1249823518}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20264,7 +20264,7 @@ GameObject:
   - component: {fileID: 1356616784}
   m_Layer: 10
   m_Name: SK_Veh_Tank_01 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20369,7 +20369,7 @@ GameObject:
   - component: {fileID: 1357113722}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20832,7 +20832,7 @@ GameObject:
   - component: {fileID: 1380661952}
   m_Layer: 10
   m_Name: wall_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21480,7 +21480,7 @@ GameObject:
   - component: {fileID: 1431332206}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21659,7 +21659,7 @@ GameObject:
   - component: {fileID: 1432224836}
   m_Layer: 10
   m_Name: wall_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21750,7 +21750,7 @@ GameObject:
   - component: {fileID: 1435533930}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21898,7 +21898,7 @@ GameObject:
   - component: {fileID: 1445054698}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22130,7 +22130,7 @@ GameObject:
   - component: {fileID: 1449273932}
   m_Layer: 10
   m_Name: wall_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22219,7 +22219,7 @@ GameObject:
   - component: {fileID: 1454542878}
   m_Layer: 10
   m_Name: SM_Prop_Sandbags_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22384,7 +22384,7 @@ GameObject:
   - component: {fileID: 1465380625}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22622,7 +22622,7 @@ GameObject:
   - component: {fileID: 1484518072}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22814,7 +22814,7 @@ GameObject:
   - component: {fileID: 1525590030}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23664,7 +23664,7 @@ GameObject:
   - component: {fileID: 1560747866}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24460,7 +24460,7 @@ GameObject:
   - component: {fileID: 1622126541}
   m_Layer: 10
   m_Name: wall_damaged_03
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24536,7 +24536,7 @@ GameObject:
   - component: {fileID: 1626032027}
   m_Layer: 10
   m_Name: wall_damaged_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24704,7 +24704,7 @@ GameObject:
   - component: {fileID: 1646021835}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25565,7 +25565,7 @@ GameObject:
   - component: {fileID: 1704007123}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26328,7 +26328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
+  m_BindingMode: 4
   m_FollowOffset: {x: 0, y: 48, z: -27}
   m_XDamping: 2.3
   m_YDamping: 2
@@ -26777,7 +26777,7 @@ GameObject:
   - component: {fileID: 1753039717}
   m_Layer: 10
   m_Name: SM_Bld_Mud_Hut_01 (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27002,7 +27002,7 @@ GameObject:
   - component: {fileID: 1764955649}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27180,7 +27180,7 @@ GameObject:
   - component: {fileID: 1775589298}
   m_Layer: 10
   m_Name: wall_damaged_03
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27348,7 +27348,7 @@ GameObject:
   - component: {fileID: 1778170342}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27518,7 +27518,7 @@ GameObject:
   - component: {fileID: 1780326624}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27814,7 +27814,7 @@ GameObject:
   - component: {fileID: 1787593460}
   m_Layer: 10
   m_Name: wall_damaged_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28623,7 +28623,7 @@ GameObject:
   - component: {fileID: 1858905556}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28727,7 +28727,7 @@ GameObject:
   - component: {fileID: 1882246462}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29011,7 +29011,7 @@ GameObject:
   - component: {fileID: 1916602185}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29281,7 +29281,7 @@ GameObject:
   - component: {fileID: 1926699901}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29535,7 +29535,7 @@ GameObject:
   - component: {fileID: 1942955076}
   m_Layer: 10
   m_Name: wall_damaged_03
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29687,7 +29687,7 @@ GameObject:
   - component: {fileID: 1955012907}
   m_Layer: 10
   m_Name: wall_damaged_03
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29808,7 +29808,7 @@ GameObject:
   - component: {fileID: 2007887370}
   m_Layer: 10
   m_Name: SM_Bld_Mud_Hut_01 (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30123,7 +30123,7 @@ GameObject:
   - component: {fileID: 2061802990}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30602,7 +30602,7 @@ GameObject:
   - component: {fileID: 2090780831}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30706,7 +30706,7 @@ GameObject:
   - component: {fileID: 2098262994}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30913,7 +30913,7 @@ GameObject:
   - component: {fileID: 2108542794}
   m_Layer: 10
   m_Name: SM_Prop_Tire_Pile_01 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31048,7 +31048,7 @@ GameObject:
   - component: {fileID: 2113672717}
   m_Layer: 10
   m_Name: SM_Env_Wall_Damaged_01_Brakable_Custom
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31178,7 +31178,7 @@ GameObject:
   - component: {fileID: 2127996060}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31598,7 +31598,7 @@ GameObject:
   - component: {fileID: 2145550402}
   m_Layer: 10
   m_Name: wall_02
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,7 +11,7 @@ public class CameraSetup : MonoBehaviourPun {
         {
             CinemachineVirtualCamera followcam = FindObjectOfType<CinemachineVirtualCamera>();
             followcam.Follow = transform;
-            followcam.LookAt = transform;
+            //followcam.LookAt = transform;
         }
 	}
 }

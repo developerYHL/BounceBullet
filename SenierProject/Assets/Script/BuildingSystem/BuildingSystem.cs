@@ -79,6 +79,7 @@ namespace ClientLibrary
                 //이부분이 빌딩모드때 보이는 가상 블락 실행부분
                 currentTemplateBlock = Instantiate(blockTemplatePrefab, PlaceCubeNear(buildPos), Quaternion.identity);
                 currentTemplateBlock.GetComponent<MeshRenderer>().material = templateMaterial;
+                print("currentTemplateBlock");
             }
 
             if (canBuild && currentTemplateBlock != null) {
