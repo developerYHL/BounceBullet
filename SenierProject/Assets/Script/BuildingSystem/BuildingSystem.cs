@@ -85,7 +85,7 @@ namespace ClientLibrary
                 currentTemplateBlock.transform.position = PlaceCubeNear(buildPos);
 
                 //블락 설치 버튼
-                if (Input.GetMouseButtonDown(0)) {
+                if (Input.GetMouseButtonDown(1)) {
                     photonView.RPC("PlaceBlock", RpcTarget.All);
                 }
             }
@@ -98,12 +98,12 @@ namespace ClientLibrary
             //Block tempBlock = bSys.allBlocks[blockSelectCounter];
             //newBlock.name = tempBlock.blockName + "-Block";
             //newBlock.GetComponent<MeshRenderer>().material = tempBlock.blockMaterial;
-            newBlock.GetComponent<MeshRenderer>().material = templateMaterial;
+            //newBlock.GetComponent<MeshRenderer>().material = templateMaterial;
         }
 
         //Grid 연동부분
         private Vector3 PlaceCubeNear(Vector3 clickPoint) {
-            var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
+            var finalPosition = transform.position + transform.forward * 5.0f;
             //GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;
 
             return finalPosition;

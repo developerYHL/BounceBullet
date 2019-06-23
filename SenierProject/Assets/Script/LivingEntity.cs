@@ -47,7 +47,7 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
 
     private void Update()
     {
-        Debug.Log(kill);
+        //Debug.Log(kill);
     }
 
     // 데미지를 입는 기능
