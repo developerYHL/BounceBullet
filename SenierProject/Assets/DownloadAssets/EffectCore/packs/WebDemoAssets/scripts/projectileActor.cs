@@ -11,6 +11,8 @@ public class projectileActor : MonoBehaviourPun {
     public Transform shellLocator;
     public Animator recoilAnimator;
 
+    public AudioClip gunSound;
+
     public Transform[] shotgunLocator;
 
     [System.Serializable]
@@ -91,11 +93,14 @@ public class projectileActor : MonoBehaviourPun {
 
 	    if(Input.GetButtonDown("Fire1"))
         {
+            //GetComponent<AudioSource>().clip = gunSound;
+            GetComponent<AudioSource>().Play();
             firing = true;
             Fire();
         }
         if (Input.GetButtonUp("Fire1"))
         {
+            GetComponent<AudioSource>().Stop();
             firing = false;
             firingTimer = 0;
         }
@@ -140,7 +145,10 @@ public class projectileActor : MonoBehaviourPun {
         {
             CameraShakeCaller.ShakeCamera();
         }
-        spawnLocatorMuzzleFlare.eulerAngles = spawnLocatorMuzzleFlare.eulerAngles;
+        spawnLocator.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+
+
+
         Instantiate(bombList[bombType].muzzleflare, spawnLocatorMuzzleFlare.position, spawnLocatorMuzzleFlare.rotation);
         //   bombList[bombType].muzzleflare.Play();
 
@@ -151,7 +159,6 @@ public class projectileActor : MonoBehaviourPun {
         recoilAnimator.SetTrigger("recoil_trigger");
 
         Rigidbody rocketInstance;
-        spawnLocator.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
         rocketInstance = Instantiate(bombList[bombType].bombPrefab, spawnLocator.position, spawnLocator.rotation) as Rigidbody;
         //spawnLocator.eulerAngles = new Vector3(0, spawnLocator.eulerAngles.y, spawnLocator.localRotation.z);
