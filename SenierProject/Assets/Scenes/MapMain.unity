@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 8679643}
   - component: {fileID: 8679645}
   - component: {fileID: 8679644}
+  - component: {fileID: 8679646}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -489,6 +490,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 8679642}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &8679646
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 8679642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &17641161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1583,7 @@ GameObject:
   - component: {fileID: 78163009}
   - component: {fileID: 78163011}
   - component: {fileID: 78163010}
+  - component: {fileID: 78163012}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -1635,6 +1649,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 78163008}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &78163012
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 78163008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &79811275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,6 +1672,7 @@ GameObject:
   - component: {fileID: 79811276}
   - component: {fileID: 79811278}
   - component: {fileID: 79811277}
+  - component: {fileID: 79811279}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -1711,6 +1738,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 79811275}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &79811279
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 79811275}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &80973033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,6 +2246,7 @@ GameObject:
   - component: {fileID: 105001953}
   - component: {fileID: 105001955}
   - component: {fileID: 105001954}
+  - component: {fileID: 105001956}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -2272,6 +2312,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 105001952}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &105001956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105001952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &108210075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2373,6 +2425,7 @@ GameObject:
   - component: {fileID: 115015430}
   - component: {fileID: 115015432}
   - component: {fileID: 115015431}
+  - component: {fileID: 115015433}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -2438,6 +2491,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 115015429}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &115015433
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115015429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &116008419
 GameObject:
   m_ObjectHideFlags: 0
@@ -4046,6 +4111,7 @@ GameObject:
   - component: {fileID: 191043642}
   - component: {fileID: 191043644}
   - component: {fileID: 191043643}
+  - component: {fileID: 191043645}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -4111,6 +4177,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 191043641}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &191043645
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 191043641}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &192253548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4510,6 +4588,7 @@ GameObject:
   - component: {fileID: 236182160}
   - component: {fileID: 236182162}
   - component: {fileID: 236182161}
+  - component: {fileID: 236182163}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -4575,6 +4654,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 236182159}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &236182163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236182159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &250962324
 GameObject:
   m_ObjectHideFlags: 0
@@ -4586,6 +4677,7 @@ GameObject:
   - component: {fileID: 250962325}
   - component: {fileID: 250962327}
   - component: {fileID: 250962326}
+  - component: {fileID: 250962328}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -4651,6 +4743,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 250962324}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &250962328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 250962324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &256152311
 GameObject:
   m_ObjectHideFlags: 0
@@ -6866,6 +6970,7 @@ GameObject:
   - component: {fileID: 407375446}
   - component: {fileID: 407375448}
   - component: {fileID: 407375447}
+  - component: {fileID: 407375449}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -6931,6 +7036,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 407375445}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &407375449
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 407375445}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.911251, y: 1.911251, z: 1.9112494}
+  m_Center: {x: -0.0000019073486, y: 0.9556255, z: -0.0000014901161}
 --- !u!1 &409277994
 GameObject:
   m_ObjectHideFlags: 0
@@ -8016,6 +8133,7 @@ GameObject:
   - component: {fileID: 472989212}
   - component: {fileID: 472989214}
   - component: {fileID: 472989213}
+  - component: {fileID: 472989215}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -8081,6 +8199,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 472989211}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &472989215
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 472989211}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &483454189
 GameObject:
   m_ObjectHideFlags: 0
@@ -8092,6 +8222,7 @@ GameObject:
   - component: {fileID: 483454190}
   - component: {fileID: 483454192}
   - component: {fileID: 483454191}
+  - component: {fileID: 483454193}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -8157,6 +8288,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 483454189}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &483454193
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 483454189}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &484906188
 GameObject:
   m_ObjectHideFlags: 0
@@ -8753,6 +8896,7 @@ GameObject:
   - component: {fileID: 526801448}
   - component: {fileID: 526801450}
   - component: {fileID: 526801449}
+  - component: {fileID: 526801451}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -8818,6 +8962,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 526801447}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &526801451
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 526801447}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &528259718
 GameObject:
   m_ObjectHideFlags: 0
@@ -9868,6 +10024,7 @@ GameObject:
   - component: {fileID: 612744904}
   - component: {fileID: 612744906}
   - component: {fileID: 612744905}
+  - component: {fileID: 612744907}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -9933,6 +10090,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 612744903}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &612744907
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 612744903}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &615519536
 GameObject:
   m_ObjectHideFlags: 0
@@ -11087,6 +11256,7 @@ GameObject:
   - component: {fileID: 647708465}
   - component: {fileID: 647708467}
   - component: {fileID: 647708466}
+  - component: {fileID: 647708468}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -11152,6 +11322,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 647708464}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &647708468
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 647708464}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &650963788
 GameObject:
   m_ObjectHideFlags: 0
@@ -11357,6 +11539,7 @@ GameObject:
   - component: {fileID: 670893643}
   - component: {fileID: 670893645}
   - component: {fileID: 670893644}
+  - component: {fileID: 670893646}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -11422,6 +11605,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 670893642}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &670893646
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 670893642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &672371357
 GameObject:
   m_ObjectHideFlags: 0
@@ -11731,6 +11926,7 @@ GameObject:
   - component: {fileID: 717181392}
   - component: {fileID: 717181394}
   - component: {fileID: 717181393}
+  - component: {fileID: 717181395}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -11796,6 +11992,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 717181391}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &717181395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 717181391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &717441279
 GameObject:
   m_ObjectHideFlags: 0
@@ -12102,6 +12310,7 @@ GameObject:
   - component: {fileID: 756849134}
   - component: {fileID: 756849136}
   - component: {fileID: 756849135}
+  - component: {fileID: 756849137}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -12167,6 +12376,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 756849133}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &756849137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756849133}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.911251, y: 1.911251, z: 1.9112494}
+  m_Center: {x: 0.0000019073486, y: 0.9556255, z: -0.00000005960464}
 --- !u!1 &763993978
 GameObject:
   m_ObjectHideFlags: 0
@@ -15501,6 +15722,7 @@ GameObject:
   - component: {fileID: 991101671}
   - component: {fileID: 991101673}
   - component: {fileID: 991101672}
+  - component: {fileID: 991101674}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -15566,6 +15788,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 991101670}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &991101674
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991101670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &991351728
 GameObject:
   m_ObjectHideFlags: 0
@@ -15746,6 +15980,7 @@ GameObject:
   - component: {fileID: 1013346567}
   - component: {fileID: 1013346569}
   - component: {fileID: 1013346568}
+  - component: {fileID: 1013346570}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -15811,6 +16046,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1013346566}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1013346570
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1013346566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1019960003
 GameObject:
   m_ObjectHideFlags: 0
@@ -17844,6 +18091,7 @@ GameObject:
   - component: {fileID: 1148259869}
   - component: {fileID: 1148259871}
   - component: {fileID: 1148259870}
+  - component: {fileID: 1148259872}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -17909,6 +18157,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1148259868}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &1148259872
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148259868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1149468007
 GameObject:
   m_ObjectHideFlags: 0
@@ -18010,6 +18270,7 @@ GameObject:
   - component: {fileID: 1160977966}
   - component: {fileID: 1160977968}
   - component: {fileID: 1160977967}
+  - component: {fileID: 1160977969}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -18075,6 +18336,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1160977965}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1160977969
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1160977965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1178206122
 GameObject:
   m_ObjectHideFlags: 0
@@ -18614,6 +18887,7 @@ GameObject:
   - component: {fileID: 1206113984}
   - component: {fileID: 1206113986}
   - component: {fileID: 1206113985}
+  - component: {fileID: 1206113987}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -18679,6 +18953,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1206113983}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1206113987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1206113983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1209126815
 GameObject:
   m_ObjectHideFlags: 0
@@ -18690,6 +18976,7 @@ GameObject:
   - component: {fileID: 1209126816}
   - component: {fileID: 1209126818}
   - component: {fileID: 1209126817}
+  - component: {fileID: 1209126819}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -18755,6 +19042,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1209126815}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &1209126819
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1209126815}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1210145598
 GameObject:
   m_ObjectHideFlags: 0
@@ -19535,6 +19834,7 @@ GameObject:
   - component: {fileID: 1267771434}
   - component: {fileID: 1267771436}
   - component: {fileID: 1267771435}
+  - component: {fileID: 1267771437}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -19600,6 +19900,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267771433}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1267771437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1267771433}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1270924423
 GameObject:
   m_ObjectHideFlags: 0
@@ -19611,6 +19923,7 @@ GameObject:
   - component: {fileID: 1270924424}
   - component: {fileID: 1270924426}
   - component: {fileID: 1270924425}
+  - component: {fileID: 1270924427}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -19676,6 +19989,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1270924423}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &1270924427
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1270924423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1271285557
 GameObject:
   m_ObjectHideFlags: 0
@@ -20105,6 +20430,7 @@ GameObject:
   - component: {fileID: 1321124052}
   - component: {fileID: 1321124054}
   - component: {fileID: 1321124053}
+  - component: {fileID: 1321124055}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -20170,6 +20496,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1321124051}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &1321124055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1321124051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1327492581
 GameObject:
   m_ObjectHideFlags: 0
@@ -21400,6 +21738,7 @@ GameObject:
   - component: {fileID: 1408543819}
   - component: {fileID: 1408543821}
   - component: {fileID: 1408543820}
+  - component: {fileID: 1408543822}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -21465,6 +21804,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1408543818}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1408543822
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1408543818}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1431332204
 GameObject:
   m_ObjectHideFlags: 0
@@ -21580,6 +21931,7 @@ GameObject:
   - component: {fileID: 1431418746}
   - component: {fileID: 1431418748}
   - component: {fileID: 1431418747}
+  - component: {fileID: 1431418749}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -21645,6 +21997,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1431418745}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &1431418749
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1431418745}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1432224834
 GameObject:
   m_ObjectHideFlags: 0
@@ -23072,6 +23436,7 @@ GameObject:
   - component: {fileID: 1528281299}
   - component: {fileID: 1528281301}
   - component: {fileID: 1528281300}
+  - component: {fileID: 1528281302}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -23137,6 +23502,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1528281298}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &1528281302
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1528281298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1528976934
 GameObject:
   m_ObjectHideFlags: 0
@@ -23268,6 +23645,7 @@ GameObject:
   - component: {fileID: 1545389783}
   - component: {fileID: 1545389785}
   - component: {fileID: 1545389784}
+  - component: {fileID: 1545389786}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -23333,6 +23711,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1545389782}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1545389786
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1545389782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1546089374
 GameObject:
   m_ObjectHideFlags: 0
@@ -23508,6 +23898,7 @@ GameObject:
   - component: {fileID: 1549742323}
   - component: {fileID: 1549742325}
   - component: {fileID: 1549742324}
+  - component: {fileID: 1549742326}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -23573,6 +23964,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1549742322}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1549742326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1549742322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1551032296
 GameObject:
   m_ObjectHideFlags: 0
@@ -23584,6 +23987,7 @@ GameObject:
   - component: {fileID: 1551032297}
   - component: {fileID: 1551032299}
   - component: {fileID: 1551032298}
+  - component: {fileID: 1551032300}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -23649,6 +24053,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1551032296}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1551032300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1551032296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1560747864
 GameObject:
   m_ObjectHideFlags: 0
@@ -24082,6 +24498,7 @@ GameObject:
   - component: {fileID: 1586632026}
   - component: {fileID: 1586632028}
   - component: {fileID: 1586632027}
+  - component: {fileID: 1586632029}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -24147,6 +24564,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1586632025}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1586632029
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1586632025}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1591183940
 GameObject:
   m_ObjectHideFlags: 0
@@ -24234,6 +24663,7 @@ GameObject:
   - component: {fileID: 1602658925}
   - component: {fileID: 1602658927}
   - component: {fileID: 1602658926}
+  - component: {fileID: 1602658928}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -24299,6 +24729,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1602658924}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1602658928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602658924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1607104963
 GameObject:
   m_ObjectHideFlags: 0
@@ -25409,6 +25851,7 @@ GameObject:
   - component: {fileID: 1692245910}
   - component: {fileID: 1692245912}
   - component: {fileID: 1692245911}
+  - component: {fileID: 1692245913}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -25474,6 +25917,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1692245909}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1692245913
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1692245909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1701098962
 GameObject:
   m_ObjectHideFlags: 0
@@ -25889,6 +26344,7 @@ GameObject:
   - component: {fileID: 1709857537}
   - component: {fileID: 1709857539}
   - component: {fileID: 1709857538}
+  - component: {fileID: 1709857540}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -25954,6 +26410,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1709857536}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &1709857540
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1709857536}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1715303790
 GameObject:
   m_ObjectHideFlags: 0
@@ -27888,6 +28356,7 @@ GameObject:
   - component: {fileID: 1790980660}
   - component: {fileID: 1790980662}
   - component: {fileID: 1790980661}
+  - component: {fileID: 1790980663}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -27953,6 +28422,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1790980659}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1790980663
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1790980659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1791269911
 GameObject:
   m_ObjectHideFlags: 0
@@ -27964,6 +28445,7 @@ GameObject:
   - component: {fileID: 1791269912}
   - component: {fileID: 1791269914}
   - component: {fileID: 1791269913}
+  - component: {fileID: 1791269915}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -28029,6 +28511,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1791269911}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &1791269915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791269911}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1798353279
 GameObject:
   m_ObjectHideFlags: 0
@@ -28116,6 +28610,7 @@ GameObject:
   - component: {fileID: 1819451889}
   - component: {fileID: 1819451891}
   - component: {fileID: 1819451890}
+  - component: {fileID: 1819451892}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -28181,6 +28676,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1819451888}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &1819451892
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1819451888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &1819648430
 GameObject:
   m_ObjectHideFlags: 0
@@ -31278,6 +31785,7 @@ GameObject:
   - component: {fileID: 2130668579}
   - component: {fileID: 2130668581}
   - component: {fileID: 2130668580}
+  - component: {fileID: 2130668582}
   m_Layer: 10
   m_Name: dirt_box_01
   m_TagString: Untagged
@@ -31343,6 +31851,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2130668578}
   m_Mesh: {fileID: 4300000, guid: f61ae00b709bf644b940863683e1c9d0, type: 3}
+--- !u!65 &2130668582
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2130668578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &2135418412
 GameObject:
   m_ObjectHideFlags: 0
@@ -31518,6 +32038,7 @@ GameObject:
   - component: {fileID: 2143777197}
   - component: {fileID: 2143777199}
   - component: {fileID: 2143777198}
+  - component: {fileID: 2143777200}
   m_Layer: 10
   m_Name: dirt_box_02
   m_TagString: Untagged
@@ -31583,6 +32104,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143777196}
   m_Mesh: {fileID: 4300000, guid: 0b690d5c689e7704a9e2749661a549bf, type: 3}
+--- !u!65 &2143777200
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143777196}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9112511, y: 1.911251, z: 1.9112495}
+  m_Center: {x: 0, y: 0.9556255, z: -0.000000059604645}
 --- !u!1 &2145550400
 GameObject:
   m_ObjectHideFlags: 0
