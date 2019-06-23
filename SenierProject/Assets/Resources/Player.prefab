@@ -513,14 +513,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4234379805909364}
   - component: {fileID: 95450567495969746}
+  - component: {fileID: 54110386520551490}
   - component: {fileID: 114163411383447442}
   - component: {fileID: 114841480608346660}
   - component: {fileID: 114274067669891228}
   - component: {fileID: 114389997206288108}
-  - component: {fileID: 54110386520551490}
   - component: {fileID: 114838690484295576}
-  - component: {fileID: 114950892628947028}
   - component: {fileID: 114991649202598976}
+  - component: {fileID: 114950892628947028}
   - component: {fileID: 65246615873417448}
   m_Layer: 10
   m_Name: Player
@@ -1304,11 +1304,11 @@ MonoBehaviour:
   buildableSurfacesLayer:
     serializedVersion: 2
     m_Bits: 4096
-  blockTemplatePrefab: {fileID: 1715557811780294, guid: f8798234a96cd6342ab7c84db82d5ae1,
+  blockTemplatePrefab: {fileID: 1431372880820756, guid: dda293e0b6e95904990a7c1e671d701c,
     type: 2}
-  blockPrefab: {fileID: 1715557811780294, guid: 624e6bda9369f7840b7631b5e916eec9,
+  blockPrefab: {fileID: 1431372880820756, guid: 3dbf679731674e64c8b55705f5e91920,
     type: 2}
-  templateMaterial: {fileID: 2100000, guid: 280820e2ffe188143bfeed9a547abf83, type: 2}
+  templateMaterial: {fileID: 2100000, guid: fa76573331cfcee41be23564d699b55d, type: 2}
 --- !u!114 &114991649202598976
 MonoBehaviour:
   m_ObjectHideFlags: 1
