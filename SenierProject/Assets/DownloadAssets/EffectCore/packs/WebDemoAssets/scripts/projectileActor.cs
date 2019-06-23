@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Photon.Pun;
+using Cinemachine;
 
-public class projectileActor : MonoBehaviour {
+public class projectileActor : MonoBehaviourPun {
 
     public Transform spawnLocator; 
     public Transform spawnLocatorMuzzleFlare;
@@ -65,23 +67,17 @@ public class projectileActor : MonoBehaviour {
         {
             projectileSimFire = 5;
         }
-	}
+        if (photonView.IsMine)
+        {
+            CameraShakeProjectile followcam = FindObjectOfType<CameraShakeProjectile>();
+            CameraShakeCaller = followcam;
+            //followcam.LookAt = transform;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        //Movement
-        if(Input.GetButton("Horizontal"))
-        {
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                gameObject.transform.Rotate(Vector3.up, -25 * Time.deltaTime);
-            }
-            else
-            {
-                gameObject.transform.Rotate(Vector3.up, 25 * Time.deltaTime);
-            }
-        }
 
         //BULLETS
         if (Input.GetKeyDown(KeyCode.Q))
@@ -153,7 +149,13 @@ public class projectileActor : MonoBehaviour {
         recoilAnimator.SetTrigger("recoil_trigger");
 
         Rigidbody rocketInstance;
-        rocketInstance = Instantiate(bombList[bombType].bombPrefab, spawnLocator.position,spawnLocator.rotation) as Rigidbody;
+        spawnLocator.eulerAngles = new Vector3(0, spawnLocator.eulerAngles.y, spawnLocator.eulerAngles.z);
+
+        rocketInstance = Instantiate(bombList[bombType].bombPrefab, spawnLocator.position, spawnLocator.rotation) as Rigidbody;
+        //spawnLocator.eulerAngles = new Vector3(0, spawnLocator.eulerAngles.y, spawnLocator.localRotation.z);
+        //print(rocketInstance.rotation + ", " + (spawnLocator.eulerAngles * new Vector3(0,1,1)));
+        //transform.eulerAngles = new Vector3(transform.rotation.x, 0.0f, transform.rotation.z)
+
         // Quaternion.Euler(0,90,0)
         rocketInstance.AddForce(spawnLocator.forward * Random.Range(bombList[bombType].min, bombList[bombType].max));
 
