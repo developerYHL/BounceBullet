@@ -117,7 +117,8 @@ namespace ClientLibrary
 
             if (moveVector != Vector3.zero) {
                 transform.rotation = Quaternion.LookRotation(moveVector);
-                transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
+                //transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
+                myRigidbody.MovePosition(transform.position + moveVector * moveSpeed * Time.deltaTime);
             }
             /*else {
                 animator.SetFloat("Speed_f", 0.0f);

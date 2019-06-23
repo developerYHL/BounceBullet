@@ -629,8 +629,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981677757760330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -78.76186, y: -4.0808325, z: -0.39923143}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -97.36473, y: -0.19479573, z: 6.375203}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4060714086377484}
   - {fileID: 4585671201376590}
@@ -1119,12 +1119,12 @@ Rigidbody:
   m_GameObject: {fileID: 1981677757760330}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 50
   m_AngularDrag: 20
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!65 &65246615873417448
 BoxCollider:
@@ -1136,8 +1136,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 2.8, z: 0.8}
-  m_Center: {x: 0, y: 1.4, z: 0}
+  m_Size: {x: 0.9, y: 2.8, z: 0.93500936}
+  m_Center: {x: 0, y: 1.4, z: 0.067504704}
 --- !u!65 &65842005395472504
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1148,8 +1148,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.11412362, y: 0.64035976, z: 1.8990021}
-  m_Center: {x: -0.0025403746, y: -0.01673447, z: 0.38249558}
+  m_Size: {x: 0.5141225, y: 0.64035976, z: 2.3631916}
+  m_Center: {x: -0.0025401907, y: -0.016734494, z: 0.6145914}
 --- !u!95 &95450567495969746
 Animator:
   serializedVersion: 3
@@ -1341,8 +1341,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114389997206288108}
   - {fileID: 114838690484295576}
-  viewIdField: 2
-  InstantiationId: 2
+  viewIdField: 0
+  InstantiationId: 3
   isRuntimeInstantiated: 0
 --- !u!114 &114389997206288108
 MonoBehaviour:
@@ -1397,8 +1397,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 114059427554572166}
-  viewIdField: 1
-  InstantiationId: 1
+  viewIdField: 0
+  InstantiationId: 2
   isRuntimeInstantiated: 0
 --- !u!114 &114801310514592620
 MonoBehaviour:

@@ -133,12 +133,14 @@ public class projectileActor : MonoBehaviourPun {
         }
     }
 
+
     public void Fire()
     {
         if(CameraShake)
         {
             CameraShakeCaller.ShakeCamera();
         }
+        spawnLocatorMuzzleFlare.eulerAngles = spawnLocatorMuzzleFlare.eulerAngles;
         Instantiate(bombList[bombType].muzzleflare, spawnLocatorMuzzleFlare.position, spawnLocatorMuzzleFlare.rotation);
         //   bombList[bombType].muzzleflare.Play();
 
@@ -149,7 +151,7 @@ public class projectileActor : MonoBehaviourPun {
         recoilAnimator.SetTrigger("recoil_trigger");
 
         Rigidbody rocketInstance;
-        spawnLocator.eulerAngles = new Vector3(0, spawnLocator.eulerAngles.y, spawnLocator.eulerAngles.z);
+        spawnLocator.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
         rocketInstance = Instantiate(bombList[bombType].bombPrefab, spawnLocator.position, spawnLocator.rotation) as Rigidbody;
         //spawnLocator.eulerAngles = new Vector3(0, spawnLocator.eulerAngles.y, spawnLocator.localRotation.z);
