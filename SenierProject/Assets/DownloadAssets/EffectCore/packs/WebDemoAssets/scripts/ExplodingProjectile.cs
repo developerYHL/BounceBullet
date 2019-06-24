@@ -103,25 +103,10 @@ public class ExplodingProjectile : MonoBehaviourPun
                 Vector3 dir = hit.point - transform.position;
                 Vector3 dirY = new Vector3(0, dir.y, 0);
 
+                Quaternion targetRot = Quaternion.LookRotation(dirY);
 
-                    Quaternion targetRot = Quaternion.LookRotation(dirY);
+                transform.rotation = targetRot;
 
-                    transform.rotation = targetRot;
-                
-
-
-
-                print(hit.transform);
-                //Vector3 vec = hit.point - transform.position;
-                //vec.Normalize();
-                //Quaternion q = Quaternion.LookRotation(vec);
-                //transform.localRotation = q;
-
-
-                
-
-
-                print("AAasdasd : " + transform.forward);
                 reflectCount--;
             }
             else
@@ -172,16 +157,21 @@ public class ExplodingProjectile : MonoBehaviourPun
 
     void OnCollisionEnter(Collision collision)
     {
-        IDamageable target = collision.gameObject.GetComponent<IDamageable>();
-        if (target != null)
+        if(collision.transform.tag == "Player")
         {
-            if (photonView.IsMine)
+            IDamageable target = collision.gameObject.GetComponent<IDamageable>();
+            if (target != null)
             {
-                Debug.Log("요긴되?");
-                target.OnDamage(damage);
-                PhotonNetwork.Destroy(gameObject);
+
+                if (photonView.IsMine)
+                {
+                    Debug.Log("요긴되?");
+                    target.OnDamage(damage);
+                    PhotonNetwork.Destroy(gameObject);
+                }
             }
         }
+
 
         if (collision.gameObject.tag != "FX")
         {

@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 33703203168993164}
   - component: {fileID: 23854198358834182}
   - component: {fileID: 65139638711665828}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SK_Wep_AK47_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224688365576112700}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224285041578768268}
   - component: {fileID: 114801310514592620}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Health Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 224266661387026150}
   - component: {fileID: 222548007161679084}
   - component: {fileID: 114261229266365458}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 223410830973519320}
   - component: {fileID: 114589784271003956}
   - component: {fileID: 114129750798038202}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 224373631485920496}
   - component: {fileID: 222746870911329510}
   - component: {fileID: 114105434308621744}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 65246615873417448}
   - component: {fileID: 114130171383867430}
   - component: {fileID: 82000688548875948}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
