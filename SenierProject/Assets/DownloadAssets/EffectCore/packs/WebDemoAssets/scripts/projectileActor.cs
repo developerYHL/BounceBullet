@@ -124,6 +124,7 @@ public class projectileActor : MonoBehaviourPun
             return false;
         }
 
+        audio.PlayOneShot(reloadSound);
         StartCoroutine(ReloadRoutine());
         return true;
     }
@@ -133,7 +134,7 @@ public class projectileActor : MonoBehaviourPun
         gunState = State.Reloading;
         animator.SetTrigger("Reload");
 
-        yield return new WaitForSeconds(reloadTime);
+        yield return new WaitForSeconds(reloadSound.length);
 
         int ammoToFill = magCapacity - magAmmo;
 
@@ -233,6 +234,7 @@ public class projectileActor : MonoBehaviourPun
 
                 if (magAmmo <= 0)
                 {
+                    audio.PlayOneShot(drySound);
                     gunState = State.Empty;
                 }
                 else if (firingTimer > bombList[bombType].rapidFireCooldown + rapidFireDelay)
@@ -403,6 +405,7 @@ public class projectileActor : MonoBehaviourPun
     {
         if (magAmmo <= 0)
         {
+            audio.PlayOneShot(drySound);
             gunState = State.Empty;
         }
         else if(gunState != State.Empty && gunState != State.Die)
