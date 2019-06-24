@@ -45,7 +45,7 @@ public class ExplodingProjectile : MonoBehaviourPun
         thisCollider = GetComponent<Collider>();
         previousPosition = transform.position;
 
-        thisRigidbody.AddForce(transform.forward * Random.Range(2800, 3100));
+        thisRigidbody.AddForce(transform.forward * 2000);
     }
 
     // Update is called once per frame
