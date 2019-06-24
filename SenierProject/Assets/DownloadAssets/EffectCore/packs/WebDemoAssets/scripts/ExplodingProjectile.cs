@@ -155,15 +155,14 @@ public class ExplodingProjectile : MonoBehaviourPun
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.transform.tag == "Player")
+        if (other.transform.tag == "Player")
         {
-            IDamageable target = collision.gameObject.GetComponent<IDamageable>();
+            IDamageable target = other.gameObject.GetComponent<IDamageable>();
             if (target != null)
             {
-
-                if (photonView.IsMine)
+                if (photonView.IsMine != other.GetComponent<PhotonView>().IsMine)
                 {
                     Debug.Log("요긴되?");
                     target.OnDamage(damage);
@@ -171,6 +170,11 @@ public class ExplodingProjectile : MonoBehaviourPun
                 }
             }
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+
 
 
         if (collision.gameObject.tag != "FX")
