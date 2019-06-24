@@ -30,18 +30,21 @@ public class BlockCtlr : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.tag == "Wall")
+        if (other.transform.tag == "Wall" || other.transform.tag == "BreakeWall")
         {
             if (GameObject.FindGameObjectWithTag("Player").GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace == true)
+            {
                 GameObject.FindGameObjectWithTag("Player").GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace = false;
-            mMeshRenderer.material = denyMaterial;
+                mMeshRenderer.material = denyMaterial;
+            }
+                
         }
 
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "Wall")
+        if (other.transform.tag == "Wall" || other.transform.tag == "BreakeWall")
         {
             GameObject.FindGameObjectWithTag("Player").GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace = true;
             mMeshRenderer.material = initalMeterial;
