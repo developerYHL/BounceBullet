@@ -16,7 +16,9 @@ public class BlockCtlr : MonoBehaviour {
     // Use this for initialization
     void Start () {
         initalMeterial = mMeshRenderer.material;
-	}
+        GameObject.FindGameObjectWithTag("Player").GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace = true;
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {

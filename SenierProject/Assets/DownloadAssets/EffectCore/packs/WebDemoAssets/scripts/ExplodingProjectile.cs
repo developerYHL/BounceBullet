@@ -9,7 +9,7 @@ public class ExplodingProjectile : MonoBehaviourPun
     public GameObject impactPrefab;
     public GameObject explosionPrefab;
     public float thrust;
-
+    public LayerMask blockingLayer;
     public Rigidbody thisRigidbody;
 
     public GameObject particleKillGroup;
@@ -86,8 +86,14 @@ public class ExplodingProjectile : MonoBehaviourPun
         Vector3 direction = transform.position - prevPos;
         Ray ray = new Ray(prevPos, direction);
         float dist = Vector3.Distance(transform.position, prevPos);
-        if (Physics.Raycast(ray, out hit, dist))
+        if (Physics.Raycast(ray, out hit, dist, 1 << LayerMask.NameToLayer("Wall")))
         {
+            if (hit.transform.tag == "BreakeWall")
+            {
+                print(hit.transform.GetComponent<PlaceBlockCtrl>().hp);
+                hit.transform.GetComponent<PlaceBlockCtrl>().Hit();
+
+            }
             transform.position = hit.point;
             Quaternion rot = Quaternion.FromToRotation(Vector3.forward, hit.normal);
             Vector3 pos = hit.point;
@@ -109,6 +115,8 @@ public class ExplodingProjectile : MonoBehaviourPun
 
     void OnCollisionEnter(Collision collision)
     {
+        
+
         if (collision.gameObject.tag != "FX")
         {
             ContactPoint contact = collision.contacts[0];
