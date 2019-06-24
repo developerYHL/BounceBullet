@@ -20197,9 +20197,9 @@ MonoBehaviour:
   items:
   - {fileID: 1085253912345288, guid: 0fe99376a5451a94d80e31a027780c6f, type: 2}
   - {fileID: 1904978919937806, guid: 3c5d089b0d96a7746a81631474bc8453, type: 2}
-  maxDistance: 20
-  timeBetSpawnMax: 7
-  timeBetSpawnMin: 2
+  maxDistance: 100
+  timeBetSpawnMax: 30
+  timeBetSpawnMin: 30
 --- !u!4 &1527596777
 Transform:
   m_ObjectHideFlags: 0
