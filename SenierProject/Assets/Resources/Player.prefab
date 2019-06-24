@@ -1340,7 +1340,7 @@ MonoBehaviour:
       type: 2}
     hasShells: 1
   UiText: {fileID: 0}
-  UImaster: 1
+  UImaster: 0
   CameraShake: 0
   rapidFireDelay: 0
   CameraShakeCaller: {fileID: 0}
