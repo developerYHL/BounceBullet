@@ -53,7 +53,7 @@ namespace ClientLibrary
             
 
             GameObject.Find("Canvas/Building").GetComponent<Button>().onClick.AddListener(ClickBuildingButton);
-            PlaceButton.GetComponent<Button>().onClick.AddListener(PlaceBlockClick);
+            PlaceButton.GetComponent<Button>().onClick.AddListener(PlaceBlock);
             PlaceButton.SetActive(false);
         }
 
@@ -149,9 +149,13 @@ namespace ClientLibrary
 
             //currentTemplateBlock.transform.position = PlaceCubeNear(buildPos);
 
+            if (canPlace && photonView.IsMine)
+            {
+                canPlace = false;
+                GameObject newBlock = PhotonNetwork.Instantiate(blockPrefab.name, PlaceCubeNear(buildPos), Quaternion.identity);
 
+            }
             //빌딩 모드에서 마우스 좌클릭시 블락 설치되는 부분 
-            GameObject newBlock = PhotonNetwork.Instantiate(blockPrefab.name, PlaceCubeNear(buildPos), Quaternion.identity);
             //Block tempBlock = bSys.allBlocks[blockSelectCounter];
             //newBlock.name = tempBlock.blockName + "-Block";
             //newBlock.GetComponent<MeshRenderer>().material = tempBlock.blockMaterial;
