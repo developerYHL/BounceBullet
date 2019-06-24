@@ -88,7 +88,7 @@ namespace ClientLibrary
                 currentTemplateBlock.transform.position = PlaceCubeNear(buildPos);
 
                 //블락 설치 버튼
-                if (Input.GetMouseButtonDown(1) && canPlace) {
+                if (Input.GetMouseButtonDown(1) && canPlace && photonView.IsMine) {
                     photonView.RPC("PlaceBlock", RpcTarget.All);
                     canPlace = false;
                 }

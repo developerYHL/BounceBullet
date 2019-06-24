@@ -162,7 +162,8 @@ public class ExplodingProjectile : MonoBehaviourPun
             IDamageable target = other.gameObject.GetComponent<IDamageable>();
             if (target != null)
             {
-                if (photonView.IsMine != other.GetComponent<PhotonView>().IsMine)
+                print("ismine : " + photonView.IsMine);
+                if (photonView.IsMine)
                 {
                     Debug.Log("요긴되?");
                     target.OnDamage(damage);
