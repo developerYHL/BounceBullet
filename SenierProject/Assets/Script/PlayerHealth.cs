@@ -78,12 +78,20 @@ public class PlayerHealth : LivingEntity
         if (lifeCount == 0)
         {
             projectileActor[] otherPlayer = FindObjectsOfType<projectileActor>();
+            Debug.Log(otherPlayer.Length);
             for(int i = 0; i < otherPlayer.Length; i++)
             {
-                if (otherPlayer[i] != null && !otherPlayer[i].photonView.IsMine)
+                if (photonView.IsMine && otherPlayer[i] != null && !otherPlayer[i].photonView.IsMine)
                 {
                     GetComponent<CameraSetup>().followcam.Follow = otherPlayer[i].transform;
                     CountText.text = "관전중";
+                    if(otherPlayer.Length == 2 && otherPlayer[i] != gameObject)
+                    {
+                        Debug.Log("111");
+                        otherPlayer[i].victoryUi.GetComponent<RectTransform>().localPosition = Vector3.zero;
+                        Debug.Log("222");
+                    }
+                    PhotonNetwork.Destroy(gameObject);
                 }
             }
         }

@@ -40,5 +40,6 @@ MonoBehaviour:
   - AddAmmo
   - ApplyUpdatedHealth
   - RestoreHealth
+  - Finish
   DisableAutoOpenWizard: 1
   ShowSettings: 0

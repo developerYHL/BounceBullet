@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Cinemachine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class projectileActor : MonoBehaviourPun
 {
@@ -84,9 +85,12 @@ public class projectileActor : MonoBehaviourPun
 
     public Transform firePoint;
     public Animator animator;
+    public Button victoryUi;
 
     private void OnEnable()
     {
+        victoryUi = GameObject.Find("/Canvas/VictoryBt").GetComponent<Button>();
+        victoryUi.onClick.AddListener(() => Victory());
         if (!photonView.IsMine)
         {
             return;
@@ -105,6 +109,29 @@ public class projectileActor : MonoBehaviourPun
         reloadBt.onClick.AddListener(() => Reload());
         fireBt.player = this;
     }
+
+    public void Victory()
+    {
+        photonView.RPC("Finish", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void Finish()
+    {
+        //StartCoroutine("Disconnect");
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("Lobby");
+    }
+
+    /*IEnumerator Disconnect()
+    {
+        PhotonNetwork.LeaveRoom();
+        while (PhotonNetwork.InRoom)
+            yield return null;
+
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("Lobby");
+    }*/
 
     [PunRPC]
     public void AddAmmo(int ammo)
@@ -174,10 +201,10 @@ public class projectileActor : MonoBehaviourPun
     // Use this for initialization
     void Start ()
     {
-        if (UImaster)
+        /*if (UImaster)
         {
             UiText.text = bombList[bombType].name.ToString();
-        }
+        }*/
         if (swarmMissileLauncher)
         {
             projectileSimFire = 5;

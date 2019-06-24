@@ -175,9 +175,6 @@ public class ExplodingProjectile : MonoBehaviourPun
 
     void OnCollisionEnter(Collision collision)
     {
-
-
-
         if (collision.gameObject.tag != "FX")
         {
             ContactPoint contact = collision.contacts[0];

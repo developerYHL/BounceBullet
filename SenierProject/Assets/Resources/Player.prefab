@@ -1358,6 +1358,7 @@ MonoBehaviour:
   lastFireTime: 0
   firePoint: {fileID: 0}
   animator: {fileID: 0}
+  victoryUi: {fileID: 0}
 --- !u!114 &114163411383447442
 MonoBehaviour:
   m_ObjectHideFlags: 1

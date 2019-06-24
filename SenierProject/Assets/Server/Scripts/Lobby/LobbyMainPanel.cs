@@ -46,11 +46,15 @@ namespace Photon.Pun.Demo.Asteroids
         public void Awake()
         {
             PhotonNetwork.AutomaticallySyncScene = true;
-
             cachedRoomList = new Dictionary<string, RoomInfo>();
             roomListEntries = new Dictionary<string, GameObject>();
             
             PlayerNameInput.text = "Player " + Random.Range(1000, 10000);
+
+            if (!PhotonNetwork.IsConnected)
+            {
+                PhotonNetwork.ConnectUsingSettings();
+            }
         }
 
         #endregion
