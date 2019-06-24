@@ -12,6 +12,8 @@ public class ExplodingProjectile : MonoBehaviourPun
     public LayerMask blockingLayer;
     public Rigidbody thisRigidbody;
 
+    public int reflectCount = 2;
+
     public GameObject particleKillGroup;
     private Collider thisCollider;
 
@@ -28,7 +30,7 @@ public class ExplodingProjectile : MonoBehaviourPun
     float timer;
 
     private Vector3 previousPosition;
-
+    Transform target;
     // Use this for initialization
     void Start()
     {
@@ -79,7 +81,7 @@ public class ExplodingProjectile : MonoBehaviourPun
 
         previousPosition = transform.position;
     }
-    Transform target;
+    
     void CheckCollision(Vector3 prevPos)
     {
         RaycastHit hit;
@@ -89,32 +91,70 @@ public class ExplodingProjectile : MonoBehaviourPun
         
         if (Physics.Raycast(ray, out hit, dist, 1 << LayerMask.NameToLayer("Wall")))
         {
-            thisRigidbody.velocity = Vector3.Reflect(thisRigidbody.velocity, hit.normal);
+            if(reflectCount > 0)
+            {
+
+                Vector3 temp = Vector3.Reflect(thisRigidbody.velocity, hit.normal);
+                thisRigidbody.velocity = temp;
+
+                transform.LookAt(hit.point);
+
+                print(hit.point);
+                //Vector3 vec = hit.point - transform.position;
+                //vec.Normalize();
+                //Quaternion q = Quaternion.LookRotation(vec);
+                //transform.localRotation = q;
+
+
+
+
+
+
+                print("AAasdasd : " + transform.forward);
+                reflectCount--;
+            }
+            else
+            {
+                transform.position = hit.point;
+                Quaternion rot = Quaternion.FromToRotation(Vector3.forward, hit.normal);
+                Vector3 pos = hit.point;
+                Instantiate(impactPrefab, pos, rot);
+                if (!explodeOnTimer && Missile == false)
+                {
+                    Destroy(gameObject);
+                }
+                else if (Missile == true)
+                {
+                    thisCollider.enabled = false;
+                    particleKillGroup.SetActive(false);
+                    thisRigidbody.velocity = Vector3.zero;
+                    Destroy(gameObject, 5);
+                }
+            }
             
-            transform.rotation = Quaternion.LookRotation(transform.forward);
 
+            if (hit.transform.tag == "BreakeWall")
+            {
+                print(hit.transform.GetComponent<PlaceBlockCtrl>().hp);
+                hit.transform.GetComponent<PlaceBlockCtrl>().Hit();
 
-            //if (hit.transform.tag == "BreakeWall")
-            //{
-            //    print(hit.transform.GetComponent<PlaceBlockCtrl>().hp);
-            //    hit.transform.GetComponent<PlaceBlockCtrl>().Hit();
+                transform.position = hit.point;
+                Quaternion rot = Quaternion.FromToRotation(Vector3.forward, hit.normal);
+                Vector3 pos = hit.point;
+                Instantiate(impactPrefab, pos, rot);
+                if (!explodeOnTimer && Missile == false)
+                {
+                    Destroy(gameObject);
+                }
+                else if (Missile == true)
+                {
+                    thisCollider.enabled = false;
+                    particleKillGroup.SetActive(false);
+                    thisRigidbody.velocity = Vector3.zero;
+                    Destroy(gameObject, 5);
+                }
+            }
 
-            //}
-            //transform.position = hit.point;
-            //Quaternion rot = Quaternion.FromToRotation(Vector3.forward, hit.normal);
-            //Vector3 pos = hit.point;
-            //Instantiate(impactPrefab, pos, rot);
-            //if (!explodeOnTimer && Missile == false)
-            //{
-            //    Destroy(gameObject);
-            //}
-            //else if (Missile == true)
-            //{
-            //    thisCollider.enabled = false;
-            //    particleKillGroup.SetActive(false);
-            //    thisRigidbody.velocity = Vector3.zero;
-            //    Destroy(gameObject, 5);
-            //}
         }
     }
 
