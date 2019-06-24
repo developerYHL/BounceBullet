@@ -60,9 +60,7 @@ public class ServerManager : MonoBehaviourPunCallbacks, IPunObservable {
     private void StartGame()
     {
         GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity);
-        player.GetComponent<PhotonTransformView>().enabled = false;
         player.transform.position = playerSpawn[player.GetPhotonView().OwnerActorNr - 1].position;
-        player.GetComponent<PhotonTransformView>().enabled = true;
     }
 
     // 주기적으로 자동 실행되는, 동기화 메서드

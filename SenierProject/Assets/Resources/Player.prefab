@@ -1555,6 +1555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126a98f48f6288944b2b236b91450847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followcam: {fileID: 0}
 --- !u!114 &114950892628947028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1587,6 +1588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  lifeCount: 3
   CountText: {fileID: 0}
   healthSlider: {fileID: 114801310514592620}
   theGun: {fileID: 0}

@@ -61,9 +61,12 @@ public class PlayerHealth : LivingEntity
         // LivingEntity의 Die() 실행(사망 적용)
         base.Die();
 
-        fireBt.enabled = false;
-        GetComponent<AudioSource>().enabled = false;
-        GetComponent<projectileActor>().gunState = projectileActor.State.Die;
+        if (photonView.IsMine)
+        {
+            fireBt.enabled = false;
+            GetComponent<AudioSource>().enabled = false;
+            GetComponent<projectileActor>().gunState = projectileActor.State.Die;
+        }
 
         // 체력 슬라이더 비활성화
         healthSlider.gameObject.SetActive(false);
@@ -72,8 +75,22 @@ public class PlayerHealth : LivingEntity
         playerAnimator.SetTrigger("Die");
         playerCtl.enabled = false;
 
-        // 5초 뒤에 리스폰
-        Invoke("Respawn", 5f);
+        if (lifeCount == 0)
+        {
+            projectileActor[] otherPlayer = FindObjectsOfType<projectileActor>();
+            for(int i = 0; i < otherPlayer.Length; i++)
+            {
+                if (otherPlayer[i] != null && !otherPlayer[i].photonView.IsMine)
+                {
+                    GetComponent<CameraSetup>().followcam.Follow = otherPlayer[i].transform;
+                }
+            }
+        }
+        else
+        {
+            // 5초 뒤에 리스폰
+            Invoke("Respawn", 5f);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -106,9 +123,7 @@ public class PlayerHealth : LivingEntity
         if (photonView.IsMine)
         {
             Transform respawnPos = ServerManager.instance.playerSpawn[photonView.OwnerActorNr - 1];
-            GetComponent<PhotonTransformView>().enabled = false;
             transform.position = respawnPos.position;
-            GetComponent<PhotonTransformView>().enabled = true;
         }
 
         // 컴포넌트들을 리셋하기 위해 게임 오브젝트를 잠시 껐다가 다시 켜기
