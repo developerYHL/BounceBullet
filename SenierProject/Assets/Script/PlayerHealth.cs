@@ -83,6 +83,7 @@ public class PlayerHealth : LivingEntity
                 if (otherPlayer[i] != null && !otherPlayer[i].photonView.IsMine)
                 {
                     GetComponent<CameraSetup>().followcam.Follow = otherPlayer[i].transform;
+                    CountText.text = "관전중";
                 }
             }
         }
