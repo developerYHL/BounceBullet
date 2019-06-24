@@ -8,7 +8,7 @@ public class ExplodingProjectile : MonoBehaviour
     public GameObject impactPrefab;
     public GameObject explosionPrefab;
     public float thrust;
-
+    public LayerMask blockingLayer;
     public Rigidbody thisRigidbody;
 
     public GameObject particleKillGroup;
@@ -83,7 +83,7 @@ public class ExplodingProjectile : MonoBehaviour
         Vector3 direction = transform.position - prevPos;
         Ray ray = new Ray(prevPos, direction);
         float dist = Vector3.Distance(transform.position, prevPos);
-        if (Physics.Raycast(ray, out hit, dist))
+        if (Physics.Raycast(ray, out hit, dist, 1 << LayerMask.NameToLayer("Wall")))
         {
             if (hit.transform.tag == "BreakeWall")
             {
