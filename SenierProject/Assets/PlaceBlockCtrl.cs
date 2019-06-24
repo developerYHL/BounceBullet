@@ -16,17 +16,16 @@ public class PlaceBlockCtrl : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter(Collider other)
+
+
+    public void Hit()
     {
-        if(other.transform.tag == "Bullet")
+        hp--;
+        print("block hp : " + hp);
+        if (hp < 0)
         {
-            
-            hp--;
-            print("block hp : " + hp);
-            if (hp < 0)
-            {
-                Destroy(transform);
-            }
+            print("block hpdasd : " + hp);
+            Destroy(gameObject);
         }
     }
 }

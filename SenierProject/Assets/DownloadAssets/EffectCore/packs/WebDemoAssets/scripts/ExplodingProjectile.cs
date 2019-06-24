@@ -85,6 +85,12 @@ public class ExplodingProjectile : MonoBehaviour
         float dist = Vector3.Distance(transform.position, prevPos);
         if (Physics.Raycast(ray, out hit, dist))
         {
+            if (hit.transform.tag == "BreakeWall")
+            {
+                print(hit.transform.GetComponent<PlaceBlockCtrl>().hp);
+                hit.transform.GetComponent<PlaceBlockCtrl>().Hit();
+
+            }
             transform.position = hit.point;
             Quaternion rot = Quaternion.FromToRotation(Vector3.forward, hit.normal);
             Vector3 pos = hit.point;
@@ -106,6 +112,8 @@ public class ExplodingProjectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        
+
         if (collision.gameObject.tag != "FX")
         {
             ContactPoint contact = collision.contacts[0];
