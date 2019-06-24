@@ -12,6 +12,8 @@ namespace ClientLibrary
         private bool buildModeOn = false;
         private bool canBuild = false;
 
+        public bool canPlace = false;
+
         private BlockSystem bSys;
 
         [SerializeField]
@@ -77,7 +79,7 @@ namespace ClientLibrary
             //Block 템플릿 실행
             if (canBuild && currentTemplateBlock == null) {
                 //이부분이 빌딩모드때 보이는 가상 블락 실행부분
-                currentTemplateBlock = Instantiate(blockTemplatePrefab, PlaceCubeNear(buildPos), Quaternion.identity);
+                currentTemplateBlock = Instantiate(blockTemplatePrefab, PlaceCubeNear(buildPos), Quaternion.identity, transform);
                 currentTemplateBlock.GetComponent<MeshRenderer>().material = templateMaterial;
                 print("currentTemplateBlock");
             }
@@ -86,7 +88,7 @@ namespace ClientLibrary
                 currentTemplateBlock.transform.position = PlaceCubeNear(buildPos);
 
                 //블락 설치 버튼
-                if (Input.GetMouseButtonDown(1)) {
+                if (Input.GetMouseButtonDown(1) && canPlace) {
                     photonView.RPC("PlaceBlock", RpcTarget.All);
                 }
             }

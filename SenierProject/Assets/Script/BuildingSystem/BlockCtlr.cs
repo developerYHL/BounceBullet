@@ -32,7 +32,7 @@ public class BlockCtlr : MonoBehaviour {
     {
         if (other.transform.tag == "Wall")
         {
-            print("AAA");
+            transform.parent.GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace = false;
             mMeshRenderer.material = denyMaterial;
         }
 
@@ -42,6 +42,7 @@ public class BlockCtlr : MonoBehaviour {
     {
         if (other.transform.tag == "Wall")
         {
+            transform.parent.GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace = true;
             mMeshRenderer.material = initalMeterial;
         }
     }
