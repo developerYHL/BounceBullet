@@ -24,9 +24,10 @@ GameObject:
   - component: {fileID: 114158976544959494}
   - component: {fileID: 114190901047519774}
   - component: {fileID: 65235808004040542}
+  - component: {fileID: 114547119905710344}
   m_Layer: 10
   m_Name: BoxPlace
-  m_TagString: Untagged
+  m_TagString: BreakeWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +129,20 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 0
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &114547119905710344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431372880820756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b443323d54e64ee4aa7c2b3172485d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 3

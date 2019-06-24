@@ -172,6 +172,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   thisRigidbody: {fileID: 54212628334827884}
+  reflectCount: 2
   particleKillGroup: {fileID: 0}
   LookRotation: 0
   Missile: 0
