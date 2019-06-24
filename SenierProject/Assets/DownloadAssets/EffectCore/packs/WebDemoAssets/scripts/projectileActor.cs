@@ -13,6 +13,8 @@ public class projectileActor : MonoBehaviourPun
     public Animator recoilAnimator;
 
     public AudioClip gunSound;
+    public AudioClip drySound;
+    public AudioClip reloadSound;
 
     public Transform[] shotgunLocator;
 
@@ -121,7 +123,7 @@ public class projectileActor : MonoBehaviourPun
             Debug.Log(gunState);
             return false;
         }
-
+        audio.PlayOneShot(reloadSound);
         StartCoroutine(ReloadRoutine());
         return true;
     }
@@ -131,7 +133,7 @@ public class projectileActor : MonoBehaviourPun
         gunState = State.Reloading;
         animator.SetTrigger("Reload");
 
-        yield return new WaitForSeconds(reloadTime);
+        yield return new WaitForSeconds(reloadSound.length);
 
         int ammoToFill = magCapacity - magAmmo;
 
@@ -231,16 +233,20 @@ public class projectileActor : MonoBehaviourPun
 
                 if (magAmmo <= 0)
                 {
+                    audio.PlayOneShot(drySound);
+
                     gunState = State.Empty;
                 }
                 else if (firingTimer > bombList[bombType].rapidFireCooldown + rapidFireDelay)
                 {
                     animator.SetTrigger("Shot");
                     photonView.RPC("Fire", RpcTarget.MasterClient);
+                    audio.PlayOneShot(gunSound);
+
                     magAmmo--;
                     if(audio.isPlaying && magAmmo == 0)
                     {
-                        audio.Stop();
+                        //audio.Stop();
                     }
                     ammoText.text = magAmmo + " / " + ammoRemain;
                     firingTimer = 0;
@@ -402,12 +408,16 @@ public class projectileActor : MonoBehaviourPun
         if (magAmmo <= 0)
         {
             gunState = State.Empty;
+            audio.PlayOneShot(drySound);
+
         }
         else if(gunState != State.Empty && gunState != State.Die)
         {
-            audio.Play();
+            
             animator.SetTrigger("Shot");
             photonView.RPC("Fire", RpcTarget.MasterClient);
+            audio.PlayOneShot(gunSound);
+
             magAmmo--;
             ammoText.text = magAmmo + " / " + ammoRemain;
             firing = true;
@@ -416,7 +426,7 @@ public class projectileActor : MonoBehaviourPun
 
     public void PointerUp()
     {
-        audio.Stop();
+        //audio.Stop();
         firing = false;
         firingTimer = 0;
     }

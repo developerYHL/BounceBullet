@@ -1158,7 +1158,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6defd15a95db03e43bcc46161de9a5d8, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1320,7 +1320,9 @@ MonoBehaviour:
   spawnLocatorMuzzleFlare: {fileID: 4787698316755858}
   shellLocator: {fileID: 4772615929552452}
   recoilAnimator: {fileID: 95450567495969746}
-  gunSound: {fileID: 0}
+  gunSound: {fileID: 8300000, guid: 34824e8a3ae788e448fa6219f3022ce3, type: 3}
+  drySound: {fileID: 8300000, guid: d55635c544f9c8542b43626962833a91, type: 3}
+  reloadSound: {fileID: 8300000, guid: ccdb849e34bafdf429920105088c7100, type: 3}
   shotgunLocator: []
   bombList:
   - name: Goldfire Bullet Small
@@ -1423,6 +1425,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114389997206288108}
   - {fileID: 114838690484295576}
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
