@@ -197,16 +197,6 @@ public class ExplodingProjectile : MonoBehaviourPun
             {
                 PhotonNetwork.Destroy(gameObject);
             }
-            else if (Missile == true)
-            {
-
-                thisCollider.enabled = false;
-                particleKillGroup.SetActive(false);
-                thisRigidbody.velocity = Vector3.zero;
-
-                Destroy(gameObject, 5);
-
-            }
         }
     }
 
