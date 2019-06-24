@@ -1324,7 +1324,7 @@ MonoBehaviour:
   shotgunLocator: []
   bombList:
   - name: Goldfire Bullet Small
-    bombPrefab: {fileID: 54212628334827884, guid: d414b898c12e9b241917fe056bed92c7,
+    bombPrefab: {fileID: 54372728989985948, guid: 491650581c4a28744ad172d8a74fe169,
       type: 2}
     muzzleflare: {fileID: 1584403288528622, guid: a7f7e53efb9c16141af1c5631e25cbb8,
       type: 2}
