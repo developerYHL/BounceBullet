@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 using System.Collections;
 
 /* THIS CODE IS JUST FOR PREVIEW AND TESTING */
 // Feel free to use any code and picking on it, I cannot guaratnee it will fit into your project
-public class ExplodingProjectile : MonoBehaviour
+public class ExplodingProjectile : MonoBehaviourPun
 {
     public GameObject impactPrefab;
     public GameObject explosionPrefab;
@@ -38,6 +39,8 @@ public class ExplodingProjectile : MonoBehaviour
         }
         thisCollider = GetComponent<Collider>();
         previousPosition = transform.position;
+
+        thisRigidbody.AddForce(transform.forward * Random.Range(2800, 3100));
     }
 
     // Update is called once per frame
