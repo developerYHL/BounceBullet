@@ -100,7 +100,7 @@ public class projectileActor : MonoBehaviourPun {
             //GetComponent<AudioSource>().clip = gunSound;
             GetComponent<AudioSource>().Play();
             firing = true;
-            Fire();
+            photonView.RPC("Fire", RpcTarget.MasterClient);
         }
         if (Input.GetButtonUp("Fire1"))
         {
@@ -113,7 +113,7 @@ public class projectileActor : MonoBehaviourPun {
         {
             if(firingTimer > bombList[bombType].rapidFireCooldown+rapidFireDelay)
             {
-                Fire();
+                photonView.RPC("Fire", RpcTarget.MasterClient);
                 firingTimer = 0;
             }
         }
@@ -142,10 +142,10 @@ public class projectileActor : MonoBehaviourPun {
         }
     }
 
-
+    [PunRPC]
     public void Fire()
     {
-        if(CameraShake)
+        if (CameraShake)
         {
             CameraShakeCaller.ShakeCamera();
         }
@@ -171,7 +171,7 @@ public class projectileActor : MonoBehaviourPun {
         //transform.eulerAngles = new Vector3(transform.rotation.x, 0.0f, transform.rotation.z)
 
         // Quaternion.Euler(0,90,0)
-        rocketInstance.GetComponent<Rigidbody>().AddForce(spawnLocator.forward * Random.Range(bombList[bombType].min, bombList[bombType].max));
+        //rocketInstance.GetComponent<Rigidbody>().AddForce(spawnLocator.forward * Random.Range(bombList[bombType].min, bombList[bombType].max));
 
         if (bombList[bombType].shotgunBehavior)
         {
@@ -180,7 +180,7 @@ public class projectileActor : MonoBehaviourPun {
                 GameObject rocketInstanceShotgun;
                 rocketInstanceShotgun = PhotonNetwork.Instantiate(bombList[bombType].bombPrefab.name, shotgunLocator[i].position, shotgunLocator[i].rotation);
                 // Quaternion.Euler(0,90,0)
-                rocketInstanceShotgun.GetComponent<Rigidbody>().AddForce(shotgunLocator[i].forward * Random.Range(bombList[bombType].min, bombList[bombType].max));
+                //rocketInstanceShotgun.GetComponent<Rigidbody>().AddForce(shotgunLocator[i].forward * Random.Range(bombList[bombType].min, bombList[bombType].max));
             }
         }
 
