@@ -3,9 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 using Photon.Pun;
 using Cinemachine;
+using UnityEngine.EventSystems;
 
-public class projectileActor : MonoBehaviourPun {
-
+public class projectileActor : MonoBehaviourPun
+{
     public Transform spawnLocator; 
     public Transform spawnLocatorMuzzleFlare;
     public Transform shellLocator;
@@ -35,6 +36,7 @@ public class projectileActor : MonoBehaviourPun {
 
     string FauxName;
     public Text UiText;
+    AudioSource audio;
 
     public bool UImaster = true;
     public bool CameraShake = true;
@@ -57,9 +59,138 @@ public class projectileActor : MonoBehaviourPun {
     public bool MajorRotate = false;
     int seq = 0;
 
+    // 총알 관리
+    public enum State
+    {
+        Ready,
+        Empty,
+        Reloading,
+        Die
+    }
 
-	// Use this for initialization
-	void Start ()
+    public State gunState { get; set; }
+
+    public int ammoRemain = 100;    // 남은 전체 탄알
+    public int magCapacity = 25;    // 탄창 용량
+    public int magAmmo;    // 현재 탄창에 남아 있는 탄알
+
+    public float timeBetFire = 0.12f;   // 탄알 발사 간격
+    public float reloadTime = 1.8f;     // 재장전 소요 시간
+    public float lastFireTime;     // 총을 마지막으로 발사한 시점
+
+    private Button reloadBt;
+    private FireButton fireBt;
+    private Text ammoText;
+
+    public Transform firePoint;
+    public Animator animator;
+
+    private void OnEnable()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+        audio = GetComponent<AudioSource>();
+        reloadBt = GameObject.Find("/Canvas/Reload").GetComponent<Button>();
+        fireBt = GameObject.Find("/Canvas/Fire").GetComponent<FireButton>();
+        ammoText = GameObject.Find("/Canvas/Ammo").GetComponent<Text>();
+        animator = FindObjectOfType<Animator>();
+        magAmmo = magCapacity;
+        ammoRemain = 100;
+        ammoText.text = magAmmo + " / " + ammoRemain;
+        gunState = State.Ready;
+
+        reloadBt.onClick.AddListener(() => Reload());
+        fireBt.player = this;
+    }
+
+    void Shot()
+    {
+        if (gunState == State.Ready && Time.time >= lastFireTime + timeBetFire)
+        {
+            lastFireTime = Time.time;
+
+            if (magAmmo <= 0)
+            {
+                gunState = State.Empty;
+            }
+            else
+            {
+                animator.SetTrigger("Shot");
+                photonView.RPC("Fire", RpcTarget.MasterClient);
+                magAmmo--;
+                ammoText.text = magAmmo + " / " + ammoRemain;
+            }
+        }
+    }
+
+    [PunRPC]
+    public void AddAmmo(int ammo)
+    {
+        ammoRemain += ammo;
+        ammoText.text = magAmmo + " / " + ammoRemain;
+    }
+
+    public bool Reload()
+    {
+        if (gunState == State.Reloading || magAmmo >= magCapacity || gunState == State.Die)
+        {
+            Debug.Log(gunState);
+            return false;
+        }
+
+        StartCoroutine(ReloadRoutine());
+        return true;
+    }
+
+    private IEnumerator ReloadRoutine()
+    {
+        gunState = State.Reloading;
+        animator.SetTrigger("Reload");
+
+        yield return new WaitForSeconds(reloadTime);
+
+        int ammoToFill = magCapacity - magAmmo;
+
+        if (ammoRemain < ammoToFill)
+        {
+            ammoToFill = ammoRemain;
+        }
+
+        magAmmo += ammoToFill;
+        ammoRemain -= ammoToFill;
+        ammoText.text = magAmmo + " / " + ammoRemain;
+
+        gunState = State.Ready;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        // 로컬 오브젝트라면 쓰기 부분이 실행됨
+        if (stream.IsWriting)
+        {
+            // 남은 탄약수를 네트워크를 통해 보내기
+            stream.SendNext(ammoRemain);
+            // 탄창의 탄약수를 네트워크를 통해 보내기
+            stream.SendNext(magAmmo);
+            // 현재 총의 상태를 네트워크를 통해 보내기
+            stream.SendNext(gunState);
+        }
+        else
+        {
+            // 리모트 오브젝트라면 읽기 부분이 실행됨
+            // 남은 탄약수를 네트워크를 통해 받기
+            ammoRemain = (int)stream.ReceiveNext();
+            // 탄창의 탄약수를 네트워크를 통해 받기
+            magAmmo = (int)stream.ReceiveNext();
+            // 현재 총의 상태를 네트워크를 통해 받기
+            gunState = (State)stream.ReceiveNext();
+        }
+    }
+
+    // Use this for initialization
+    void Start ()
     {
         if (UImaster)
         {
@@ -95,19 +226,20 @@ public class projectileActor : MonoBehaviourPun {
             Switch(1);
         }
 
-	    if(Input.GetButtonDown("Fire1"))
+        /*if(Input.GetButtonDown("Fire1"))
         {
             //GetComponent<AudioSource>().clip = gunSound;
             GetComponent<AudioSource>().Play();
             firing = true;
             photonView.RPC("Fire", RpcTarget.MasterClient);
         }
+
         if (Input.GetButtonUp("Fire1"))
         {
             GetComponent<AudioSource>().Stop();
             firing = false;
             firingTimer = 0;
-        }
+        }*/
 
         if (bombList[bombType].rapidFire && firing)
         {
@@ -265,5 +397,19 @@ public class projectileActor : MonoBehaviourPun {
             seq = 0;
             transform.Rotate(25, 0, 0);
         }
+    }
+
+    public void PointerDown()
+    {
+        audio.Play();
+        firing = true;
+        photonView.RPC("Fire", RpcTarget.MasterClient);
+    }
+
+    public void PointerUp()
+    {
+        audio.Stop();
+        firing = false;
+        firingTimer = 0;
     }
 }

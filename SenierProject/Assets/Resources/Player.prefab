@@ -81,9 +81,7 @@ GameObject:
   - component: {fileID: 4234438025139920}
   - component: {fileID: 33703203168993164}
   - component: {fileID: 23854198358834182}
-  - component: {fileID: 114059427554572166}
-  - component: {fileID: 114635502331243542}
-  - component: {fileID: 65842005395472504}
+  - component: {fileID: 65139638711665828}
   m_Layer: 0
   m_Name: SK_Wep_AK47_01
   m_TagString: Untagged
@@ -1127,6 +1125,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!65 &65139638711665828
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202238089297018}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.114123635, y: 0.64035964, z: 1.8990018}
+  m_Center: {x: -0.0025403802, y: -0.016736375, z: 0.38249552}
 --- !u!65 &65246615873417448
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1139,18 +1149,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 2.8, z: 0.93500936}
   m_Center: {x: 0, y: 1.4, z: 0.067504704}
---- !u!65 &65842005395472504
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1202238089297018}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5141225, y: 0.64035976, z: 2.3631916}
-  m_Center: {x: -0.0025401907, y: -0.016734494, z: 0.6145914}
 --- !u!82 &82000688548875948
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1264,27 +1262,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114059427554572166
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1202238089297018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26fc8c90f900b274597b7d7818bf3f06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoRemain: 100
-  magCapacity: 25
-  magAmmo: 0
-  timeBetFire: 0.12
-  reloadTime: 1.8
-  lastFireTime: 0
-  player: {fileID: 1981677757760330}
-  bullet: {fileID: 1342216328587976, guid: 89f88f8cc1dae8b4e9d0b939d390f16c, type: 2}
-  firePoint: {fileID: 4744237592970660}
-  animator: {fileID: 0}
 --- !u!114 &114105434308621744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1373,6 +1350,14 @@ MonoBehaviour:
   Tor_max: 0
   MinorRotate: 1
   MajorRotate: 0
+  ammoRemain: 100
+  magCapacity: 25
+  magAmmo: 0
+  timeBetFire: 0.12
+  reloadTime: 1.8
+  lastFireTime: 0
+  firePoint: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &114163411383447442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1387,7 +1372,7 @@ MonoBehaviour:
   useJoystic: 0
   moveSpeed: 8
   joystick: {fileID: 0}
-  gun: {fileID: 114059427554572166}
+  gun: {fileID: 0}
   testCheck: 1
   gunPivot: {fileID: 4928589385215656}
   leftHandMount: {fileID: 4286295747637342}
@@ -1439,7 +1424,7 @@ MonoBehaviour:
   - {fileID: 114389997206288108}
   - {fileID: 114838690484295576}
   viewIdField: 0
-  InstantiationId: 3
+  InstantiationId: 1
   isRuntimeInstantiated: 0
 --- !u!114 &114389997206288108
 MonoBehaviour:
@@ -1476,27 +1461,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114635502331243542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1202238089297018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 114059427554572166}
-  viewIdField: 0
-  InstantiationId: 2
-  isRuntimeInstantiated: 0
 --- !u!114 &114801310514592620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1625,7 +1589,7 @@ MonoBehaviour:
   startingHealth: 100
   CountText: {fileID: 0}
   healthSlider: {fileID: 114801310514592620}
-  theGun: {fileID: 114059427554572166}
+  theGun: {fileID: 0}
   playerCtl: {fileID: 0}
 --- !u!137 &137988182691480742
 SkinnedMeshRenderer:
