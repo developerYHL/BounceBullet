@@ -20,19 +20,20 @@ public class BlockCtlr : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        print("OnCollisionEnter");
+        
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "Wall")
         {
-            transform.parent.GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace = false;
+            if (GameObject.FindGameObjectWithTag("Player").GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace == true)
+                GameObject.FindGameObjectWithTag("Player").GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace = false;
             mMeshRenderer.material = denyMaterial;
         }
 
@@ -42,7 +43,7 @@ public class BlockCtlr : MonoBehaviour {
     {
         if (other.transform.tag == "Wall")
         {
-            transform.parent.GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace = true;
             mMeshRenderer.material = initalMeterial;
         }
     }
