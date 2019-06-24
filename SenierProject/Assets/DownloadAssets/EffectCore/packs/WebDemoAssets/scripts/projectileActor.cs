@@ -236,11 +236,6 @@ public class projectileActor : MonoBehaviourPun
                     animator.SetTrigger("Shot");
                     photonView.RPC("Fire", RpcTarget.MasterClient);
                     magAmmo--;
-                    if (!audio.isPlaying)
-                    {
-                        audio.Play();
-                    }
-
                     if(audio.isPlaying && magAmmo == 0)
                     {
                         audio.Stop();
@@ -402,7 +397,19 @@ public class projectileActor : MonoBehaviourPun
 
     public void PointerDown()
     {
-        firing = true;
+        if (magAmmo <= 0)
+        {
+            gunState = State.Empty;
+        }
+        else
+        {
+            audio.Play();
+            animator.SetTrigger("Shot");
+            photonView.RPC("Fire", RpcTarget.MasterClient);
+            magAmmo--;
+            ammoText.text = magAmmo + " / " + ammoRemain;
+            firing = true;
+        }
     }
 
     public void PointerUp()
