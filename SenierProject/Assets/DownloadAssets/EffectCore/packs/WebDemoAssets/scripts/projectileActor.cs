@@ -92,6 +92,7 @@ public class projectileActor : MonoBehaviourPun
             return;
         }
         audio = GetComponent<AudioSource>();
+        audio.enabled = true;
         reloadBt = GameObject.Find("/Canvas/Reload").GetComponent<Button>();
         fireBt = GameObject.Find("/Canvas/Fire").GetComponent<FireButton>();
         ammoText = GameObject.Find("/Canvas/Ammo").GetComponent<Text>();
@@ -401,7 +402,7 @@ public class projectileActor : MonoBehaviourPun
         {
             gunState = State.Empty;
         }
-        else
+        else if(gunState != State.Empty && gunState != State.Die)
         {
             audio.Play();
             animator.SetTrigger("Shot");

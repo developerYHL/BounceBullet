@@ -94,7 +94,6 @@ namespace ClientLibrary
             Vector3 bulletVector = new Vector3(firePoint.position.x, 1.5f, firePoint.position.z);
             Quaternion bulletQuaternion = new Quaternion(0, firePoint.rotation.y, 0, firePoint.rotation.w);
             GameObject newBullet = PhotonNetwork.Instantiate(bullet.name, bulletVector, bulletQuaternion);
-            newBullet.GetComponent<BulletCtrl>().master = player;
         }
 
         [PunRPC]

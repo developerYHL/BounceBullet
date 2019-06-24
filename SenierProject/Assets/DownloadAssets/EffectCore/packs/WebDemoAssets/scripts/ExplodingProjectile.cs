@@ -31,6 +31,9 @@ public class ExplodingProjectile : MonoBehaviourPun
 
     private Vector3 previousPosition;
     Transform target;
+
+    public float damage = 25;   // 공격력
+
     // Use this for initialization
     void Start()
     {
@@ -161,7 +164,16 @@ public class ExplodingProjectile : MonoBehaviourPun
 
     void OnCollisionEnter(Collision collision)
     {
-        
+        IDamageable target = collision.gameObject.GetComponent<IDamageable>();
+        if (target != null)
+        {
+            if (photonView.IsMine)
+            {
+                Debug.Log("요긴되?");
+                target.OnDamage(damage);
+                PhotonNetwork.Destroy(gameObject);
+            }
+        }
 
         if (collision.gameObject.tag != "FX")
         {
@@ -173,9 +185,9 @@ public class ExplodingProjectile : MonoBehaviourPun
             }
             Vector3 pos = contact.point;
             Instantiate(impactPrefab, pos, rot);
-            if (!explodeOnTimer && Missile == false)
+            if (!explodeOnTimer && Missile == false && photonView.IsMine)
             {
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
             else if (Missile == true)
             {
