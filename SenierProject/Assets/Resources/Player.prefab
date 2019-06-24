@@ -1320,7 +1320,9 @@ MonoBehaviour:
   spawnLocatorMuzzleFlare: {fileID: 4787698316755858}
   shellLocator: {fileID: 4772615929552452}
   recoilAnimator: {fileID: 95450567495969746}
-  gunSound: {fileID: 0}
+  gunSound: {fileID: 8300000, guid: 1ef531b5677829043b6d50699cb7d098, type: 3}
+  drySound: {fileID: 8300000, guid: 955f4438f78f1e745ae12ae28adb686e, type: 3}
+  reloadSound: {fileID: 8300000, guid: 6a937702ca14c6841a35f9bcb5cb5092, type: 3}
   shotgunLocator: []
   bombList:
   - name: Goldfire Bullet Small

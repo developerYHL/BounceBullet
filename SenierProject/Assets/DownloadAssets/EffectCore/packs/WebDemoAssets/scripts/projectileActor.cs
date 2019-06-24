@@ -13,6 +13,8 @@ public class projectileActor : MonoBehaviourPun
     public Animator recoilAnimator;
 
     public AudioClip gunSound;
+    public AudioClip drySound;
+    public AudioClip reloadSound;
 
     public Transform[] shotgunLocator;
 
