@@ -97,7 +97,7 @@ public class ExplodingProjectile : MonoBehaviourPun
                 Vector3 temp = Vector3.Reflect(thisRigidbody.velocity, hit.normal);
                 thisRigidbody.velocity = temp;
 
-                transform.LookAt(hit.point);
+                
 
                 print(hit.point);
                 //Vector3 vec = hit.point - transform.position;
@@ -131,7 +131,8 @@ public class ExplodingProjectile : MonoBehaviourPun
                     Destroy(gameObject, 5);
                 }
             }
-            
+
+            transform.LookAt(hit.point);
 
             if (hit.transform.tag == "BreakeWall")
             {
