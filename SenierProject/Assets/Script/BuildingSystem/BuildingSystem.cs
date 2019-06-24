@@ -12,7 +12,7 @@ namespace ClientLibrary
         private bool buildModeOn = false;
         private bool canBuild = false;
 
-        public bool canPlace = false;
+        public bool canPlace = true;
 
         private BlockSystem bSys;
 

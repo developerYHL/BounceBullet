@@ -80,6 +80,10 @@ public class projectileActor : MonoBehaviourPun {
 	// Update is called once per frame
 	void Update ()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
 
         //BULLETS
         if (Input.GetKeyDown(KeyCode.Q))
