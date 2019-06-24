@@ -148,40 +148,41 @@ public class projectileActor : MonoBehaviourPun {
         spawnLocator.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
 
-
-        Instantiate(bombList[bombType].muzzleflare, spawnLocatorMuzzleFlare.position, spawnLocatorMuzzleFlare.rotation);
+        PhotonNetwork.Instantiate(bombList[bombType].muzzleflare.name, spawnLocatorMuzzleFlare.position, spawnLocatorMuzzleFlare.rotation);
+        //Instantiate(bombList[bombType].muzzleflare, spawnLocatorMuzzleFlare.position, spawnLocatorMuzzleFlare.rotation);
         //   bombList[bombType].muzzleflare.Play();
 
         if (bombList[bombType].hasShells)
         {
-            Instantiate(bombList[bombType].shellPrefab, shellLocator.position, shellLocator.rotation);
+            PhotonNetwork.Instantiate(bombList[bombType].shellPrefab.name, shellLocator.position, shellLocator.rotation);
+            //Instantiate(bombList[bombType].shellPrefab, shellLocator.position, shellLocator.rotation);
         }
-        recoilAnimator.SetTrigger("recoil_trigger");
+        //recoilAnimator.SetTrigger("recoil_trigger");
 
-        Rigidbody rocketInstance;
-
-        rocketInstance = Instantiate(bombList[bombType].bombPrefab, spawnLocator.position, spawnLocator.rotation) as Rigidbody;
+        GameObject rocketInstance;
+        rocketInstance = PhotonNetwork.Instantiate(bombList[bombType].bombPrefab.name, spawnLocator.position, spawnLocator.rotation);
+        //rocketInstance = Instantiate(bombList[bombType].bombPrefab, spawnLocator.position, spawnLocator.rotation) as Rigidbody;
         //spawnLocator.eulerAngles = new Vector3(0, spawnLocator.eulerAngles.y, spawnLocator.localRotation.z);
         //print(rocketInstance.rotation + ", " + (spawnLocator.eulerAngles * new Vector3(0,1,1)));
         //transform.eulerAngles = new Vector3(transform.rotation.x, 0.0f, transform.rotation.z)
 
         // Quaternion.Euler(0,90,0)
-        rocketInstance.AddForce(spawnLocator.forward * Random.Range(bombList[bombType].min, bombList[bombType].max));
+        rocketInstance.GetComponent<Rigidbody>().AddForce(spawnLocator.forward * Random.Range(bombList[bombType].min, bombList[bombType].max));
 
         if (bombList[bombType].shotgunBehavior)
         {
             for(int i = 0; i < bombList[bombType].shotgunPellets ;i++ )
             {
-                Rigidbody rocketInstanceShotgun;
-                rocketInstanceShotgun = Instantiate(bombList[bombType].bombPrefab, shotgunLocator[i].position, shotgunLocator[i].rotation) as Rigidbody;
+                GameObject rocketInstanceShotgun;
+                rocketInstanceShotgun = PhotonNetwork.Instantiate(bombList[bombType].bombPrefab.name, shotgunLocator[i].position, shotgunLocator[i].rotation);
                 // Quaternion.Euler(0,90,0)
-                rocketInstanceShotgun.AddForce(shotgunLocator[i].forward * Random.Range(bombList[bombType].min, bombList[bombType].max));
+                rocketInstanceShotgun.GetComponent<Rigidbody>().AddForce(shotgunLocator[i].forward * Random.Range(bombList[bombType].min, bombList[bombType].max));
             }
         }
 
         if (Torque)
         {
-            rocketInstance.AddTorque(spawnLocator.up * Random.Range(Tor_min, Tor_max));
+            rocketInstance.GetComponent<Rigidbody>().AddTorque(spawnLocator.up * Random.Range(Tor_min, Tor_max));
         }
         if (MinorRotate)
         {
