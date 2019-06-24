@@ -3004,7 +3004,7 @@ GameObject:
   - component: {fileID: 186992008}
   - component: {fileID: 186992007}
   - component: {fileID: 186992006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Prop_Fuel_Tank_Large_01 (3)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -13575,7 +13575,7 @@ GameObject:
   - component: {fileID: 1021207865}
   - component: {fileID: 1021207864}
   - component: {fileID: 1021207863}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Prop_Fuel_Tank_Large_01 (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -14316,9 +14316,9 @@ GameObject:
   - component: {fileID: 1097547080}
   - component: {fileID: 1097547079}
   - component: {fileID: 1097547081}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GuardTower
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
