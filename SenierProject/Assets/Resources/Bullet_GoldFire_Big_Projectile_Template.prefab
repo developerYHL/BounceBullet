@@ -168,6 +168,9 @@ MonoBehaviour:
     type: 2}
   explosionPrefab: {fileID: 0}
   thrust: 0
+  blockingLayer:
+    serializedVersion: 2
+    m_Bits: 0
   thisRigidbody: {fileID: 54212628334827884}
   particleKillGroup: {fileID: 0}
   LookRotation: 0

@@ -79,7 +79,7 @@ public class projectileActor : MonoBehaviourPun
     public float lastFireTime;     // 총을 마지막으로 발사한 시점
 
     private Button reloadBt;
-    private Button fireBt;
+    private FireButton fireBt;
     private Text ammoText;
 
     public Transform firePoint;
@@ -93,7 +93,7 @@ public class projectileActor : MonoBehaviourPun
         }
         audio = GetComponent<AudioSource>();
         reloadBt = GameObject.Find("/Canvas/Reload").GetComponent<Button>();
-        fireBt = GameObject.Find("/Canvas/Fire").GetComponent<Button>();
+        fireBt = GameObject.Find("/Canvas/Fire").GetComponent<FireButton>();
         ammoText = GameObject.Find("/Canvas/Ammo").GetComponent<Text>();
         animator = FindObjectOfType<Animator>();
         magAmmo = magCapacity;
@@ -102,7 +102,7 @@ public class projectileActor : MonoBehaviourPun
         gunState = State.Ready;
 
         reloadBt.onClick.AddListener(() => Reload());
-        fireBt.onClick.AddListener(() => Shot());
+        fireBt.player = this;
     }
 
     void Shot()
@@ -226,7 +226,7 @@ public class projectileActor : MonoBehaviourPun
             Switch(1);
         }
 
-	    /*if(Input.GetButtonDown("Fire1"))
+        /*if(Input.GetButtonDown("Fire1"))
         {
             //GetComponent<AudioSource>().clip = gunSound;
             GetComponent<AudioSource>().Play();
@@ -239,7 +239,7 @@ public class projectileActor : MonoBehaviourPun
             GetComponent<AudioSource>().Stop();
             firing = false;
             firingTimer = 0;
-        }
+        }*/
 
         if (bombList[bombType].rapidFire && firing)
         {
@@ -248,7 +248,7 @@ public class projectileActor : MonoBehaviourPun
                 photonView.RPC("Fire", RpcTarget.MasterClient);
                 firingTimer = 0;
             }
-        }*/
+        }
 
         if(firing)
         {
@@ -397,5 +397,19 @@ public class projectileActor : MonoBehaviourPun
             seq = 0;
             transform.Rotate(25, 0, 0);
         }
+    }
+
+    public void PointerDown()
+    {
+        audio.Play();
+        firing = true;
+        photonView.RPC("Fire", RpcTarget.MasterClient);
+    }
+
+    public void PointerUp()
+    {
+        audio.Stop();
+        firing = false;
+        firingTimer = 0;
     }
 }
