@@ -11,9 +11,9 @@ namespace ClientLibrary
         {
 
 #if UNITY_ANDROID
-            if (Input.GetKeyDown(KeyCode.Escape){
+            if (Input.GetKeyDown(KeyCode.Escape))
                 Application.Quit();
-            }
+            
 #endif
         }
     }
