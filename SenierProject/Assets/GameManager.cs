@@ -7,8 +7,14 @@ namespace ClientLibrary
     public class GameManager : MonoBehaviour
     {
 
-        private void Awake() {
+        private void Update()
+        {
 
+#if UNITY_ANDROID
+            if (Input.GetKeyDown(KeyCode.Escape){
+                Application.Quit();
+            }
+#endif
         }
     }
 }
