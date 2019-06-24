@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using UnityEngine.Audio;
 
-public class PlaceBlockCtrl : MonoBehaviour {
+public class PlaceBlockCtrl : MonoBehaviourPun {
     public int hp =3;
+    public GameObject explosionPrefab;
+    public GameObject hitPrefab;
+    public AudioClip hitSound;
 
-
-	// Use this for initialization
-	void Start () {
-		
+    public AudioSource audioSource;
+    // Use this for initialization
+    void Start () {
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -21,11 +26,13 @@ public class PlaceBlockCtrl : MonoBehaviour {
     public void Hit()
     {
         hp--;
-        print("block hp : " + hp);
+        PhotonNetwork.Instantiate(hitPrefab.name, transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(hitSound);
         if (hp < 0)
         {
-            print("block hpdasd : " + hp);
+            PhotonNetwork.Instantiate(explosionPrefab.name, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
 }
+

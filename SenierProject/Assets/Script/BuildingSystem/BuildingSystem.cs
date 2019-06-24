@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using Photon.Pun;
+using UnityEngine.UI;
+
 namespace ClientLibrary
 {
     public class BuildingSystem : MonoBehaviourPun
@@ -33,9 +35,46 @@ namespace ClientLibrary
 
         private int blockSelectCounter = 0;
 
+
+        private GameObject fireButton;
+        private GameObject PlaceButton;
+
         private void Start() {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
             grid = FindObjectOfType<Grid>();
             bSys = GetComponent<BlockSystem>();
+            print(GameObject.Find("Canvas").transform + ", " + GameObject.Find("Canvas/Building").transform);
+            fireButton = GameObject.Find("Canvas/Fire");
+            PlaceButton = GameObject.Find("Canvas/Place");
+            
+
+            GameObject.Find("Canvas/Building").GetComponent<Button>().onClick.AddListener(ClickBuildingButton);
+            PlaceButton.GetComponent<Button>().onClick.AddListener(PlaceBlock);
+            PlaceButton.SetActive(false);
+        }
+
+        public void ClickBuildingButton()
+        {
+            buildModeOn = !buildModeOn;
+
+            if (buildModeOn)
+            {
+                GameObject.Find("Canvas/Building/Text").GetComponent<Text>().text = "취소";
+                fireButton.SetActive(false);
+                PlaceButton.SetActive(true);
+                //Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                GameObject.Find("Canvas/Building/Text").GetComponent<Text>().text = "빌딩";
+                fireButton.SetActive(true);
+                PlaceButton.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
 
         private void Update() {
@@ -87,18 +126,36 @@ namespace ClientLibrary
             if (canBuild && currentTemplateBlock != null) {
                 currentTemplateBlock.transform.position = PlaceCubeNear(buildPos);
 
-                //블락 설치 버튼
-                if (Input.GetMouseButtonDown(1) && canPlace && photonView.IsMine) {
-                    photonView.RPC("PlaceBlock", RpcTarget.All);
-                    canPlace = false;
-                }
+                ////블락 설치 버튼
+                //if (Input.GetMouseButtonDown(1) && canPlace && photonView.IsMine) {
+                //    photonView.RPC("PlaceBlock", RpcTarget.All);
+                //    canPlace = false;
+                //}
+            }
+        }
+
+        public void PlaceBlockClick()
+        {
+            //블락 설치 버튼
+            if (canPlace && photonView.IsMine)
+            {
+                photonView.RPC("PlaceBlock", RpcTarget.All);
+                canPlace = false;
             }
         }
 
         [PunRPC]
         private void PlaceBlock() {
+
+            //currentTemplateBlock.transform.position = PlaceCubeNear(buildPos);
+
+            if (canPlace && photonView.IsMine)
+            {
+                canPlace = false;
+                GameObject newBlock = PhotonNetwork.Instantiate(blockPrefab.name, PlaceCubeNear(buildPos), Quaternion.identity);
+
+            }
             //빌딩 모드에서 마우스 좌클릭시 블락 설치되는 부분 
-            GameObject newBlock = PhotonNetwork.Instantiate(blockPrefab.name, PlaceCubeNear(buildPos), Quaternion.identity);
             //Block tempBlock = bSys.allBlocks[blockSelectCounter];
             //newBlock.name = tempBlock.blockName + "-Block";
             //newBlock.GetComponent<MeshRenderer>().material = tempBlock.blockMaterial;
