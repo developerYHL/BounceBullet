@@ -90,6 +90,7 @@ namespace ClientLibrary
                 //블락 설치 버튼
                 if (Input.GetMouseButtonDown(1) && canPlace) {
                     photonView.RPC("PlaceBlock", RpcTarget.All);
+                    canPlace = false;
                 }
             }
         }

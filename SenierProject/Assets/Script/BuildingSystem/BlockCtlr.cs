@@ -34,11 +34,11 @@ public class BlockCtlr : MonoBehaviour {
     {
         if (other.transform.tag == "Wall" || other.transform.tag == "BreakeWall")
         {
-            if (GameObject.FindGameObjectWithTag("Player").GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace == true)
-            {
+            //if (GameObject.FindGameObjectWithTag("Player").GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace == true)
+            //{
                 GameObject.FindGameObjectWithTag("Player").GetComponentInParent<ClientLibrary.BuildingSystem>().canPlace = false;
                 mMeshRenderer.material = denyMaterial;
-            }
+            //}
                 
         }
 
