@@ -105,26 +105,6 @@ public class projectileActor : MonoBehaviourPun
         fireBt.player = this;
     }
 
-    void Shot()
-    {
-        if (gunState == State.Ready && Time.time >= lastFireTime + timeBetFire)
-        {
-            lastFireTime = Time.time;
-
-            if (magAmmo <= 0)
-            {
-                gunState = State.Empty;
-            }
-            else
-            {
-                animator.SetTrigger("Shot");
-                photonView.RPC("Fire", RpcTarget.MasterClient);
-                magAmmo--;
-                ammoText.text = magAmmo + " / " + ammoRemain;
-            }
-        }
-    }
-
     [PunRPC]
     public void AddAmmo(int ammo)
     {
@@ -243,10 +223,26 @@ public class projectileActor : MonoBehaviourPun
 
         if (bombList[bombType].rapidFire && firing)
         {
-            if(firingTimer > bombList[bombType].rapidFireCooldown+rapidFireDelay)
+            if (gunState == State.Ready && Time.time >= lastFireTime + timeBetFire)
             {
-                photonView.RPC("Fire", RpcTarget.MasterClient);
-                firingTimer = 0;
+                lastFireTime = Time.time;
+
+                if (magAmmo <= 0)
+                {
+                    gunState = State.Empty;
+                }
+                else if (firingTimer > bombList[bombType].rapidFireCooldown + rapidFireDelay)
+                {
+                    animator.SetTrigger("Shot");
+                    photonView.RPC("Fire", RpcTarget.MasterClient);
+                    magAmmo--;
+                    if(audio.isPlaying && magAmmo == 0)
+                    {
+                        audio.Stop();
+                    }
+                    ammoText.text = magAmmo + " / " + ammoRemain;
+                    firingTimer = 0;
+                }
             }
         }
 
@@ -401,9 +397,19 @@ public class projectileActor : MonoBehaviourPun
 
     public void PointerDown()
     {
-        audio.Play();
-        firing = true;
-        photonView.RPC("Fire", RpcTarget.MasterClient);
+        if (magAmmo <= 0)
+        {
+            gunState = State.Empty;
+        }
+        else
+        {
+            audio.Play();
+            animator.SetTrigger("Shot");
+            photonView.RPC("Fire", RpcTarget.MasterClient);
+            magAmmo--;
+            ammoText.text = magAmmo + " / " + ammoRemain;
+            firing = true;
+        }
     }
 
     public void PointerUp()
