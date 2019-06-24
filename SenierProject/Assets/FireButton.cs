@@ -16,4 +16,9 @@ public class FireButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         player.PointerUp();
     }
+
+    private void OnDisable()
+    {
+        player.PointerUp();
+    }
 }

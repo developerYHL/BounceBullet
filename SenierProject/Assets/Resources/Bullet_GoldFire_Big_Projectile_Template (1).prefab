@@ -293,6 +293,7 @@ MonoBehaviour:
   ignorePrevRotation: 0
   explodeOnTimer: 0
   explosionTimer: 0
+  damage: 25
 --- !u!114 &114913540288751594
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 199358154026892044}
   - component: {fileID: 198114610253404294}
   - component: {fileID: 114826967703553898}
+  - component: {fileID: 65234619986795646}
   m_Layer: 0
   m_Name: Bullet_GoldFire_Big_Projectile_Template
   m_TagString: FX
@@ -153,6 +154,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65234619986795646
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796749963149706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114409874962607200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,6 +195,7 @@ MonoBehaviour:
   ignorePrevRotation: 0
   explodeOnTimer: 0
   explosionTimer: 0
+  damage: 25
 --- !u!114 &114826967703553898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,7 +215,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 0}
   viewIdField: 0
-  InstantiationId: 0
+  InstantiationId: 1
   isRuntimeInstantiated: 0
 --- !u!114 &114876165745724762
 MonoBehaviour:

@@ -13,9 +13,6 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
     public bool dead { get; protected set; } // 사망 상태
     public bool invincibility { get; protected set; } // 무적 상태
     public event Action onDeath; // 사망시 발동할 이벤트
-    //public int killCount { get; set; }
-    public int kill { get; protected set; }
-    public int dieCount { get; protected set; }
     public Text CountText;
 
 
@@ -52,7 +49,7 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
 
     // 데미지를 입는 기능
     [PunRPC]
-    public virtual void OnDamage(float damage, GameObject master)
+    public virtual void OnDamage(float damage)
     {
         if (PhotonNetwork.IsMasterClient && !invincibility)
         {
@@ -63,32 +60,13 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
             photonView.RPC("ApplyUpdatedHealth", RpcTarget.Others, health, dead);
 
             // 다른 클라이언트들도 OnDamage를 실행하도록 함
-            photonView.RPC("OnDamage", RpcTarget.Others, damage, null);
+            photonView.RPC("OnDamage", RpcTarget.Others, damage);
         }
 
         // 체력이 0 이하 && 아직 죽지 않았다면 사망 처리 실행
         if (health <= 0 && !dead)
         {
             Die();
-        }
-
-        if (master != gameObject && master != null)
-        {
-            Debug.Log(master.GetComponent<LivingEntity>().health);
-            Debug.Log("a"+health);
-            if (health == 0)
-            {
-                master.GetComponent<LivingEntity>().kill++;
-                master.GetComponent<PlayerHealth>().KillTextSync();
-                Debug.Log(master.GetComponent<LivingEntity>().kill);
-                Debug.Log("a" + kill);
-            }
-            /*master.GetComponent<LivingEntity>().killCount++;
-            if(master.GetComponent<LivingEntity>().killCount == 4)
-            {
-                master.GetComponent<LivingEntity>().killCount = 0;
-                master.GetComponent<LivingEntity>().kill++;
-            }*/
         }
     }
 
@@ -132,7 +110,6 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
             Debug.Log("die");
             onDeath();
         }
-        dieCount++;
         // 사망 상태를 참으로 변경
         dead = true;
     }
@@ -143,13 +120,5 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
         invincibility = true;
         yield return new WaitForSeconds(3.0f);
         invincibility = false;
-    }
-
-    public void KillTextSync()
-    {
-        if (photonView.IsMine)
-        {
-            CountText.text = kill + "kill / " + dieCount + "death";
-        }
     }
 }

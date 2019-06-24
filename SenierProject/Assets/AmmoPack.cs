@@ -10,13 +10,13 @@ public class AmmoPack : MonoBehaviourPun, IItem
     public void Use(GameObject target)
     {
         // 전달 받은 게임 오브젝트로부터 PlayerShooter 컴포넌트를 가져오기 시도
-        PlayerController player = target.GetComponent<PlayerController>();
+        projectileActor player = target.GetComponent<projectileActor>();
 
         // PlayerShooter 컴포넌트가 있으며, 총 오브젝트가 존재하면
-        if (player != null && player.gun != null)
+        if (player != null)
         {
             // 총의 남은 탄환 수를 ammo 만큼 더하기, 모든 클라이언트에서 실행
-            player.gun.photonView.RPC("AddAmmo", RpcTarget.All, ammo);
+            player.photonView.RPC("AddAmmo", RpcTarget.All, ammo);
         }
 
         // 모든 클라이언트에서의 자신을 파괴

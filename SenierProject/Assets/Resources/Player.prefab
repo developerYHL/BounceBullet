@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 33703203168993164}
   - component: {fileID: 23854198358834182}
   - component: {fileID: 65139638711665828}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SK_Wep_AK47_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1591,6 +1591,7 @@ MonoBehaviour:
   healthSlider: {fileID: 114801310514592620}
   theGun: {fileID: 0}
   playerCtl: {fileID: 0}
+  fireBt: {fileID: 0}
 --- !u!137 &137988182691480742
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

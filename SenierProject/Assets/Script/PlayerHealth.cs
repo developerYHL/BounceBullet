@@ -9,6 +9,7 @@ public class PlayerHealth : LivingEntity
     public Slider healthSlider; // 체력을 표시할 UI 슬라이더
     public GunCtrl theGun;
     public PlayerController playerCtl;
+    public FireButton fireBt;
     private Animator playerAnimator; // 플레이어의 애니메이터
 
     private void Awake()
@@ -17,6 +18,7 @@ public class PlayerHealth : LivingEntity
         playerAnimator = GetComponent<Animator>();
         playerCtl = FindObjectOfType<PlayerController>();
         CountText = GameObject.Find("/Canvas/CountText").GetComponent<Text>();
+        fireBt = FindObjectOfType<FireButton>();
     }
 
     protected override void OnEnable()
@@ -45,14 +47,12 @@ public class PlayerHealth : LivingEntity
 
     // 데미지 처리
     [PunRPC]
-    public override void OnDamage(float damage, GameObject master)
+    public override void OnDamage(float damage)
     {
         // LivingEntity의 OnDamage() 실행(데미지 적용)
-        base.OnDamage(damage, master);
+        base.OnDamage(damage);
         // 갱신된 체력을 체력 슬라이더에 반영
         healthSlider.value = health;
-
-        KillTextSync();
     }
 
     // 사망 처리
@@ -61,16 +61,16 @@ public class PlayerHealth : LivingEntity
         // LivingEntity의 Die() 실행(사망 적용)
         base.Die();
 
+        fireBt.enabled = false;
+        GetComponent<AudioSource>().enabled = false;
+        GetComponent<projectileActor>().gunState = projectileActor.State.Die;
+
         // 체력 슬라이더 비활성화
         healthSlider.gameObject.SetActive(false);
 
         // 애니메이터의 Die 트리거를 발동시켜 사망 애니메이션 재생
         playerAnimator.SetTrigger("Die");
-
-        theGun.gunState = GunCtrl.State.Die;
         playerCtl.enabled = false;
-
-        KillTextSync();
 
         // 5초 뒤에 리스폰
         Invoke("Respawn", 5f);
@@ -116,5 +116,6 @@ public class PlayerHealth : LivingEntity
         gameObject.SetActive(false);
         gameObject.SetActive(true);
         playerCtl.enabled = true;
+        fireBt.enabled = true;
     }
 }

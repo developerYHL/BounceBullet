@@ -31,6 +31,9 @@ public class ExplodingProjectile : MonoBehaviourPun
 
     private Vector3 previousPosition;
     Transform target;
+
+    public float damage = 25;   // 공격력
+
     // Use this for initialization
     void Start()
     {
@@ -42,7 +45,7 @@ public class ExplodingProjectile : MonoBehaviourPun
         thisCollider = GetComponent<Collider>();
         previousPosition = transform.position;
 
-        thisRigidbody.AddForce(transform.forward * Random.Range(2800, 3100));
+        thisRigidbody.AddForce(transform.forward * 2000);
     }
 
     // Update is called once per frame
@@ -169,7 +172,16 @@ public class ExplodingProjectile : MonoBehaviourPun
 
     void OnCollisionEnter(Collision collision)
     {
-        
+        IDamageable target = collision.gameObject.GetComponent<IDamageable>();
+        if (target != null)
+        {
+            if (photonView.IsMine)
+            {
+                Debug.Log("요긴되?");
+                target.OnDamage(damage);
+                PhotonNetwork.Destroy(gameObject);
+            }
+        }
 
         if (collision.gameObject.tag != "FX")
         {
@@ -181,19 +193,9 @@ public class ExplodingProjectile : MonoBehaviourPun
             }
             Vector3 pos = contact.point;
             Instantiate(impactPrefab, pos, rot);
-            if (!explodeOnTimer && Missile == false)
+            if (!explodeOnTimer && Missile == false && photonView.IsMine)
             {
-                Destroy(gameObject);
-            }
-            else if (Missile == true)
-            {
-
-                thisCollider.enabled = false;
-                particleKillGroup.SetActive(false);
-                thisRigidbody.velocity = Vector3.zero;
-
-                Destroy(gameObject, 5);
-
+                PhotonNetwork.Destroy(gameObject);
             }
         }
     }

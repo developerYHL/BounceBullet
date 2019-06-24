@@ -2,5 +2,5 @@
 
 public interface IDamageable
 {
-    void OnDamage(float damage, GameObject master);
+    void OnDamage(float damage);
 }
