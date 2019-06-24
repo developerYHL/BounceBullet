@@ -110,7 +110,8 @@ public class projectileActor : MonoBehaviourPun
     public void AddAmmo(int ammo)
     {
         ammoRemain += ammo;
-        ammoText.text = magAmmo + " / " + ammoRemain;
+        if(ammoText != null)
+            ammoText.text = magAmmo + " / " + ammoRemain;
     }
 
     public bool Reload()
