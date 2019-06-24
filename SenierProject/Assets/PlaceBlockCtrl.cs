@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class PlaceBlockCtrl : MonoBehaviour {
+public class PlaceBlockCtrl : MonoBehaviourPun {
     public int hp =3;
+    public GameObject explosionPrefab;
+    public GameObject hitPrefab;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -21,10 +23,10 @@ public class PlaceBlockCtrl : MonoBehaviour {
     public void Hit()
     {
         hp--;
-        print("block hp : " + hp);
+        PhotonNetwork.Instantiate(hitPrefab.name, transform.position, Quaternion.identity);
         if (hp < 0)
         {
-            print("block hpdasd : " + hp);
+            PhotonNetwork.Instantiate(explosionPrefab.name, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
