@@ -81,7 +81,7 @@ public class ExplodingProjectile : MonoBehaviourPun
 
         previousPosition = transform.position;
     }
-    
+    Vector3 temp;
     void CheckCollision(Vector3 prevPos)
     {
         RaycastHit hit;
@@ -94,20 +94,28 @@ public class ExplodingProjectile : MonoBehaviourPun
             if(reflectCount > 0)
             {
 
-                Vector3 temp = Vector3.Reflect(thisRigidbody.velocity, hit.normal);
+                temp = Vector3.Reflect(thisRigidbody.velocity, hit.normal);
                 thisRigidbody.velocity = temp;
 
+                Vector3 dir = hit.point - transform.position;
+                Vector3 dirY = new Vector3(0, dir.y, 0);
+
+
+                    Quaternion targetRot = Quaternion.LookRotation(dirY);
+
+                    transform.rotation = targetRot;
                 
 
-                print(hit.point);
+
+
+                print(hit.transform);
                 //Vector3 vec = hit.point - transform.position;
                 //vec.Normalize();
                 //Quaternion q = Quaternion.LookRotation(vec);
                 //transform.localRotation = q;
 
 
-
-
+                
 
 
                 print("AAasdasd : " + transform.forward);
@@ -132,7 +140,7 @@ public class ExplodingProjectile : MonoBehaviourPun
                 }
             }
 
-            transform.LookAt(hit.point);
+            
 
             if (hit.transform.tag == "BreakeWall")
             {
