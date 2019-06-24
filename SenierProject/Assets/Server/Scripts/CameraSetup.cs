@@ -5,11 +5,12 @@ using Photon.Pun;
 using Cinemachine;
 
 public class CameraSetup : MonoBehaviourPun {
+    public CinemachineVirtualCamera followcam;
 
-	void Start () {
+    void Start () {
         if (photonView.IsMine)
         {
-            CinemachineVirtualCamera followcam = FindObjectOfType<CinemachineVirtualCamera>();
+            followcam = FindObjectOfType<CinemachineVirtualCamera>();
             followcam.Follow = transform;
             //followcam.LookAt = transform;
         }

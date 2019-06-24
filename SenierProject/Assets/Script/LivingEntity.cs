@@ -13,6 +13,8 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
     public bool dead { get; protected set; } // 사망 상태
     public bool invincibility { get; protected set; } // 무적 상태
     public event Action onDeath; // 사망시 발동할 이벤트
+
+    public int lifeCount = 3;
     public Text CountText;
 
 
@@ -112,6 +114,7 @@ public class LivingEntity : MonoBehaviourPun, IDamageable
         }
         // 사망 상태를 참으로 변경
         dead = true;
+        lifeCount--;
     }
 
     // 무적 상태
