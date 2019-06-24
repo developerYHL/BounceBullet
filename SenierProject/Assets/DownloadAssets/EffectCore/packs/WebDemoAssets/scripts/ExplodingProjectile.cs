@@ -76,37 +76,42 @@ public class ExplodingProjectile : MonoBehaviour
 
         previousPosition = transform.position;
     }
-
+    Transform target;
     void CheckCollision(Vector3 prevPos)
     {
         RaycastHit hit;
         Vector3 direction = transform.position - prevPos;
         Ray ray = new Ray(prevPos, direction);
         float dist = Vector3.Distance(transform.position, prevPos);
+        
         if (Physics.Raycast(ray, out hit, dist, 1 << LayerMask.NameToLayer("Wall")))
         {
-            if (hit.transform.tag == "BreakeWall")
-            {
-                print(hit.transform.GetComponent<PlaceBlockCtrl>().hp);
-                hit.transform.GetComponent<PlaceBlockCtrl>().Hit();
+            thisRigidbody.velocity = Vector3.Reflect(thisRigidbody.velocity, hit.normal);
+            
+            transform.rotation = Quaternion.LookRotation(transform.forward);
 
-            }
-            transform.position = hit.point;
-            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, hit.normal);
-            Vector3 pos = hit.point;
-            Instantiate(impactPrefab, pos, rot);
-            if (!explodeOnTimer && Missile == false)
-            {
-                Destroy(gameObject);
-            }
-            else if (Missile == true)
-            {
-                thisCollider.enabled = false;
-                particleKillGroup.SetActive(false);
-                thisRigidbody.velocity = Vector3.zero;
-                Destroy(gameObject, 5);
-            }
 
+            //if (hit.transform.tag == "BreakeWall")
+            //{
+            //    print(hit.transform.GetComponent<PlaceBlockCtrl>().hp);
+            //    hit.transform.GetComponent<PlaceBlockCtrl>().Hit();
+
+            //}
+            //transform.position = hit.point;
+            //Quaternion rot = Quaternion.FromToRotation(Vector3.forward, hit.normal);
+            //Vector3 pos = hit.point;
+            //Instantiate(impactPrefab, pos, rot);
+            //if (!explodeOnTimer && Missile == false)
+            //{
+            //    Destroy(gameObject);
+            //}
+            //else if (Missile == true)
+            //{
+            //    thisCollider.enabled = false;
+            //    particleKillGroup.SetActive(false);
+            //    thisRigidbody.velocity = Vector3.zero;
+            //    Destroy(gameObject, 5);
+            //}
         }
     }
 
@@ -146,5 +151,8 @@ public class ExplodingProjectile : MonoBehaviour
         Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
         Destroy(gameObject);
     }
+
+
+
 
 }
